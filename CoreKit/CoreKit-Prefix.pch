@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CoreKit' target in the 'CoreKit' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
