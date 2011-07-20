@@ -1,0 +1,37 @@
+// CKRequest
+- username;
+- password;
+- method;
+- url;
+- httpHeaders;
+- params;
+- didParseObjectBlock
+- didCompleteBlock
+- didFailBlock
+- connection
+- parser
+- syncronous
+
+// CKConnection
+- send;
+- sendSyncronously;
+- delegate
+
+// CKResult
+- request;
+- statusCode;
+- responseHeaders;
+- body;
+- source
+
+
+// CKRouter
+- routes
+[CKRouter routeClass: forHTTPAction: toPath:]
+[CKRouter routeClass: method: toPath:]
+[CKRouter parsePath]
+
+
+[RKServer pull:^(void didParseObject:) didComplete, didFail]
+request = [CKRequest requestWithURL:username:password]
+[CKManager addRequest:request]

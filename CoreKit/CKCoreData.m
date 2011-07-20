@@ -20,23 +20,33 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-#define ckCoreDataStorageType		NSSQLiteStoreType
-#define ckCoreDataStoreFileName		@"CoreDataStore.sqlite"
-#define ckCoreDataThreadKey         @"ckCoreDataThreadKey"
+#define ckCoreDataApplicationStorageType		NSSQLiteStoreType
+#define ckCoreDataTestingStorageType            NSInMemoryStoreType
+#define ckCoreDataStoreFileName                 @"CoreDataStore.sqlite"
+#define ckCoreDataThreadKey                     @"ckCoreDataThreadKey"
 
 
 - (id)init{
     
     if (self = [super init]){
         
-#ifdef __IPHONE_5_0  
-        UIManagedDocument *doc = [[UIManagedDocument alloc] initWithFileURL:[self storeURL]];
-        self.managedObjectContext = doc.managedObjectContext;     
-#else
+//#ifdef __IPHONE_5_0  
+//        UIManagedDocument *doc = [[UIManagedDocument alloc] initWithFileURL:[self storeURL]];
+//        doc.persistentStoreOptions = [self persistentStoreOptions];
+//        
+//        [doc openWithCompletionHandler:^(BOOL success){
+//            if (!success) {
+//                NSLog(@"****************** FAILED TO OPEN **********************");
+//            }
+//        }];
+//        
+//        self.managedObjectContext = doc.managedObjectContext; 
+//        self.managedObjectModel = doc.managedObjectModel;
+//#else
         self.managedObjectModel = [self managedObjectModel];
 		self.persistentStoreCoordinator = [self persistentStoreCoordinator];
 		_managedObjectContext = [self newManagedObjectContext];
-#endif
+//#endif
     }
     
     return self;
@@ -117,13 +127,14 @@
 	
 	_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_managedObjectModel];
 	
-	NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,nil];
+	NSDictionary* options = [self persistentStoreOptions];
 	
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataStorageType configuration:nil URL:storeURL options:options error:&error]){
+    NSLog(@"Delegate = %@", [[UIApplication sharedApplication] delegate]);
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataApplicationStorageType configuration:nil URL:storeURL options:options error:&error]){
         
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];
 		
-		if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataStorageType configuration:nil URL:storeURL options:options error:&error]){
+		if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataApplicationStorageType configuration:nil URL:storeURL options:options error:&error]){
             
             // Something is terribly wrong
             abort();
@@ -131,6 +142,11 @@
 	}
 	
 	return _persistentStoreCoordinator;
+}
+
+- (NSDictionary *) persistentStoreOptions{
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,nil];
 }
 
 - (void) managedObjectContextDidSave:(NSNotification *)notification{

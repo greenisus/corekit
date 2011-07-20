@@ -7,15 +7,15 @@
 //
 
 #import "CKManager.h"
+#import "NIPreprocessorMacros.h"
+#import "CKNSJSONSerialization.h"
 
 @implementation CKManager
 
-@synthesize baseURL = _baseURL;
-@synthesize credentials = _credentials;
 @synthesize serializationClass = _serializationClass;
 @synthesize connectionClass = _connectionClass;
-@synthesize fixtureParsingClass = _fixtureParsingClass;
 @synthesize coreData = _coreData;
+@synthesize requestQueue = _requestQueue;
 
 #pragma mark -
 # pragma mark Initializations
@@ -37,20 +37,30 @@
     if(self = [super init]){
         
         _coreData = [[CKCoreData alloc] init];
+        _requestQueue = [[CKRequestQueue alloc] init];
+        _serializationClass = [[CKNSJSONSerialization alloc] init];
     }
     
     return self;
 }
 
-- (CKManager *) managerWithURL:(NSString *) url user:(NSString *) user password:(NSString *) password{
+- (CKManager *) setSharedURL:(NSString *) url user:(NSString *) user password:(NSString *) password{
     
-    CKManager *manager = [CKManager sharedManager];
-    manager.baseURL = url;
-    manager.credentials = [NSURLCredential credentialWithUser:user password:password persistence:NSURLCredentialPersistenceForSession];
+    //RELEASE_SAFELY(_connection);
+    //_connection = [[_connectionClass alloc] initWithURL:url user:user password:password];
     
-    return manager;
+    return self;
 }
 
+- (NSManagedObjectContext *) managedObjectContext{
+    
+    return self.coreData.managedObjectContext;
+}
+
+- (id) parse:(id) object{
+    
+    return [object isKindOfClass:[NSData class]] ? [_serializationClass deserialize:object] : [_serializationClass serialize:object];
+}
 
 
 @end

@@ -9,6 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "CKManager.h"
 #import "CKCoreData.h"
+#import "CKConnection.h"
 
 @interface CKManagerTests : SenTestCase {
 @private
@@ -21,17 +22,12 @@
 
 - (void) setUp{
     
-    _manager = [[CKManager sharedManager] managerWithURL:@"url.com" user:@"user" password:@"password"];
+    _manager = [[CKManager sharedManager] setSharedURL:@"url.com" user:@"user" password:@"password"];
 }
 
 - (void) testReturnsSingleton{
     
     STAssertNotNil([CKManager sharedManager], @"Failed to create singleton");
-}
-
-- (void) testInitWithCredentials{
-    
-    STAssertEquals(_manager.credentials.user, @"user", @"Failed to store credentials");    
 }
 
 - (void) testCoreDataInit{
