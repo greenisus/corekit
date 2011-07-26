@@ -10,6 +10,8 @@
 
 @implementation CKRouter
 
+@synthesize routes = _routes;
+
 - (id)init
 {
     self = [super init];

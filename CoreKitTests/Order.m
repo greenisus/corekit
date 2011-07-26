@@ -17,5 +17,9 @@
 @dynamic created_at;
 @dynamic items;
 
+- (NSDictionary *) attributeMap{
+    
+    return [NSDictionary dictionaryWithObject:@"created_at" forKey:@"createdAt"];
+}
 
 @end

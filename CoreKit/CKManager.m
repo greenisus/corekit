@@ -7,7 +7,7 @@
 //
 
 #import "CKManager.h"
-#import "NIPreprocessorMacros.h"
+#import "CKDefines.h"
 #import "CKNSJSONSerialization.h"
 
 @implementation CKManager

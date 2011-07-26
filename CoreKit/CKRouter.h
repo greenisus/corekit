@@ -14,7 +14,13 @@
     NSMutableDictionary *_routes;
 }
 
+/** Routing dictionary for classes 
+ 
+ */
+@property (nonatomic, retain) NSMutableDictionary *routes;
+
 - (void) map:(Class) cls toURL:(NSString *) url forMethod:(CKRequestMethod) method;
+- (void) mapKey:(NSString *) key toClass:(Class) cls property:(NSString *) property;
 - (void) mapRelationship:(NSString *) relationship forClass:(Class) cls toProperty:(NSString *) property;
 
 - (NSString *) urlForClass:(Class) cls forMethod:(CKRequestMethod) method;

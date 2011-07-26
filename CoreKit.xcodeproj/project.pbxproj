@@ -11,7 +11,6 @@
 		C9030A3513D60D610024AE31 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3213D60D610024AE31 /* Order.m */; };
 		C9030A3613D60D610024AE31 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3413D60D610024AE31 /* OrderItem.m */; };
 		C9030A3B13D624A10024AE31 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = C9030A3A13D624A10024AE31 /* fixtures */; };
-		C9377D6F13D4C34F0062C015 /* NIPreprocessorMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D6E13D4C34F0062C015 /* NIPreprocessorMacros.h */; };
 		C9377D7213D4CD370062C015 /* CKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7013D4CD370062C015 /* CKRequest.h */; };
 		C9377D7313D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
 		C9377D7413D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
@@ -56,6 +55,12 @@
 		C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B113D75B91009DAC73 /* NIPaths.h */; };
 		C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B213D75B91009DAC73 /* NIPaths.m */; };
 		C9F4F2B513D75B91009DAC73 /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B213D75B91009DAC73 /* NIPaths.m */; };
+		C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */; };
+		C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */; };
+		C9F4F2BA13D882C7009DAC73 /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */; };
+		C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2BC13D8C012009DAC73 /* CKBindings.h */; };
+		C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2BD13D8C012009DAC73 /* CKBindings.m */; };
+		C9F4F2C013D8C013009DAC73 /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2BD13D8C012009DAC73 /* CKBindings.m */; };
 		C9FB7C1513CF4381009597E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
 		C9FB7C2313CF4381009597E7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C2213CF4381009597E7 /* SenTestingKit.framework */; };
 		C9FB7C2613CF4381009597E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
@@ -80,7 +85,6 @@
 		C9030A3313D60D610024AE31 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
 		C9030A3413D60D610024AE31 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		C9030A3A13D624A10024AE31 /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fixtures; sourceTree = "<group>"; };
-		C9377D6E13D4C34F0062C015 /* NIPreprocessorMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPreprocessorMacros.h; sourceTree = "<group>"; };
 		C9377D7013D4CD370062C015 /* CKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequest.h; sourceTree = "<group>"; };
 		C9377D7113D4CD370062C015 /* CKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRequest.m; sourceTree = "<group>"; };
 		C9377D7513D4CD420062C015 /* CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouter.h; sourceTree = "<group>"; };
@@ -110,6 +114,10 @@
 		C9F4F2AB13D759F6009DAC73 /* CKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefines.h; sourceTree = "<group>"; };
 		C9F4F2B113D75B91009DAC73 /* NIPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPaths.h; sourceTree = "<group>"; };
 		C9F4F2B213D75B91009DAC73 /* NIPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIPaths.m; sourceTree = "<group>"; };
+		C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecordPrivate.h; sourceTree = "<group>"; };
+		C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecordPrivate.m; sourceTree = "<group>"; };
+		C9F4F2BC13D8C012009DAC73 /* CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindings.h; sourceTree = "<group>"; };
+		C9F4F2BD13D8C012009DAC73 /* CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindings.m; sourceTree = "<group>"; };
 		C9FB7C1113CF4381009597E7 /* libCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FB7C1413CF4381009597E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9FB7C1813CF4381009597E7 /* CoreKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -169,9 +177,17 @@
 			children = (
 				C9F4F2B113D75B91009DAC73 /* NIPaths.h */,
 				C9F4F2B213D75B91009DAC73 /* NIPaths.m */,
-				C9377D6E13D4C34F0062C015 /* NIPreprocessorMacros.h */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C9EC63E113DE00670059C65F /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				C9377D7513D4CD420062C015 /* CKRouter.h */,
+				C9377D7613D4CD420062C015 /* CKRouter.m */,
+			);
+			name = Routing;
 			sourceTree = "<group>";
 		};
 		C9FB7C0613CF4381009597E7 = {
@@ -216,14 +232,17 @@
 				C9377D7113D4CD370062C015 /* CKRequest.m */,
 				C96C15C713D5DBE700A78055 /* CKRequestQueue.h */,
 				C96C15C813D5DBE700A78055 /* CKRequestQueue.m */,
-				C9377D7513D4CD420062C015 /* CKRouter.h */,
-				C9377D7613D4CD420062C015 /* CKRouter.m */,
 				C9377D7A13D4CD530062C015 /* CKResult.h */,
 				C9377D7B13D4CD530062C015 /* CKResult.m */,
 				C9C4197913D4A5EF00B2FC31 /* CKConnection.h */,
 				C96C15CD13D5E91700A78055 /* CKRecord.h */,
 				C96C15CE13D5E91800A78055 /* CKRecord.m */,
+				C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */,
+				C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */,
+				C9F4F2BC13D8C012009DAC73 /* CKBindings.h */,
+				C9F4F2BD13D8C012009DAC73 /* CKBindings.m */,
 				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
+				C9EC63E113DE00670059C65F /* Routing */,
 				C9C4198413D4A8DF00B2FC31 /* Serializations */,
 				C9C4198313D4A8D600B2FC31 /* Connections */,
 				C9FB7C1713CF4381009597E7 /* Supporting Files */,
@@ -281,7 +300,6 @@
 				C9C4197B13D4A5EF00B2FC31 /* CKConnection.h in Headers */,
 				C9C4198013D4A61C00B2FC31 /* CKSerialization.h in Headers */,
 				C9C4198713D4AA8400B2FC31 /* CKNSURLConnection.h in Headers */,
-				C9377D6F13D4C34F0062C015 /* NIPreprocessorMacros.h in Headers */,
 				C9377D7213D4CD370062C015 /* CKRequest.h in Headers */,
 				C9377D7713D4CD420062C015 /* CKRouter.h in Headers */,
 				C9377D7C13D4CD530062C015 /* CKResult.h in Headers */,
@@ -290,6 +308,8 @@
 				C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */,
 				C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */,
 				C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */,
+				C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */,
+				C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +424,8 @@
 				C96C15CA13D5DBE700A78055 /* CKRequestQueue.m in Sources */,
 				C96C15D013D5E91800A78055 /* CKRecord.m in Sources */,
 				C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */,
+				C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
+				C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +449,8 @@
 				C9030A3513D60D610024AE31 /* Order.m in Sources */,
 				C9030A3613D60D610024AE31 /* OrderItem.m in Sources */,
 				C9F4F2B513D75B91009DAC73 /* NIPaths.m in Sources */,
+				C9F4F2BA13D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
+				C9F4F2C013D8C013009DAC73 /* CKBindings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

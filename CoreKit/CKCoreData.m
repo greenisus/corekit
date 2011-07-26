@@ -156,6 +156,11 @@
 											 waitUntilDone:YES];
 }
 
+- (void)mergeChanges:(NSNotification *)notification {
+    
+	[self performSelectorOnMainThread:@selector(managedObjectContextDidSave:) withObject:notification waitUntilDone:YES];
+}
+
 - (NSString *) storePath{
     
     return [[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingPathComponent:ckCoreDataStoreFileName];
@@ -164,6 +169,37 @@
 - (NSURL *) storeURL{
     
     return [NSURL fileURLWithPath:[self storePath]];
+}
+
+- (BOOL) save{
+    
+    int insertedObjectsCount = [[_managedObjectContext insertedObjects] count];
+	int updatedObjectsCount = [[_managedObjectContext updatedObjects] count];
+	int deletedObjectsCount = [[_managedObjectContext deletedObjects] count];
+    
+	NSDate *startTime = [NSDate date];
+    
+	NSError *error;
+    BOOL saved = [_managedObjectContext save:&error];
+    
+	if(!saved) {
+		NSLog(@"******** CORE DATA FAILURE: Failed to save to data store: %@", [error localizedDescription]);
+		NSArray* detailedErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+		if(detailedErrors != nil && [detailedErrors count] > 0) {
+			for(NSError* detailedError in detailedErrors) {
+				NSLog(@"  DetailedError: %@", [detailedError userInfo]);
+			}
+		}
+		else {
+			NSLog(@"******** CORE DATA FAILURE: %@", [error userInfo]);
+		}
+		
+		return NO;
+	}
+	
+    NSLog(@"Created: %i, Updated: %i, Deleted: %i, Time: %f seconds", insertedObjectsCount, updatedObjectsCount, deletedObjectsCount, ([startTime timeIntervalSinceNow] *-1));
+    
+    return saved;
 }
 
 - (void) dealloc{
