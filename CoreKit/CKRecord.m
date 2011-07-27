@@ -18,10 +18,11 @@
 
 @synthesize attributes = _attributes;
 
-- (id)init {
+- (id) initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context{
     
-    if (self = [super init]) {
+    if (self = [super initWithEntity:entity insertIntoManagedObjectContext:context]){
         
+        _attributes = [[[[self class] entityDescription] propertiesByName] retain];
     }
     
     return self;
@@ -35,11 +36,6 @@
 
 #pragma mark -
 #pragma mark Entity Methods
-
-+ (NSManagedObjectContext *) managedObjectContext{
-    
-    return [[CKManager sharedManager] managedObjectContext];
-}
 
 + (NSString *) entityName {
 	
@@ -84,16 +80,58 @@
     return [[[self alloc] initWithEntity:[self entityDescription] insertIntoManagedObjectContext:[self managedObjectContext]] autorelease];
 }
 
++ (id) build:(id) data{
+    
+    __block id returnValue = nil;
+    
+    if ([data isKindOfClass:[NSArray class]]) {
+        
+        returnValue = [NSMutableArray arrayWithCapacity:[data count]];
+        
+        [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+           
+            id object = [self build:obj];
+            
+            if(object != nil)
+                [returnValue addObject:object];
+        }];
+    }
+    
+    else if ([data isKindOfClass:[NSDictionary class]]) {
+        
+        id resourceId = [data objectForKey:[self primaryKeyName]];
+        
+		if (resourceId != nil){
+			
+			id resource = [self findById:[NSNumber numberWithInt:[resourceId intValue]]];
+            
+            returnValue = resource == nil ? [self create:data] : [resource update:data];
+		}
+		else
+			returnValue = [self create:data];
+    }
+        
+    return returnValue;
+}
+
 + (id) create:(id) data{
     
-    id returnValue = nil;
+    __block id returnValue = nil;
     
     if([data isKindOfClass:[NSDictionary class]])
         returnValue = [[self blank] update:data];
-    else if([data isKindOfClass:[NSArray class]])
+    else if([data isKindOfClass:[NSArray class]]){
+        
+        returnValue = [NSMutableArray array];
+        
         [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            [self create:obj]; 
+            
+            id newValue = [self create:obj];
+
+            if(newValue != nil)
+                [returnValue addObject:newValue]; 
         }];
+    }
     
     return returnValue;
 }
@@ -102,7 +140,7 @@
         
     [data enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id key, id obj, BOOL *stop){
         
-        NSDictionary *propertyMap = [self attributeMap];
+        NSDictionary *propertyMap = [[self class] attributeMap];
         NSString *localKey = [[propertyMap allKeys] containsObject:key] ? [propertyMap objectForKey:key] : key;  
         
         NSPropertyDescription *propertyDescription = [self propertyDescriptionForKey:localKey];
@@ -110,7 +148,7 @@
         if(propertyDescription != nil){
             
             if([propertyDescription isKindOfClass:[NSRelationshipDescription class]])
-                [self setRelationship:localKey value:obj];
+                [self setRelationship:localKey value:obj relationshipDescription:(NSRelationshipDescription *) propertyDescription];
             else if([propertyDescription isKindOfClass:[NSAttributeDescription class]]){
                 
                 NSAttributeDescription *attributeDescription = (NSAttributeDescription *) propertyDescription;
@@ -173,6 +211,27 @@
 #pragma mark -
 #pragma mark Searching
 
++ (id) first{
+    
+    NSArray *results = [self findWithPredicate:nil sortedBy:nil withLimit:1];
+    
+    return [results count] == 1 ? [results objectAtIndex:0] : nil;
+}
+
++ (id) last{
+    
+    NSArray *results = [self all];
+    
+    return [results count] > 0 ? [results lastObject] : nil;
+}
+
++ (BOOL) exists:(NSNumber *)itemID{
+    
+    id result = [self findById:itemID];
+    
+    return result == nil;
+}
+
 + (NSArray *) all{
     
     return [self allSortedBy:nil];
@@ -207,6 +266,13 @@
 + (NSArray *) findWhereAttribute:(NSString *)attribute equals:(id)value{
     
     return [self findWithPredicate:[NSPredicate predicateWithFormat:@"%K == %@", attribute, value]];
+}
+
++ (id) findById:(NSNumber *) itemId{
+        
+    NSArray *results = [self findWithPredicate:[NSPredicate predicateWithFormat:@"%K == %i", [self primaryKeyName], [itemId intValue]] sortedBy:nil withLimit:1];
+    
+    return [results count] > 0 ? [results objectAtIndex:0] : nil;
 }
 
 
@@ -285,9 +351,15 @@
     return ckDateDefaultFormat;
 }
 
-- (NSDictionary *) attributeMap{
++ (NSDictionary *) attributeMap{
     
     return [NSDictionary dictionary];
 }
+
++ (NSString *) primaryKeyName{
+    
+    return @"id";
+}
+
 
 @end

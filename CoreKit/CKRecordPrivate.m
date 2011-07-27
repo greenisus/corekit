@@ -7,8 +7,14 @@
 //
 
 #import "CKRecordPrivate.h"
+#import "CKManager.h"
 
 @implementation CKRecord (CKRecordPrivate)
+
++ (NSManagedObjectContext *) managedObjectContext{
+    
+    return [[CKManager sharedManager] managedObjectContext];
+}
 
 - (NSPropertyDescription *) propertyDescriptionForKey:(NSString *) key{
     
@@ -38,7 +44,7 @@
                 
             case NSStringAttributeType:
                 if(![value isKindOfClass:[NSString class]])
-                    value = nil;
+                    value = [value respondsToSelector:@selector(stringValue)] ? [value stringValue] : nil;
                 break;
                 
             case NSInteger16AttributeType:
@@ -65,8 +71,32 @@
     [self setValue:value forKey:property];
 }
 
-- (void) setRelationship:(NSString *) relationship value:(id) value{
+- (void) setRelationship:(NSString *) key value:(id) value relationshipDescription:(NSRelationshipDescription *) relationshipDescription {
     
+    id existingValue = [self valueForKey:key];
+    
+    Class relationshipClass = NSClassFromString([[relationshipDescription destinationEntity] managedObjectClassName]);
+    id newValue = nil;
+    
+    if([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]])        
+        newValue = [relationshipClass findById:[NSNumber numberWithInt:[value intValue]]];
+    else{
+        
+        newValue = [relationshipClass build:value];
+
+        if([relationshipDescription isToMany])
+            newValue = [newValue isKindOfClass:[NSArray class]] ? [NSSet setWithArray:newValue] : [NSSet setWithArray:[NSArray arrayWithObject:newValue]];
+        else{
+            
+            if([value isKindOfClass:[NSDictionary class]])
+                newValue = value;
+            else if ([value isKindOfClass:[NSArray class]] && [[value objectAtIndex:0] isKindOfClass:[NSDictionary class]])
+                newValue = [value objectAtIndex:0];
+        }
+    }
+    
+    if(![existingValue isEqual:newValue])
+        [self setValue:newValue forKey:key];
 }
 
 + (NSNumber *) aggregateForKeyPath:(NSString *) keyPath{

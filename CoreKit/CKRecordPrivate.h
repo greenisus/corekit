@@ -10,9 +10,11 @@
 
 @interface CKRecord (CKRecordPrivate)
 
++ (NSManagedObjectContext *) managedObjectContext;
+
 - (NSPropertyDescription *) propertyDescriptionForKey:(NSString *) key;
 - (void) setProperty:(NSString *) property value:(id) value attributeType:(NSAttributeType) attributeType;
-- (void) setRelationship:(NSString *) relationship value:(id) value;
+- (void) setRelationship:(NSString *) key value:(id) value relationshipDescription:(NSRelationshipDescription *) relationshipDescription;
 
 + (NSNumber *) aggregateForKeyPath:(NSString *) keyPath;
 

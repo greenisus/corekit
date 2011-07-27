@@ -11,6 +11,9 @@
 		C9030A3513D60D610024AE31 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3213D60D610024AE31 /* Order.m */; };
 		C9030A3613D60D610024AE31 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3413D60D610024AE31 /* OrderItem.m */; };
 		C9030A3B13D624A10024AE31 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = C9030A3A13D624A10024AE31 /* fixtures */; };
+		C90C9D7B13DF61660075B5FF /* CKSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = C90C9D7913DF61660075B5FF /* CKSearch.h */; };
+		C90C9D7C13DF61660075B5FF /* CKSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C90C9D7A13DF61660075B5FF /* CKSearch.m */; };
+		C90C9D7D13DF61660075B5FF /* CKSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C90C9D7A13DF61660075B5FF /* CKSearch.m */; };
 		C9377D7213D4CD370062C015 /* CKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7013D4CD370062C015 /* CKRequest.h */; };
 		C9377D7313D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
 		C9377D7413D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
@@ -85,6 +88,8 @@
 		C9030A3313D60D610024AE31 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
 		C9030A3413D60D610024AE31 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		C9030A3A13D624A10024AE31 /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fixtures; sourceTree = "<group>"; };
+		C90C9D7913DF61660075B5FF /* CKSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSearch.h; sourceTree = "<group>"; };
+		C90C9D7A13DF61660075B5FF /* CKSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSearch.m; sourceTree = "<group>"; };
 		C9377D7013D4CD370062C015 /* CKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequest.h; sourceTree = "<group>"; };
 		C9377D7113D4CD370062C015 /* CKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRequest.m; sourceTree = "<group>"; };
 		C9377D7513D4CD420062C015 /* CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouter.h; sourceTree = "<group>"; };
@@ -154,6 +159,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90C9D7713DF61500075B5FF /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				C90C9D7913DF61660075B5FF /* CKSearch.h */,
+				C90C9D7A13DF61660075B5FF /* CKSearch.m */,
+			);
+			name = Searching;
+			sourceTree = "<group>";
+		};
 		C9C4198313D4A8D600B2FC31 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +256,7 @@
 				C9F4F2BC13D8C012009DAC73 /* CKBindings.h */,
 				C9F4F2BD13D8C012009DAC73 /* CKBindings.m */,
 				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
+				C90C9D7713DF61500075B5FF /* Searching */,
 				C9EC63E113DE00670059C65F /* Routing */,
 				C9C4198413D4A8DF00B2FC31 /* Serializations */,
 				C9C4198313D4A8D600B2FC31 /* Connections */,
@@ -310,6 +325,7 @@
 				C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */,
 				C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */,
 				C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */,
+				C90C9D7B13DF61660075B5FF /* CKSearch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +442,7 @@
 				C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */,
 				C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
 				C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */,
+				C90C9D7C13DF61660075B5FF /* CKSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +468,7 @@
 				C9F4F2B513D75B91009DAC73 /* NIPaths.m in Sources */,
 				C9F4F2BA13D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
 				C9F4F2C013D8C013009DAC73 /* CKBindings.m in Sources */,
+				C90C9D7D13DF61660075B5FF /* CKSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

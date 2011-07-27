@@ -16,19 +16,23 @@
 typedef enum CKRecordOptions {
     CKRecordOptionsSaveAutomatically,
     CKRecordOptionsOverrideRelationships,
-    CKRecordOptionsConvertCamelCase
+    CKRecordOptionsConvertCamelCase,
+    CKRecordOptionsPrimaryKeyName,
+    CKRecordOptionsClassPrefix,
+    CKRecordOptionsDateFormat
 } CKRecordOptions;
 
 @interface CKRecord : NSManagedObject {
     
     NSDictionary *_attributes;
+    NSMutableDictionary *_options;
 }
 
-/** @name Properties */
-/** Cached property list */
-@property (nonatomic, readonly) NSDictionary *attributes;
 
 /** @name Entity Methods */
+
+/** Cached property list */
+@property (nonatomic, readonly) NSDictionary *attributes;
 
 /** Return the name of the model */
 + (NSString *) entityName;
@@ -40,9 +44,6 @@ typedef enum CKRecordOptions {
 
 /** Return the entity description */
 + (NSEntityDescription *) entityDescription;
-
-/** Return the default managed object context */
-+ (NSManagedObjectContext *) managedObjectContext;
 
 /** Default fetch request for entity */
 + (NSFetchRequest *) fetchRequest;
@@ -59,6 +60,12 @@ typedef enum CKRecordOptions {
 
 /** Create a blank record */
 + (id) blank;
+
+/** Automatically create or update a resource 
+ If a record exists matching the passed data parameter, update: is called. If not, create: is called.
+ @param data NSDictionary or NSArray containing data to populate record with
+ */
++ (id) build:(id) data;
 
 /** Create a new record
  If an array is passed, the method will call itself for each value
@@ -118,6 +125,12 @@ typedef enum CKRecordOptions {
  @param sortBy Sort syntax
  */
 + (NSArray *) allSortedBy:(NSString *) sortBy;
+
+/** Return all records using a predfined class CKSearch object 
+ @param search 
+ */ 
+// + (NSArray *) find:(CKSearch *) search;
+
 /** Find all results matching the specified predicate 
  @param predicate `NSPredicate` object
  */
@@ -176,11 +189,12 @@ typedef enum CKRecordOptions {
  */
 + (id) fixtures;
 
+/** Returns all fixtures as an array, minus their keys (used for batch creation) */
 + (NSArray *) fixturesAsArray;
 
 /** Return a fixture by name
  
-    As with method fixtures, the file path is inferred, and only the fixture within that file will be returned.  This assumes that the fixture file contains a Hash data structure that will be parsed into an NSDictionary.
+ As with  fixtures, the file path is inferred, and only the fixture within that file will be returned.  This assumes that the fixture file contains a Hash data structure that will be parsed into an NSDictionary.
  
  @param name The name of the key of the fixture to return
  */
@@ -200,9 +214,10 @@ typedef enum CKRecordOptions {
 + (NSString *) dateFormat;
 
 /** Dictionary containing keys consisting of local fields with objects representing remote fields they should be mapped to */
-- (NSDictionary *) attributeMap;
++ (NSDictionary *) attributeMap;
 
-
+/** Primary key field name */
++ (NSString *) primaryKeyName;
 
 
 @end

@@ -83,9 +83,9 @@
     [Order save];
     
     NSArray *fixtures = [Order fixturesAsArray];
-    [Order create:[Order fixturesAsArray]];
+    NSArray *newItems = [Order create:[Order fixturesAsArray]];
     
-    STAssertEquals([Order count], [fixtures count], @"Failed to batch create orders");
+    STAssertEquals([newItems count], [fixtures count], @"Failed to batch create orders");
 }
 
 - (void) testUpdate{
@@ -99,6 +99,11 @@
     STAssertEqualObjects(record.name, name, @"Failed to update object name");
     STAssertEqualObjects(record.id, orderID, @"Failed to update object id");
     STAssertNotNil(record.created_at, @"Failed to set date for object");
+}
+
+- (void) testBuildRecords{
+    
+    
 }
 
 - (void) testUpdatingWithPredicate{
@@ -151,6 +156,8 @@
 }
 
 - (void) testFindAndSort{
+    
+    [Order create:[Order fixturesAsArray]];
     
     NSSortDescriptor *sort = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO] autorelease];
     NSArray *all = [[Order all] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
@@ -210,7 +217,5 @@
     
     STAssertEquals([[Order average:@"price"] floatValue], (float) total / count, @"Failed to average numbers");
 }
-
-
 
 @end
