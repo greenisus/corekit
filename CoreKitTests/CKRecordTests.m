@@ -50,7 +50,7 @@
 }
 
 - (void) testLoadingAllFixtures{
-    
+        
     id fixtures = [Order fixtures];
     
     STAssertNotNil(fixtures, @"Failed to load all fixtures");
@@ -103,7 +103,13 @@
 
 - (void) testBuildRecords{
     
+    Order *record = [Order create:_defaultFixture];
+    [record save];
     
+    [Order build:_defaultFixture];
+    [Order save];
+    
+    STAssertEquals((int) [Order count], 1, @"Failed to update existing object via build");
 }
 
 - (void) testUpdatingWithPredicate{

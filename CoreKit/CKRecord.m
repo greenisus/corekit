@@ -72,6 +72,11 @@
     return [[[CKManager sharedManager] coreData] save];
 }
 
+- (BOOL) save{
+    
+    return [[self class] save];
+}
+
 #pragma mark -
 #pragma mark Creating, Updating, Deleting
 
@@ -251,6 +256,9 @@
     
     NSFetchRequest *request = [self fetchRequest];
     [request setPredicate:predicate];
+    
+    if([sortedBy length] > 0)
+        [request setSortDescriptors:CK_SORT(sortedBy)];
     
     if(limit > 0)
         [request setFetchLimit:limit];

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CKRequest.h"
 #import "CKResult.h"
+#import "CKSupport.h"
 
 @class CKSearch;
 
@@ -25,7 +26,6 @@ typedef enum CKRecordOptions {
 @interface CKRecord : NSManagedObject {
     
     NSDictionary *_attributes;
-    NSMutableDictionary *_options;
 }
 
 
@@ -55,6 +55,12 @@ typedef enum CKRecordOptions {
  Convience method mapped to class CKCoreData method [CKCoreData save]
  */
 + (BOOL) save;
+
+/** Save changes to object 
+ 
+ Convience method mapped to class CKCoreData method [CKCoreData save]
+ */
+- (BOOL) save;
 
 /** @name Creating, Updating, Deleting */
 

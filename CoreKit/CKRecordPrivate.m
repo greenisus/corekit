@@ -18,9 +18,6 @@
 
 - (NSPropertyDescription *) propertyDescriptionForKey:(NSString *) key{
     
-    if(_attributes == nil)
-        _attributes = [[[[self class] entityDescription] propertiesByName] retain];
-    
     return [[_attributes allKeys] containsObject:key] ? [_attributes objectForKey:key] : nil;
 }
 
