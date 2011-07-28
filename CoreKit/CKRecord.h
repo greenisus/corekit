@@ -104,6 +104,11 @@ typedef enum CKRecordOptions {
 + (void) removeAllWithPredicate:(NSPredicate *) predicate;
 
 
+/** @name Remote */
+
+
+
+
 /** @name Counting */
 
 /** Count all of an entities records */

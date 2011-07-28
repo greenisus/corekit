@@ -16,6 +16,7 @@
 @synthesize connectionClass = _connectionClass;
 @synthesize coreData = _coreData;
 @synthesize requestQueue = _requestQueue;
+@synthesize router = _router;
 
 #pragma mark -
 # pragma mark Initializations
@@ -39,6 +40,7 @@
         _coreData = [[CKCoreData alloc] init];
         _requestQueue = [[CKRequestQueue alloc] init];
         _serializationClass = [[CKNSJSONSerialization alloc] init];
+        _router = [[CKRouter alloc] init];
     }
     
     return self;

@@ -20,7 +20,7 @@ typedef void (^CKParseBlock) (id object);
  */
 
 typedef enum CKRequestMethod {
-    CKRequestMethodGET,
+    CKRequestMethodGET = 1,
     CKRequestMethodPOST,
     CKRequestMethodPUT,
     CKRequestMethodDELETE,

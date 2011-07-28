@@ -11,6 +11,7 @@
 #import "CKConnection.h"
 #import "CKSerialization.h"
 #import "CKRequestQueue.h"
+#import "CKRouter.h"
 
 /** 
  * CKManager serves as the main coordinator for all things CoreKit. 
@@ -23,6 +24,7 @@
 @private
     CKCoreData *_coreData;
     CKRequestQueue *_requestQueue;
+    CKRouter *_router;
 }
 
 
@@ -67,6 +69,9 @@
 
 /** Creates and manages changes to the CoreData stack */
 @property (nonatomic, readonly) CKCoreData *coreData;
+
+/** Creates and manages routes */
+@property (nonatomic, readonly) CKRouter *router;
 
 
 @property (nonatomic, readonly) CKRequestQueue *requestQueue;
