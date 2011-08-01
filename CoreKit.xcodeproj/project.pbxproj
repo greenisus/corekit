@@ -52,6 +52,9 @@
 		C9C4198713D4AA8400B2FC31 /* CKNSURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */; };
 		C9C4198813D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
 		C9C4198913D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
+		C9F05F3413E6F12300557828 /* CKRouter+CKRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3213E6F12300557828 /* CKRouter+CKRecord.h */; };
+		C9F05F3513E6F12300557828 /* CKRouter+CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */; };
+		C9F05F3613E6F12300557828 /* CKRouter+CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */; };
 		C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F2A48513E1C905005E4711 /* CKSupport.h */; };
 		C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A48613E1C905005E4711 /* CKSupport.m */; };
 		C9F2A48913E1C905005E4711 /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A48613E1C905005E4711 /* CKSupport.m */; };
@@ -119,6 +122,8 @@
 		C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
 		C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
 		C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
+		C9F05F3213E6F12300557828 /* CKRouter+CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRouter+CKRecord.h"; sourceTree = "<group>"; };
+		C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRouter+CKRecord.m"; sourceTree = "<group>"; };
 		C9F2A48513E1C905005E4711 /* CKSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSupport.h; sourceTree = "<group>"; };
 		C9F2A48613E1C905005E4711 /* CKSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSupport.m; sourceTree = "<group>"; };
 		C9F2A4D413E1D067005E4711 /* CKRouterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouterMap.h; sourceTree = "<group>"; };
@@ -200,6 +205,8 @@
 				C9377D7613D4CD420062C015 /* CKRouter.m */,
 				C9F2A4D413E1D067005E4711 /* CKRouterMap.h */,
 				C9F2A4D513E1D067005E4711 /* CKRouterMap.m */,
+				C9F05F3213E6F12300557828 /* CKRouter+CKRecord.h */,
+				C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */,
 			);
 			name = Routing;
 			sourceTree = "<group>";
@@ -329,6 +336,7 @@
 				C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */,
 				C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */,
 				C9F2A4D613E1D067005E4711 /* CKRouterMap.h in Headers */,
+				C9F05F3413E6F12300557828 /* CKRouter+CKRecord.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +455,7 @@
 				C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */,
 				C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */,
 				C9F2A4D713E1D067005E4711 /* CKRouterMap.m in Sources */,
+				C9F05F3513E6F12300557828 /* CKRouter+CKRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +484,7 @@
 				C9F2A48913E1C905005E4711 /* CKSupport.m in Sources */,
 				C9F2A4D813E1D067005E4711 /* CKRouterMap.m in Sources */,
 				C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */,
+				C9F05F3613E6F12300557828 /* CKRouter+CKRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
