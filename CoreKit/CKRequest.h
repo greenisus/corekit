@@ -24,7 +24,8 @@ typedef enum CKRequestMethod {
     CKRequestMethodPOST,
     CKRequestMethodPUT,
     CKRequestMethodDELETE,
-    CKRequestMethodHEAD
+    CKRequestMethodHEAD,
+    CKRequestMethodALL
 } CKRequestMethod;
 
 /**

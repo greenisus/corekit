@@ -12,19 +12,23 @@
 @interface CKRouterMap : NSObject{
     
     Class _model;
-    NSString *_path;
+    id _object;
+    NSString *_remotePath;
     NSString *_localAttribute;
     NSString *_remoteAttribute;
     CKRequestMethod _requestMethod;
+    BOOL _isInstanceMap;
     
     // Implement callback blocks
 }
 
 @property (nonatomic, assign) Class model;
-@property (nonatomic, retain) NSString *path;
+@property (nonatomic, retain) id object;
+@property (nonatomic, retain) NSString *remotePath;
 @property (nonatomic, retain) NSString *localAttribute;
 @property (nonatomic, retain) NSString *remoteAttribute;
 @property (nonatomic, assign) CKRequestMethod requestMethod;
+@property (nonatomic, assign) BOOL isInstanceMap;
 
 + (CKRouterMap *) map;
 

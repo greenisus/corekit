@@ -230,5 +230,4 @@ typedef enum CKRecordOptions {
 /** Primary key field name */
 + (NSString *) primaryKeyName;
 
-
 @end

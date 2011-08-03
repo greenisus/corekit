@@ -8,69 +8,61 @@
 
 /* Begin PBXBuildFile section */
 		C9030A2F13D60A630024AE31 /* CKRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A2E13D60A630024AE31 /* CKRecordTests.m */; };
-		C9030A3513D60D610024AE31 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3213D60D610024AE31 /* Order.m */; };
-		C9030A3613D60D610024AE31 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3413D60D610024AE31 /* OrderItem.m */; };
 		C9030A3B13D624A10024AE31 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = C9030A3A13D624A10024AE31 /* fixtures */; };
+		C915059913E889A9004941A5 /* inflections.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9F05F3B13E7391700557828 /* inflections.plist */; };
 		C9377D7213D4CD370062C015 /* CKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7013D4CD370062C015 /* CKRequest.h */; };
 		C9377D7313D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
-		C9377D7413D4CD370062C015 /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7113D4CD370062C015 /* CKRequest.m */; };
 		C9377D7713D4CD420062C015 /* CKRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7513D4CD420062C015 /* CKRouter.h */; };
 		C9377D7813D4CD420062C015 /* CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7613D4CD420062C015 /* CKRouter.m */; };
-		C9377D7913D4CD420062C015 /* CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7613D4CD420062C015 /* CKRouter.m */; };
 		C9377D7C13D4CD530062C015 /* CKResult.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7A13D4CD530062C015 /* CKResult.h */; };
 		C9377D7D13D4CD530062C015 /* CKResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7B13D4CD530062C015 /* CKResult.m */; };
-		C9377D7E13D4CD530062C015 /* CKResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D7B13D4CD530062C015 /* CKResult.m */; };
 		C9377D8113D4DA4B0062C015 /* CKNSJSONSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */; };
 		C9377D8213D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */; };
-		C9377D8313D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */; };
+		C94FC37713E8877A002DFD92 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3213D60D610024AE31 /* Order.m */; };
+		C94FC37813E8877A002DFD92 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3413D60D610024AE31 /* OrderItem.m */; };
+		C94FC37A13E8884B002DFD92 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C94FC37913E8884B002DFD92 /* libicucore.dylib */; };
+		C94FC37B13E8885F002DFD92 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C94FC37913E8884B002DFD92 /* libicucore.dylib */; };
 		C95D787613CF481F005C3C29 /* CKManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D787513CF481F005C3C29 /* CKManagerTests.m */; };
 		C95D787A13CF4D0A005C3C29 /* CKManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C95D787813CF4D0A005C3C29 /* CKManager.h */; };
 		C95D787B13CF4D0A005C3C29 /* CKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D787913CF4D0A005C3C29 /* CKManager.m */; };
-		C95D787C13CF4D0A005C3C29 /* CKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D787913CF4D0A005C3C29 /* CKManager.m */; };
 		C95D789613CF90B6005C3C29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95D789513CF90B6005C3C29 /* CoreData.framework */; };
 		C95D789713CF92D0005C3C29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95D789513CF90B6005C3C29 /* CoreData.framework */; };
 		C95D78A113D08ADF005C3C29 /* CKCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = C95D789F13D08ADF005C3C29 /* CKCoreData.h */; };
 		C95D78A213D08ADF005C3C29 /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D78A013D08ADF005C3C29 /* CKCoreData.m */; };
-		C95D78A313D08ADF005C3C29 /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D78A013D08ADF005C3C29 /* CKCoreData.m */; };
 		C96C15C913D5DBE700A78055 /* CKRequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C96C15C713D5DBE700A78055 /* CKRequestQueue.h */; };
 		C96C15CA13D5DBE700A78055 /* CKRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15C813D5DBE700A78055 /* CKRequestQueue.m */; };
-		C96C15CB13D5DBE700A78055 /* CKRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15C813D5DBE700A78055 /* CKRequestQueue.m */; };
 		C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C96C15CD13D5E91700A78055 /* CKRecord.h */; };
 		C96C15D013D5E91800A78055 /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15CE13D5E91800A78055 /* CKRecord.m */; };
-		C96C15D113D5E91800A78055 /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15CE13D5E91800A78055 /* CKRecord.m */; };
 		C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C987410713E1E94600D7ECF1 /* CKRouterTests.m */; };
 		C9C4196413D08CF200B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
 		C9C4196B13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */; };
-		C9C4196C13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */; };
 		C9C4196D13D0B57000B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
 		C9C4196E13D0B8D400B2FC31 /* CoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FB7C1913CF4381009597E7 /* CoreKit.h */; };
 		C9C4197013D0B97500B2FC31 /* Test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196F13D0B97500B2FC31 /* Test.xcdatamodel */; };
 		C9C4197113D0B97500B2FC31 /* Test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196F13D0B97500B2FC31 /* Test.xcdatamodel */; };
-		C9C4197813D0DFB700B2FC31 /* AppledocSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */; };
 		C9C4197B13D4A5EF00B2FC31 /* CKConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4197913D4A5EF00B2FC31 /* CKConnection.h */; };
 		C9C4198013D4A61C00B2FC31 /* CKSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */; };
 		C9C4198713D4AA8400B2FC31 /* CKNSURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */; };
 		C9C4198813D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
-		C9C4198913D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
 		C9F05F3413E6F12300557828 /* CKRouter+CKRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3213E6F12300557828 /* CKRouter+CKRecord.h */; };
 		C9F05F3513E6F12300557828 /* CKRouter+CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */; };
-		C9F05F3613E6F12300557828 /* CKRouter+CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */; };
+		C9F05F4013E7391700557828 /* CWInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3913E7391700557828 /* CWInflector.h */; };
+		C9F05F4113E7391700557828 /* CWInflector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3A13E7391700557828 /* CWInflector.mm */; };
+		C9F05F4413E7391700557828 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3C13E7391700557828 /* RegexKitLite.m */; };
+		C9F05F4613E7391700557828 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3D13E7391700557828 /* RegexKitLite.h */; };
+		C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */; };
+		C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */; };
 		C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F2A48513E1C905005E4711 /* CKSupport.h */; };
 		C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A48613E1C905005E4711 /* CKSupport.m */; };
-		C9F2A48913E1C905005E4711 /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A48613E1C905005E4711 /* CKSupport.m */; };
 		C9F2A4D613E1D067005E4711 /* CKRouterMap.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F2A4D413E1D067005E4711 /* CKRouterMap.h */; };
 		C9F2A4D713E1D067005E4711 /* CKRouterMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A4D513E1D067005E4711 /* CKRouterMap.m */; };
-		C9F2A4D813E1D067005E4711 /* CKRouterMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A4D513E1D067005E4711 /* CKRouterMap.m */; };
 		C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2AB13D759F6009DAC73 /* CKDefines.h */; };
 		C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B113D75B91009DAC73 /* NIPaths.h */; };
 		C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B213D75B91009DAC73 /* NIPaths.m */; };
-		C9F4F2B513D75B91009DAC73 /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B213D75B91009DAC73 /* NIPaths.m */; };
 		C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */; };
 		C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */; };
-		C9F4F2BA13D882C7009DAC73 /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */; };
 		C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2BC13D8C012009DAC73 /* CKBindings.h */; };
 		C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2BD13D8C012009DAC73 /* CKBindings.m */; };
-		C9F4F2C013D8C013009DAC73 /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2BD13D8C012009DAC73 /* CKBindings.m */; };
 		C9FB7C1513CF4381009597E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
 		C9FB7C2313CF4381009597E7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C2213CF4381009597E7 /* SenTestingKit.framework */; };
 		C9FB7C2613CF4381009597E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
@@ -79,7 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C9FB7C2913CF4381009597E7 /* PBXContainerItemProxy */ = {
+		C94FC37513E8861D002DFD92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9FB7C0813CF4381009597E7 /* Project object */;
 			proxyType = 1;
@@ -87,6 +79,19 @@
 			remoteInfo = CoreKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C915059713E889A1004941A5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				C915059913E889A9004941A5 /* inflections.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C9030A2E13D60A630024AE31 /* CKRecordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecordTests.m; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		C9377D7B13D4CD530062C015 /* CKResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKResult.m; sourceTree = "<group>"; };
 		C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSJSONSerialization.h; sourceTree = "<group>"; };
 		C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSJSONSerialization.m; sourceTree = "<group>"; };
+		C94FC37913E8884B002DFD92 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		C95D787513CF481F005C3C29 /* CKManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManagerTests.m; sourceTree = "<group>"; };
 		C95D787813CF4D0A005C3C29 /* CKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKManager.h; sourceTree = "<group>"; };
 		C95D787913CF4D0A005C3C29 /* CKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManager.m; sourceTree = "<group>"; };
@@ -124,6 +130,13 @@
 		C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
 		C9F05F3213E6F12300557828 /* CKRouter+CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRouter+CKRecord.h"; sourceTree = "<group>"; };
 		C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRouter+CKRecord.m"; sourceTree = "<group>"; };
+		C9F05F3913E7391700557828 /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
+		C9F05F3A13E7391700557828 /* CWInflector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CWInflector.mm; sourceTree = "<group>"; };
+		C9F05F3B13E7391700557828 /* inflections.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = inflections.plist; sourceTree = "<group>"; };
+		C9F05F3C13E7391700557828 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		C9F05F3D13E7391700557828 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
+		C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
 		C9F2A48513E1C905005E4711 /* CKSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSupport.h; sourceTree = "<group>"; };
 		C9F2A48613E1C905005E4711 /* CKSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSupport.m; sourceTree = "<group>"; };
 		C9F2A4D413E1D067005E4711 /* CKRouterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouterMap.h; sourceTree = "<group>"; };
@@ -150,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94FC37A13E8884B002DFD92 /* libicucore.dylib in Frameworks */,
 				C9C4196413D08CF200B2FC31 /* UIKit.framework in Frameworks */,
 				C95D789613CF90B6005C3C29 /* CoreData.framework in Frameworks */,
 				C9FB7C1513CF4381009597E7 /* Foundation.framework in Frameworks */,
@@ -160,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94FC37B13E8885F002DFD92 /* libicucore.dylib in Frameworks */,
 				C9FB7C2313CF4381009597E7 /* SenTestingKit.framework in Frameworks */,
 				C9FB7C2613CF4381009597E7 /* Foundation.framework in Frameworks */,
 				C9FB7C2B13CF4381009597E7 /* libCoreKit.a in Frameworks */,
@@ -192,6 +207,7 @@
 		C9C4198D13D4B95900B2FC31 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C9F05F3813E738E600557828 /* NSString Inflections */,
 				C9F4F2B113D75B91009DAC73 /* NIPaths.h */,
 				C9F4F2B213D75B91009DAC73 /* NIPaths.m */,
 			);
@@ -209,6 +225,20 @@
 				C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */,
 			);
 			name = Routing;
+			sourceTree = "<group>";
+		};
+		C9F05F3813E738E600557828 /* NSString Inflections */ = {
+			isa = PBXGroup;
+			children = (
+				C9F05F3913E7391700557828 /* CWInflector.h */,
+				C9F05F3A13E7391700557828 /* CWInflector.mm */,
+				C9F05F3B13E7391700557828 /* inflections.plist */,
+				C9F05F3D13E7391700557828 /* RegexKitLite.h */,
+				C9F05F3C13E7391700557828 /* RegexKitLite.m */,
+				C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */,
+				C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */,
+			);
+			name = "NSString Inflections";
 			sourceTree = "<group>";
 		};
 		C9FB7C0613CF4381009597E7 = {
@@ -234,6 +264,7 @@
 		C9FB7C1313CF4381009597E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C94FC37913E8884B002DFD92 /* libicucore.dylib */,
 				C9C4196313D08CF200B2FC31 /* UIKit.framework */,
 				C95D789513CF90B6005C3C29 /* CoreData.framework */,
 				C9FB7C1413CF4381009597E7 /* Foundation.framework */,
@@ -337,6 +368,9 @@
 				C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */,
 				C9F2A4D613E1D067005E4711 /* CKRouterMap.h in Headers */,
 				C9F05F3413E6F12300557828 /* CKRouter+CKRecord.h in Headers */,
+				C9F05F4013E7391700557828 /* CWInflector.h in Headers */,
+				C9F05F4613E7391700557828 /* RegexKitLite.h in Headers */,
+				C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +384,7 @@
 				C9FB7C0D13CF4381009597E7 /* Sources */,
 				C9FB7C0E13CF4381009597E7 /* Frameworks */,
 				C9FB7C0F13CF4381009597E7 /* Headers */,
+				C915059713E889A1004941A5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -372,7 +407,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C9FB7C2A13CF4381009597E7 /* PBXTargetDependency */,
+				C94FC37613E8861D002DFD92 /* PBXTargetDependency */,
 			);
 			name = CoreKitTests;
 			productName = CoreKitTests;
@@ -411,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9FB7C3113CF4381009597E7 /* InfoPlist.strings in Resources */,
-				C9C4197813D0DFB700B2FC31 /* AppledocSettings.plist in Resources */,
 				C9030A3B13D624A10024AE31 /* fixtures in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +490,9 @@
 				C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */,
 				C9F2A4D713E1D067005E4711 /* CKRouterMap.m in Sources */,
 				C9F05F3513E6F12300557828 /* CKRouter+CKRecord.m in Sources */,
+				C9F05F4113E7391700557828 /* CWInflector.mm in Sources */,
+				C9F05F4413E7391700557828 /* RegexKitLite.m in Sources */,
+				C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,37 +501,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95D787613CF481F005C3C29 /* CKManagerTests.m in Sources */,
-				C95D787C13CF4D0A005C3C29 /* CKManager.m in Sources */,
-				C95D78A313D08ADF005C3C29 /* CKCoreData.m in Sources */,
-				C9C4196C13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */,
 				C9C4197113D0B97500B2FC31 /* Test.xcdatamodel in Sources */,
-				C9C4198913D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */,
-				C9377D7413D4CD370062C015 /* CKRequest.m in Sources */,
-				C9377D7913D4CD420062C015 /* CKRouter.m in Sources */,
-				C9377D7E13D4CD530062C015 /* CKResult.m in Sources */,
-				C9377D8313D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */,
-				C96C15CB13D5DBE700A78055 /* CKRequestQueue.m in Sources */,
-				C96C15D113D5E91800A78055 /* CKRecord.m in Sources */,
 				C9030A2F13D60A630024AE31 /* CKRecordTests.m in Sources */,
-				C9030A3513D60D610024AE31 /* Order.m in Sources */,
-				C9030A3613D60D610024AE31 /* OrderItem.m in Sources */,
-				C9F4F2B513D75B91009DAC73 /* NIPaths.m in Sources */,
-				C9F4F2BA13D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
-				C9F4F2C013D8C013009DAC73 /* CKBindings.m in Sources */,
-				C9F2A48913E1C905005E4711 /* CKSupport.m in Sources */,
-				C9F2A4D813E1D067005E4711 /* CKRouterMap.m in Sources */,
 				C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */,
-				C9F05F3613E6F12300557828 /* CKRouter+CKRecord.m in Sources */,
+				C94FC37713E8877A002DFD92 /* Order.m in Sources */,
+				C94FC37813E8877A002DFD92 /* OrderItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C9FB7C2A13CF4381009597E7 /* PBXTargetDependency */ = {
+		C94FC37613E8861D002DFD92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C9FB7C1013CF4381009597E7 /* CoreKit */;
-			targetProxy = C9FB7C2913CF4381009597E7 /* PBXContainerItemProxy */;
+			targetProxy = C94FC37513E8861D002DFD92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -558,7 +579,10 @@
 				DSTROOT = /tmp/CoreKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -570,7 +594,10 @@
 				DSTROOT = /tmp/CoreKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -586,6 +613,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
 				INFOPLIST_FILE = "CoreKitTests/CoreKitTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -601,6 +632,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
 				INFOPLIST_FILE = "CoreKitTests/CoreKitTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

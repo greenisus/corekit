@@ -12,10 +12,12 @@
 @implementation CKRouterMap
 
 @synthesize model = _model;
-@synthesize path = _path;
+@synthesize object = _object;
+@synthesize remotePath = _remotePath;
 @synthesize localAttribute = _localAttribute;
 @synthesize remoteAttribute = _remoteAttribute;
 @synthesize requestMethod = _requestMethod;
+@synthesize isInstanceMap = _isInstanceMap;
 
 - (id)init
 {
@@ -30,6 +32,33 @@
 + (CKRouterMap *) map{
     
     return [[[CKRouterMap alloc] init] autorelease];
+}
+
+- (NSString *) remotePath{
+    
+    NSMutableString *path = [NSMutableString stringWithString:_remotePath];
+    
+    if(_object != nil){
+     
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\((.*?)\\)" options:0 error:nil];
+        
+        [regex enumerateMatchesInString:path options:0 range:NSMakeRange(0, [path length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop){
+
+            NSString *keyPath = [_remotePath substringWithRange:[result rangeAtIndex:1]];
+                        
+            id value = [_object valueForKeyPath:keyPath];
+            
+            if(value != nil){
+                
+                if(![value isKindOfClass:[NSString class]])
+                    value = [value stringValue];
+                
+                [path replaceCharactersInRange:[path rangeOfString:[_remotePath substringWithRange:result.range]] withString:value];
+            }
+        }];
+    }
+    
+    return [path lowercaseString];
 }
 
 - (BOOL) isAttributeMap{
@@ -51,7 +80,7 @@
 
 - (BOOL) isRemotePathMap{
     
-    return [_path length] > 0;
+    return [_remotePath length] > 0;
 }
 
 @end

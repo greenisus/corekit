@@ -8,7 +8,13 @@
 
 #import "CKRouter.h"
 #import "CKDefines.h"
+#import "CKRequest.h"
 #import "CKManager.h"
+#import "NIPaths.h"
+#import "CKRouter+CKRecord.h"
+
+
+#define ckRouterCacheFile [[NSBundle bundleForClass:[self class]] pathForResource:@"CKRouterCacheFile" ofType:@"plist"]
 
 @implementation CKRouter
 
@@ -23,7 +29,7 @@
     
     if (self = [super init]) {
         
-        _routes = [[NSMutableDictionary alloc] init];
+        
     }
     
     return self;
@@ -40,8 +46,19 @@
     
     CKRouterMap *map = [CKRouterMap map];
     map.model = model;
-    map.path = path;
+    map.remotePath = path;
     map.requestMethod = method;
+    
+    [self addMap:map];
+}
+
+- (void) mapInstancesOfModel:(Class) model toRemotePath:(NSString *) path forRequestMethod:(CKRequestMethod) method{
+    
+    CKRouterMap *map = [CKRouterMap map];
+    map.model = model;
+    map.remotePath = path;
+    map.requestMethod = method;
+    map.isInstanceMap = YES;
     
     [self addMap:map];
 }
@@ -50,7 +67,7 @@
     
     CKRouterMap *map = [CKRouterMap map];
     map.localAttribute = relationship;
-    map.path = path;
+    map.remotePath = path;
     map.model = model;
     map.requestMethod = method;
     
@@ -70,6 +87,23 @@
 - (CKRouterMap *) mapForModel:(Class) model forRequestMethod:(CKRequestMethod) method{
     
     return [self mapForRelationship:nil forModel:model andRequestMethod:method];
+}
+
+- (CKRouterMap *) mapForInstancesOfModel:(Class) model forRequestMethod:(CKRequestMethod) method{
+    
+    NSArray *maps = [self mapsForModel:model];
+    __block CKRouterMap *instanceMap = nil;
+    
+    [maps enumerateObjectsUsingBlock:^(CKRouterMap *map, NSUInteger index, BOOL *stop){
+        
+        if(map.isInstanceMap == YES && map.requestMethod == method){
+            
+            instanceMap = map;
+            *stop = YES;
+        }
+    }];
+    
+    return instanceMap;
 }
 
 - (CKRouterMap *) mapForRelationship:(NSString *) relationship forModel:(Class) model andRequestMethod:(CKRequestMethod) method{
@@ -152,6 +186,18 @@
     return attribute;
 }
 
+- (void) mapKeyPathsToAttributes:(Class) model sourceKeyPath:(NSString*)sourceKeyPath, ... {
+    va_list args;
+    va_start(args, sourceKeyPath);
+    
+    for (NSString* keyPath = sourceKeyPath; keyPath != nil; keyPath = va_arg(args, NSString*)) {
+		NSString* attributeKeyPath = va_arg(args, NSString*);
+        [self mapLocalAttribute:attributeKeyPath toRemoteKey:keyPath forModel:model];
+    }
+    
+    va_end(args);
+}
+
 - (NSString *) remoteKeyForLocalAttribute:(NSString *) localAttribute forModel:(Class) model{
     
     NSArray *maps = [self mapsForModel:model];
@@ -164,6 +210,42 @@
     }];
     
     return attribute;
+}
+
+
+- (NSMutableDictionary *) routes{
+    
+    if(_routes != nil)
+        return _routes;
+        
+    return [[NSFileManager defaultManager] fileExistsAtPath:ckRouterCacheFile] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:ckRouterCacheFile] autorelease] : [self setupCache];
+}
+
+- (NSMutableDictionary *) setupCache{
+    
+    _routes = [[NSMutableDictionary alloc] init];
+    
+    NSDictionary *entities = [[CKManager sharedManager].coreData.managedObjectModel entitiesByName];
+    
+    [entities enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSEntityDescription *description, BOOL *stop){
+        
+        NSMutableArray *maps = [NSMutableArray array];
+        Class model = NSClassFromString([description managedObjectClassName]);
+        
+        for(int x = CKRequestMethodGET; x <= CKRequestMethodHEAD; x++){
+            
+            CKRequestMethod method = (CKRequestMethod) x;
+            
+            [maps addObject:[model mapForRequestMethod:method]];
+            //[maps addObject:[model mapForResourceMethod:method]];
+        }
+        
+        [_routes setObject:maps forKey:key];
+    }];
+    
+    [_routes writeToFile:ckRouterCacheFile atomically:NO];
+    
+    return _routes;
 }
 
 @end

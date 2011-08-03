@@ -129,7 +129,6 @@
 	
 	NSDictionary* options = [self persistentStoreOptions];
 	
-    NSLog(@"Delegate = %@", [[UIApplication sharedApplication] delegate]);
     if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataApplicationStorageType configuration:nil URL:storeURL options:options error:&error]){
         
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];

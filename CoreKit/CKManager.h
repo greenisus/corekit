@@ -21,7 +21,6 @@
     id <CKConnection> _connectionClass;
 	id <CKSerialization> _serializationClass;
     
-@private
     CKCoreData *_coreData;
     CKRequestQueue *_requestQueue;
     CKRouter *_router;
@@ -77,6 +76,7 @@
 @property (nonatomic, readonly) CKRequestQueue *requestQueue;
 
 - (NSManagedObjectContext *) managedObjectContext;
+- (NSManagedObjectModel *) managedObjectModel;
 
 
 @end

@@ -81,10 +81,10 @@
         
     [Order removeAll];
     [Order save];
-    
+        
     NSArray *fixtures = [Order fixturesAsArray];
     NSArray *newItems = [Order create:[Order fixturesAsArray]];
-    
+        
     STAssertEquals([newItems count], [fixtures count], @"Failed to batch create orders");
 }
 

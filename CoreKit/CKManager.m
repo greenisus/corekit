@@ -59,6 +59,11 @@
     return self.coreData.managedObjectContext;
 }
 
+- (NSManagedObjectModel *) managedObjectModel{
+    
+    return self.coreData.managedObjectModel;
+}
+
 - (id) parse:(id) object{
     
     return [object isKindOfClass:[NSData class]] ? [_serializationClass deserialize:object] : [_serializationClass serialize:object];

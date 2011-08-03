@@ -25,10 +25,15 @@
 - (void) addMap:(CKRouterMap *) map;
 
 - (void) mapModel:(Class) model toRemotePath:(NSString *) path forRequestMethod:(CKRequestMethod) method;
+- (void) mapInstancesOfModel:(Class) model toRemotePath:(NSString *) path forRequestMethod:(CKRequestMethod) method;
+
 - (void) mapRelationship:(NSString *) relationship forModel:(Class) model toRemotePath:(NSString *) path forRequestMethod:(CKRequestMethod) method;
+
 - (void) mapLocalAttribute:(NSString *) localAttribute toRemoteKey:(NSString *) remoteKey forModel:(Class) model;
+- (void) mapKeyPathsToAttributes:(Class) model sourceKeyPath:(NSString*)sourceKeyPath, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (CKRouterMap *) mapForModel:(Class) model forRequestMethod:(CKRequestMethod) method;
+- (CKRouterMap *) mapForInstancesOfModel:(Class) model forRequestMethod:(CKRequestMethod) method;
 - (CKRouterMap *) mapForRelationship:(NSString *) relationship forModel:(Class) model andRequestMethod:(CKRequestMethod) method; 
 
 - (NSDictionary *) attributeMapForModel:(Class) model;
@@ -37,7 +42,7 @@
 - (NSString *) localAttributeForRemoteKey:(NSString *) remoteKey forModel:(Class) model;
 - (NSString *) remoteKeyForLocalAttribute:(NSString *) localAttribute forModel:(Class) model;
 
-
+- (NSMutableDictionary *) setupCache;
 
 
 // BLock Support

@@ -11,6 +11,8 @@
 #import "CKRouterMap.h"
 #import "CKRequest.h"
 #import "Order.h"
+#import "OrderItem.h"
+#import "CKRouter+CKRecord.h"
 
 @interface CKRouterTests : SenTestCase{
     
@@ -42,8 +44,8 @@
     CKRouterMap *map = [CKRouterMap map];
     map.model = [Order class];
     [_router addMap:map];
-
-    STAssertTrue([[_router.routes allKeys] count] == 1, @"Failed to add router map");
+    
+    STAssertTrue([[_router.routes allKeys] count] > 0, @"Failed to add router map");
 }
 
 - (void) testReturnMapsForModel{
@@ -108,7 +110,7 @@
     CKRouterMap *map = [CKRouterMap map];
     map.model = [Order class];
     map.localAttribute = @"items";
-    map.path = @"/orders/items";
+    map.remotePath = @"/orders/items";
     map.requestMethod = CKRequestMethodGET;
     [_router addMap:map];
     
@@ -122,7 +124,7 @@
     
     CKRouterMap *map = [_router mapForModel:[Order class] forRequestMethod:CKRequestMethodGET];
     
-    STAssertEqualObjects(map.path, @"/orders", @"Failed to map remote model to path");
+    STAssertEqualObjects(map.remotePath, @"/orders", @"Failed to map remote model to path");
 }
 
 - (void) testMapRelationshipToRemotePath{
@@ -144,6 +146,54 @@
     NSDictionary *attributeMap = [_router attributeMapForModel:[Order class]];
     
     STAssertTrue([[attributeMap allKeys] containsObject:localAttribute] && [[attributeMap objectForKey:localAttribute] isEqualToString:remoteAttribtue], @"Failed to return proper attribute map");
+}
+
+
+- (void) testRecordMappingForGet{
+    
+    CKRouterMap *map = [Order mapForRequestMethod:CKRequestMethodGET];
+    
+    STAssertEqualObjects(map.remotePath, @"orders", @"Failed to map class GET");
+}
+
+- (void) testRecordMappingOfInstance{
+    
+    Order *order = [Order blank];
+    order.id = [NSNumber numberWithInt:12345];
+    [order save];
+    
+    CKRouterMap *map = [order mapForRequestMethod:CKRequestMethodALL];
+    
+    STAssertEqualObjects(map.remotePath, @"orders/12345", @"Failed to map instance router");
+}
+
+- (void) testStaticRelationshipMapping{
+    
+    Order *order = [Order blank];
+    order.id = [NSNumber numberWithInt:1];
+    [order save];
+    
+    OrderItem *item = [OrderItem blank];
+    item.order = order;
+    item.id = [NSNumber numberWithInt:2];
+    [item save];
+        
+    [OrderItem mapInstancesToRemotePath:@"/orders/(order.id)/items/(id)"];
+    
+    CKRouterMap *map = [item mapForRequestMethod:CKRequestMethodALL];
+    
+    STAssertEqualObjects(map.remotePath, @"/orders/1/items/2", @"Failed to map relationships to remote URL");
+}
+
+- (void) testClassLevelRelationshipMapping{
+    
+    Order *order = [Order blank];
+    order.id = [NSNumber numberWithInt:1];
+    [order save];
+    
+    CKRouterMap *map = [order mapForRelationship:@"items"];
+    
+    STAssertEqualObjects(map.remotePath, @"orders/1/items", @"Failed to map class level relationship");
 }
 
 @end
