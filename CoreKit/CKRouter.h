@@ -44,9 +44,4 @@
 
 - (NSMutableDictionary *) setupCache;
 
-
-// BLock Support
-
-- (void) setBlock:(id) block toModifyAttribtue:(NSString *) attribute forModel:(Class) model;
-
 @end

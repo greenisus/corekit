@@ -29,8 +29,6 @@
 		C95D789713CF92D0005C3C29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95D789513CF90B6005C3C29 /* CoreData.framework */; };
 		C95D78A113D08ADF005C3C29 /* CKCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = C95D789F13D08ADF005C3C29 /* CKCoreData.h */; };
 		C95D78A213D08ADF005C3C29 /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D78A013D08ADF005C3C29 /* CKCoreData.m */; };
-		C96C15C913D5DBE700A78055 /* CKRequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C96C15C713D5DBE700A78055 /* CKRequestQueue.h */; };
-		C96C15CA13D5DBE700A78055 /* CKRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15C813D5DBE700A78055 /* CKRequestQueue.m */; };
 		C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C96C15CD13D5E91700A78055 /* CKRecord.h */; };
 		C96C15D013D5E91800A78055 /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15CE13D5E91800A78055 /* CKRecord.m */; };
 		C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C987410713E1E94600D7ECF1 /* CKRouterTests.m */; };
@@ -115,8 +113,6 @@
 		C95D789513CF90B6005C3C29 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C95D789F13D08ADF005C3C29 /* CKCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCoreData.h; sourceTree = "<group>"; };
 		C95D78A013D08ADF005C3C29 /* CKCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCoreData.m; sourceTree = "<group>"; };
-		C96C15C713D5DBE700A78055 /* CKRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequestQueue.h; sourceTree = "<group>"; };
-		C96C15C813D5DBE700A78055 /* CKRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRequestQueue.m; sourceTree = "<group>"; };
 		C96C15CD13D5E91700A78055 /* CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecord.h; sourceTree = "<group>"; };
 		C96C15CE13D5E91800A78055 /* CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecord.m; sourceTree = "<group>"; };
 		C987410713E1E94600D7ECF1 /* CKRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterTests.m; sourceTree = "<group>"; };
@@ -189,6 +185,7 @@
 		C9C4198313D4A8D600B2FC31 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
+				C9C4197913D4A5EF00B2FC31 /* CKConnection.h */,
 				C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */,
 				C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */,
 			);
@@ -198,6 +195,7 @@
 		C9C4198413D4A8DF00B2FC31 /* Serializations */ = {
 			isa = PBXGroup;
 			children = (
+				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
 				C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */,
 				C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */,
 			);
@@ -225,6 +223,39 @@
 				C9F05F3313E6F12300557828 /* CKRouter+CKRecord.m */,
 			);
 			name = Routing;
+			sourceTree = "<group>";
+		};
+		C9EC9B9313EAFEBE00D8AE9A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C9377D7013D4CD370062C015 /* CKRequest.h */,
+				C9377D7113D4CD370062C015 /* CKRequest.m */,
+				C9377D7A13D4CD530062C015 /* CKResult.h */,
+				C9377D7B13D4CD530062C015 /* CKResult.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		C9EC9B9413EAFEF300D8AE9A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C96C15CD13D5E91700A78055 /* CKRecord.h */,
+				C96C15CE13D5E91800A78055 /* CKRecord.m */,
+				C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */,
+				C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */,
+				C95D789F13D08ADF005C3C29 /* CKCoreData.h */,
+				C95D78A013D08ADF005C3C29 /* CKCoreData.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		C9EC9B9513EAFF1400D8AE9A /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				C9F4F2BC13D8C012009DAC73 /* CKBindings.h */,
+				C9F4F2BD13D8C012009DAC73 /* CKBindings.m */,
+			);
+			name = Bindings;
 			sourceTree = "<group>";
 		};
 		C9F05F3813E738E600557828 /* NSString Inflections */ = {
@@ -280,23 +311,12 @@
 				C9F4F2AB13D759F6009DAC73 /* CKDefines.h */,
 				C95D787813CF4D0A005C3C29 /* CKManager.h */,
 				C95D787913CF4D0A005C3C29 /* CKManager.m */,
-				C9377D7013D4CD370062C015 /* CKRequest.h */,
-				C9377D7113D4CD370062C015 /* CKRequest.m */,
-				C96C15C713D5DBE700A78055 /* CKRequestQueue.h */,
-				C96C15C813D5DBE700A78055 /* CKRequestQueue.m */,
-				C9377D7A13D4CD530062C015 /* CKResult.h */,
-				C9377D7B13D4CD530062C015 /* CKResult.m */,
-				C9C4197913D4A5EF00B2FC31 /* CKConnection.h */,
-				C96C15CD13D5E91700A78055 /* CKRecord.h */,
-				C96C15CE13D5E91800A78055 /* CKRecord.m */,
-				C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */,
-				C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */,
-				C9F4F2BC13D8C012009DAC73 /* CKBindings.h */,
-				C9F4F2BD13D8C012009DAC73 /* CKBindings.m */,
-				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
+				C9EC9B9413EAFEF300D8AE9A /* Core Data */,
+				C9EC9B9313EAFEBE00D8AE9A /* Networking */,
 				C9EC63E113DE00670059C65F /* Routing */,
 				C9C4198413D4A8DF00B2FC31 /* Serializations */,
 				C9C4198313D4A8D600B2FC31 /* Connections */,
+				C9EC9B9513EAFF1400D8AE9A /* Bindings */,
 				C9FB7C1713CF4381009597E7 /* Supporting Files */,
 			);
 			path = CoreKit;
@@ -308,8 +328,6 @@
 				C9F2A48513E1C905005E4711 /* CKSupport.h */,
 				C9F2A48613E1C905005E4711 /* CKSupport.m */,
 				C9C4198D13D4B95900B2FC31 /* Vendor */,
-				C95D789F13D08ADF005C3C29 /* CKCoreData.h */,
-				C95D78A013D08ADF005C3C29 /* CKCoreData.m */,
 				C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */,
 				C9FB7C1813CF4381009597E7 /* CoreKit-Prefix.pch */,
 			);
@@ -359,7 +377,6 @@
 				C9377D7713D4CD420062C015 /* CKRouter.h in Headers */,
 				C9377D7C13D4CD530062C015 /* CKResult.h in Headers */,
 				C9377D8113D4DA4B0062C015 /* CKNSJSONSerialization.h in Headers */,
-				C96C15C913D5DBE700A78055 /* CKRequestQueue.h in Headers */,
 				C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */,
 				C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */,
 				C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */,
@@ -482,7 +499,6 @@
 				C9377D7813D4CD420062C015 /* CKRouter.m in Sources */,
 				C9377D7D13D4CD530062C015 /* CKResult.m in Sources */,
 				C9377D8213D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */,
-				C96C15CA13D5DBE700A78055 /* CKRequestQueue.m in Sources */,
 				C96C15D013D5E91800A78055 /* CKRecord.m in Sources */,
 				C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */,
 				C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
