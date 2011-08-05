@@ -15,7 +15,6 @@
 @synthesize serializationClass = _serializationClass;
 @synthesize connectionClass = _connectionClass;
 @synthesize coreData = _coreData;
-@synthesize requestQueue = _requestQueue;
 @synthesize router = _router;
 
 #pragma mark -
@@ -38,7 +37,6 @@
     if(self = [super init]){
         
         _coreData = [[CKCoreData alloc] init];
-        _requestQueue = [[CKRequestQueue alloc] init];
         _serializationClass = [[CKNSJSONSerialization alloc] init];
         _router = [[CKRouter alloc] init];
     }
@@ -66,7 +64,12 @@
 
 - (id) parse:(id) object{
     
-    return [object isKindOfClass:[NSData class]] ? [_serializationClass deserialize:object] : [_serializationClass serialize:object];
+    return [_serializationClass deserialize:object];
+}
+
+- (id) serialize:(id) object{
+    
+    return [_serializationClass serialize:object];
 }
 
 

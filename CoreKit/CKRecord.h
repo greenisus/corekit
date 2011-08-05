@@ -16,11 +16,9 @@
 /** Options used for default settings */ 
 typedef enum CKRecordOptions {
     CKRecordOptionsSaveAutomatically,
+    CKrecordOptionsAutomaticallySyncRemotely,
     CKRecordOptionsOverrideRelationships,
-    CKRecordOptionsConvertCamelCase,
-    CKRecordOptionsPrimaryKeyName,
-    CKRecordOptionsClassPrefix,
-    CKRecordOptionsDateFormat
+    CKRecordOptionsConvertCamelCase
 } CKRecordOptions;
 
 @interface CKRecord : NSManagedObject {
@@ -94,6 +92,9 @@ typedef enum CKRecordOptions {
  */
 - (void) remove;
 
+/** Remove an existing record both locally and remotely */
+- (void) removeLocallyAndRemotely;
+
 /** Remove all of the entity's records
  */
 + (void) removeAll;
@@ -104,9 +105,26 @@ typedef enum CKRecordOptions {
 + (void) removeAllWithPredicate:(NSPredicate *) predicate;
 
 
-/** @name Remote */
+/** @name Remote Syncronization*/
 
+/** Automatically detects whether the object should be a GET, POST, PUT, or DELETE operation */
+- (void) sync;
+- (CKResult *) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 
++ (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
++ (CKRequest *) requestForGet;
+
+- (CKResult *) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (CKRequest *) requestForPost;
+
+- (CKResult *) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (CKRequest *) requestForPut;
+
+- (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (CKRequest *) requestForGet;
+
+- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (CKRequest *) requestForRemoveRemotely;
 
 
 /** @name Counting */

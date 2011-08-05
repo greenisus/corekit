@@ -10,7 +10,6 @@
 #import "CKCoreData.h"
 #import "CKConnection.h"
 #import "CKSerialization.h"
-#import "CKRequestQueue.h"
 #import "CKRouter.h"
 
 /** 
@@ -22,7 +21,6 @@
 	id <CKSerialization> _serializationClass;
     
     CKCoreData *_coreData;
-    CKRequestQueue *_requestQueue;
     CKRouter *_router;
 }
 
@@ -46,11 +44,16 @@
 
 /** @name Serialization Methods */
 
-/** Parse any object to / from native objects 
+/** Parse any object to native objects 
  
- @param object If NSData object, the method will serialize the object into an NSArray or NSDictionary, else the object will be serialized into an NSData object
  */
 - (id) parse:(id) object;
+
+
+/** Serialize a native object to NSString
+ 
+ */
+- (id) serialize:(id) object;
 
 /** @name Properties */
 
@@ -73,7 +76,6 @@
 @property (nonatomic, readonly) CKRouter *router;
 
 
-@property (nonatomic, readonly) CKRequestQueue *requestQueue;
 
 - (NSManagedObjectContext *) managedObjectContext;
 - (NSManagedObjectModel *) managedObjectModel;

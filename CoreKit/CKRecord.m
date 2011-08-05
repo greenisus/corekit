@@ -13,6 +13,7 @@
 #import "CKCoreData.h"
 #import "CKRecordPrivate.h"
 #import "CKResult.h"
+#import "CKRouter+CKRecord.h"
 
 @implementation CKRecord
 
@@ -196,6 +197,95 @@
 	
 	[[self managedObjectContext] deleteObject:self];
 }
+
+- (void) removeLocallyAndRemotely{
+    
+    [self remove];
+    [self removeRemotely:nil errorBlock:nil];
+}
+
+#pragma mark -
+#pragma mark Remote Syncronization
++ (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+    
+}
+
++ (CKRequest *) requestForGet{
+    
+    return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodGET]];
+}
+
+- (CKResult *) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+    
+    return [self sync:[self requestForPost] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+}
+
+- (CKRequest *) requestForPost{
+    
+    CKRequest *request = [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodPOST]];
+    request.body = [[CKManager sharedManager] serialize:self];
+    
+    return request;    
+}
+
+- (CKResult *) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+        
+    return [self sync:[self requestForPut] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+}
+
+- (CKRequest *) requestForPut{
+    
+    CKRequest *request = [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodPUT]];
+    request.body = [[CKManager sharedManager] serialize:self];
+    
+    return request;
+}
+
+- (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+        
+    return [self sync:[self requestForGet] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+}
+
+- (CKRequest *) requestForGet{
+    
+    return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodGET]];
+}
+
+- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+    
+   [self sync:[self requestForRemoveRemotely] parseBlock:nil completionBlock:completionBlock errorBlock:errorBlock];
+}
+
+- (CKRequest *) requestForRemoveRemotely{
+    
+    return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodDELETE]];
+}
+
+- (void) sync{
+    
+    if(![self isInserted])
+        [self put:nil completionBlock:nil errorBlock:nil];
+    
+    else if([self isUpdated])
+        [self post:nil completionBlock:nil errorBlock:nil];
+    
+    else if([self isDeleted])
+        [self removeRemotely:nil errorBlock:nil];
+}
+
+- (CKResult *) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+    
+    if(request.parseBlock == nil)
+        request.parseBlock = parseBlock;
+    
+    if(request.completionBlock == nil)
+        request.completionBlock = completionBlock;
+    
+    if(request.errorBlock == nil)
+        request.errorBlock = errorBlock;    
+}
+
+
 
 #pragma mark -
 #pragma mark Counting
