@@ -10,10 +10,11 @@
 #import "CKConnection.h"
 #import "CKSerialization.h"
 #import "CKResult.h"
-#import "CKRouterMap.h"
+
+@class CKRouterMap;
 
 typedef void (^CKResultBlock) (CKResult *result);
-typedef void (^CKErrorBlock) (CKResult *result, NSError *error);
+typedef void (^CKErrorBlock) (CKResult *result, NSError **error);
 typedef void (^CKParseBlock) (CKRequest *request, id object);
 
 /**
@@ -34,7 +35,6 @@ typedef enum CKRequestMethod {
  */
 
 typedef enum CKRequestInterval {
-    
     CKRequestIntervalNone = 0,
     CKRequestIntervalEvery10Seconds = 10,
     CKRequsetIntervalEvery30Seconds = 30,
@@ -64,7 +64,16 @@ typedef enum CKRequestInterval {
     BOOL _started;
     BOOL _completed;
     BOOL _failed;
+    BOOL _secure;
+    
     BOOL _batch;
+    BOOL _isBatched;
+    NSString *_batchPageString;
+    NSString *_batchMaxPerPageString;
+    NSUInteger _batchNumPerPage;
+    NSUInteger _batchMaxPages;
+    
+    NSUInteger _connectionTimeout;
     
     CKRequestInterval _interval;
     
@@ -88,7 +97,14 @@ typedef enum CKRequestInterval {
 @property (nonatomic, assign) BOOL started;
 @property (nonatomic, assign) BOOL completed;
 @property (nonatomic, assign) BOOL failed;
+@property (nonatomic, assign) BOOL isBatched;
 @property (nonatomic, assign) BOOL batch;
+@property (nonatomic, assign) BOOL secure;
+@property (nonatomic, retain) NSString *batchPageString;
+@property (nonatomic, retain) NSString *batchMaxPerPageString;
+@property (nonatomic, assign) NSUInteger batchNumPerPage;
+@property (nonatomic, assign) NSUInteger batchMaxPages;
+@property (nonatomic, assign) NSUInteger connectionTimeout;
 @property (nonatomic, assign) CKRequestInterval interval;
 @property (nonatomic, retain) id connection;
 @property (nonatomic, retain) id parser;
@@ -98,6 +114,13 @@ typedef enum CKRequestInterval {
 
 + (CKRequest *) request;
 + (CKRequest *) requestWithMap:(CKRouterMap *) map;
-
+- (NSURLCredential *) credentials;
+- (NSString *) methodString;
+- (NSURL *) remoteURL;
+- (NSMutableURLRequest *) remoteRequest;
+- (void) addParameters:(NSDictionary *) data;
+- (void) addHeaders:(NSDictionary *) data;
+- (void) send;
+- (CKResult *) sendSyncronously;
 
 @end

@@ -12,7 +12,7 @@
 #import "CKRequest.h"
 #import "Order.h"
 #import "OrderItem.h"
-#import "CKRouter+CKRecord.h"
+#import "CKRecord+CKRouter.h"
 
 @interface CKRouterTests : SenTestCase{
     

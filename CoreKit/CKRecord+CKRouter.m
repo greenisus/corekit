@@ -6,7 +6,7 @@
 //  Copyright 2011 MNDCreative, LLC. All rights reserved.
 //
 
-#import "CKRouter+CKRecord.h"
+#import "CKRecord+CKRouter.h"
 #import "CKRecord.h"
 #import "NSString+InflectionSupport.h"
 

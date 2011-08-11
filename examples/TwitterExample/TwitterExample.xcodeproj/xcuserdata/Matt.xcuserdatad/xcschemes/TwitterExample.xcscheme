@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9FB7C1013CF4381009597E7"
-               BuildableName = "libCoreKit.a"
-               BlueprintName = "CoreKit"
-               ReferencedContainer = "container:CoreKit.xcodeproj">
+               BlueprintIdentifier = "C996350613F30A80003E7CDD"
+               BuildableName = "TwitterExample.app"
+               BlueprintName = "TwitterExample"
+               ReferencedContainer = "container:TwitterExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,33 +27,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9FB7C2013CF4381009597E7"
-               BuildableName = "CoreKitTests.octest"
-               BlueprintName = "CoreKitTests"
-               ReferencedContainer = "container:CoreKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9FB7C2013CF4381009597E7"
-            BuildableName = "CoreKitTests.octest"
-            BlueprintName = "CoreKitTests"
-            ReferencedContainer = "container:CoreKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "TEST_TARGET"
-            value = "1"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
@@ -62,6 +36,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C996350613F30A80003E7CDD"
+            BuildableName = "TwitterExample.app"
+            BlueprintName = "TwitterExample"
+            ReferencedContainer = "container:TwitterExample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -71,6 +54,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C996350613F30A80003E7CDD"
+            BuildableName = "TwitterExample.app"
+            BlueprintName = "TwitterExample"
+            ReferencedContainer = "container:TwitterExample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -132,4 +132,69 @@ static NSMutableDictionary *cachedCamelized;
 - (NSString*)singularForm  { return [[CWInflector inflector] singularFormOf:self];  }
 - (NSString*)humanizedForm { return [[CWInflector inflector] humanizedFormOf:self]; }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Parses a URL query string into a dictionary where the values are arrays.
+ *
+ * A query string is one that looks like &param1=value1&param2=value2...
+ *
+ * The resulting NSDictionary will contain keys for each parameter name present in the query.
+ * The value for each key will be an NSArray which may be empty if the key is simply present
+ * in the query. Otherwise each object in the array with be an NSString corresponding to a value
+ * in the query for that parameter.
+ */
+- (NSDictionary*)queryContentsUsingEncoding:(NSStringEncoding)encoding {
+    NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
+    NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
+    NSScanner* scanner = [[[NSScanner alloc] initWithString:self] autorelease];
+    while (![scanner isAtEnd]) {
+        NSString* pairString = nil;
+        [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];
+        [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
+        NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
+        if (kvPair.count == 1 || kvPair.count == 2) {
+            NSString* key = [[kvPair objectAtIndex:0]
+                             stringByReplacingPercentEscapesUsingEncoding:encoding];
+            NSMutableArray* values = [pairs objectForKey:key];
+            if (nil == values) {
+                values = [NSMutableArray array];
+                [pairs setObject:values forKey:key];
+            }
+            if (kvPair.count == 1) {
+                [values addObject:[NSNull null]];
+                
+            } else if (kvPair.count == 2) {
+                NSString* value = [[kvPair objectAtIndex:1]
+                                   stringByReplacingPercentEscapesUsingEncoding:encoding];
+                [values addObject:value];
+            }
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary:pairs];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Parses a URL, adds query parameters to its query, and re-encodes it as a new URL.
+ */
+- (NSString*)stringByAddingQueryDictionary:(NSDictionary*)query {
+    NSMutableArray* pairs = [NSMutableArray array];
+    for (NSString* key in [query keyEnumerator]) {
+        NSString* value = [query objectForKey:key];
+        value = [value stringByReplacingOccurrencesOfString:@"?" withString:@"%3F"];
+        value = [value stringByReplacingOccurrencesOfString:@"=" withString:@"%3D"];
+        NSString* pair = [NSString stringWithFormat:@"%@=%@", key, value];
+        [pairs addObject:pair];
+    }
+    
+    NSString* params = [pairs componentsJoinedByString:@"&"];
+    if ([self rangeOfString:@"?"].location == NSNotFound) {
+        return [self stringByAppendingFormat:@"?%@", params];
+        
+    } else {
+        return [self stringByAppendingFormat:@"&%@", params];
+    }
+}
 @end

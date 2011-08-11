@@ -22,7 +22,7 @@
 
 - (void) setUp{
     
-    _manager = [[CKManager sharedManager] setSharedURL:@"url.com" user:@"user" password:@"password"];
+    _manager = [[CKManager sharedManager] setBaseURL:@"url.com" user:@"user" password:@"password"];
 }
 
 - (void) testReturnsSingleton{

@@ -6,7 +6,6 @@
 //  Copyright 2011 MNDCreative, LLC. All rights reserved.
 //
 
-
 /** @name Properties */
 /** The default path for fixtures, used for testing or seeding inital data */
 #define ckFixturePath @"fixtures/"
@@ -17,6 +16,9 @@
 /** Default date format used to parse strings to NSDate objects. */
 #define ckDateDefaultFormat @"yyyy-MM-dd'T'HH:mm:ssZZZ"
 
+#define ckLogLevel 1 
+
 
 /** @name Methods */
 #define RELEASE_SAFELY(__POINTER) { [__POINTER release]; __POINTER = nil; }
+

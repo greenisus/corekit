@@ -51,5 +51,7 @@
 - (NSString*)singularForm;
 - (NSString*)humanizedForm;
 
+- (NSDictionary*)queryContentsUsingEncoding:(NSStringEncoding)encoding;
+- (NSString*)stringByAddingQueryDictionary:(NSDictionary*)query;
 
 @end

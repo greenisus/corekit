@@ -10,6 +10,9 @@
 #import "Order.h"
 #import "OrderItem.h"
 #import "CKNSJSONSerialization.h"
+#import "CKManager.h"
+#import "CKRequest.h"
+#import "CKRecord+CKRouter.h"
 
 @interface CKRecordTests : SenTestCase{
     
@@ -22,8 +25,11 @@
 
 - (void) setUp{
     
-    if(_defaultFixture == nil)
+    if(_defaultFixture == nil){
+        
         _defaultFixture = [[Order fixtureNamed:@"sample"] retain];
+        [CKManager sharedManager].serializationClass = [CKNSJSONSerialization class];
+    }
 }
 
 - (void) tearDown{
@@ -222,6 +228,22 @@
     }];
     
     STAssertEquals([[Order average:@"price"] floatValue], (float) total / count, @"Failed to average numbers");
+}
+
+- (void) testProperURLFormatting{
+    
+    [[CKManager sharedManager] setBaseURL:@"shopify.com/"];
+    
+    Order *record = [Order create:_defaultFixture];
+    CKRequest *request = [record requestForGet];
+    
+    STAssertEqualObjects([request remoteURL].absoluteString, @"http://shopify.com/orders/1", @"Failed to properly format URL");
+    
+    [Order mapInstancesToRemotePath:@"//orders/(id)"];
+    CKRequest *request1 = [record requestForGet];
+    request1.batch = YES;
+    
+    STAssertEqualObjects([[request1 remoteURL] absoluteString], @"http://shopify.com/orders/1?limit=50", @"Failed to properly format URL");
 }
 
 @end

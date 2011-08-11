@@ -11,7 +11,7 @@
 #import "CKRequest.h"
 #import "CKManager.h"
 #import "NIPaths.h"
-#import "CKRouter+CKRecord.h"
+#import "CKRecord+CKRouter.h"
 
 
 #define ckRouterCacheFile [[NSBundle bundleForClass:[self class]] pathForResource:@"CKRouterCacheFile" ofType:@"plist"]
@@ -23,16 +23,6 @@
 + (CKRouter *) sharedRouter{
     
     return [CKManager sharedManager].router;
-}
-
-- (id)init {
-    
-    if (self = [super init]) {
-        
-        
-    }
-    
-    return self;
 }
 
 - (void) dealloc{
@@ -162,8 +152,10 @@
     if([[_routes allKeys] containsObject:className]){
         
         NSMutableArray *maps = [[_routes objectForKey:className] mutableCopy];
+        
         [maps addObject:map];
         [_routes setObject:maps forKey:className];
+        
         [maps release];
     }
     else{
@@ -187,10 +179,12 @@
 }
 
 - (void) mapKeyPathsToAttributes:(Class) model sourceKeyPath:(NSString*)sourceKeyPath, ... {
+    
     va_list args;
     va_start(args, sourceKeyPath);
     
     for (NSString* keyPath = sourceKeyPath; keyPath != nil; keyPath = va_arg(args, NSString*)) {
+        
 		NSString* attributeKeyPath = va_arg(args, NSString*);
         [self mapLocalAttribute:attributeKeyPath toRemoteKey:keyPath forModel:model];
     }
@@ -215,10 +209,7 @@
 
 - (NSMutableDictionary *) routes{
     
-    if(_routes != nil)
-        return _routes;
-        
-    return [[NSFileManager defaultManager] fileExistsAtPath:ckRouterCacheFile] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:ckRouterCacheFile] autorelease] : [self setupCache];
+    return _routes == nil ? [self setupCache] : _routes;
 }
 
 - (NSMutableDictionary *) setupCache{
@@ -233,17 +224,14 @@
         Class model = NSClassFromString([description managedObjectClassName]);
         
         for(int x = CKRequestMethodGET; x <= CKRequestMethodHEAD; x++){
-            
-            CKRequestMethod method = (CKRequestMethod) x;
-            
-            [maps addObject:[model mapForRequestMethod:method]];
-            //[maps addObject:[model mapForResourceMethod:method]];
+                        
+            [maps addObject:[model mapForRequestMethod:(CKRequestMethod) x]];
         }
         
         [_routes setObject:maps forKey:key];
     }];
     
-    [_routes writeToFile:ckRouterCacheFile atomically:NO];
+    //[_routes writeToFile:ckRouterCacheFile atomically:NO];
     
     return _routes;
 }

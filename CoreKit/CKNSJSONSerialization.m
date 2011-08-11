@@ -13,15 +13,16 @@
 - (id) deserialize:(NSData *) data{
     
     NSError *error = nil;
-    id value = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
-    if(error)
-        NSLog(@"%@", [error localizedFailureReason]);
+    id value = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+
+    if(value == nil)
+        NSLog(@"%@", error);
     
     return value;
 }
 
-- (NSData *) serialize:(id) object{
+- (id) serialize:(id) object{
     
     NSData *value = nil;
     

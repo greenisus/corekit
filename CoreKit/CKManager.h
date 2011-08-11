@@ -17,11 +17,22 @@
  */
 @interface CKManager : NSObject{
         
-    id <CKConnection> _connectionClass;
-	id <CKSerialization> _serializationClass;
+    Class _connectionClass;
+	Class _serializationClass;
+    
+    NSString *_baseURL;
+    NSString *_httpUser;
+    NSString *_httpPassword;
+    
+    BOOL _batchAllRequests;
+    BOOL _secureAllConnections;
     
     CKCoreData *_coreData;
     CKRouter *_router;
+    
+@private
+    id <CKConnection> _connection;
+    id <CKSerialization> _serializer;
 }
 
 
@@ -39,7 +50,7 @@
  @param user Username for HTTP authentication
  @param password Password for HTTP authentication
  */
-- (CKManager *) setSharedURL:(NSString *) url user:(NSString *) user password:(NSString *) password;
+- (CKManager *) setBaseURL:(NSString *) url user:(NSString *) user password:(NSString *) password;
 
 
 /** @name Serialization Methods */
@@ -61,24 +72,36 @@
  
  Must conform to protocol CKSerialization
  */
-@property (nonatomic, assign) id <CKSerialization> serializationClass;
+@property (nonatomic, assign) Class serializationClass;
 
 /** Used for all remote connections
  
  Must conform to protocol CKConnection
  */
-@property (nonatomic, assign) id <CKConnection> connectionClass;
+@property (nonatomic, assign) Class connectionClass;
 
 /** Creates and manages changes to the CoreData stack */
-@property (nonatomic, readonly) CKCoreData *coreData;
+@property (nonatomic, readonly, retain) CKCoreData *coreData;
 
 /** Creates and manages routes */
-@property (nonatomic, readonly) CKRouter *router;
+@property (nonatomic, readonly, retain) CKRouter *router;
+
+@property (nonatomic, retain) NSString *baseURL;
+@property (nonatomic, retain) NSString *httpUser;
+@property (nonatomic, retain) NSString *httpPassword;
+@property (nonatomic, readonly, retain) id <CKConnection> connection;
+@property (nonatomic, readonly, retain) id <CKSerialization> serializer;
+
+@property (nonatomic, assign) BOOL batchAllRequests;
+@property (nonatomic, assign) BOOL secureAllConnections;
 
 
 
 - (NSManagedObjectContext *) managedObjectContext;
 - (NSManagedObjectModel *) managedObjectModel;
+
+- (void) sendRequest:(CKRequest *) request;
+- (CKResult *) sendSyncronousRequest:(CKRequest *) request;
 
 
 @end

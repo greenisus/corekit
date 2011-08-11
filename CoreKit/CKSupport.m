@@ -7,6 +7,7 @@
 //
 
 #import "CKSupport.h"
+#import "Reachability.h"
 
 
 NSArray* CK_SORT(NSString *sort){
@@ -23,4 +24,9 @@ NSArray* CK_SORT(NSString *sort){
         }
     }
     return sortDescriptors;
+}
+
+BOOL CK_CONNECTION_AVAILABLE(){
+    
+    return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable;
 }

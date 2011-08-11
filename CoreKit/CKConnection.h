@@ -20,7 +20,7 @@
 /**
  Send asyncronous request
  */
-- (void) send;
+- (void) send:(CKRequest *) request;
 
 /**
  Send a syncronous request
@@ -29,15 +29,5 @@
  @return CKResult object
  */
 - (CKResult *) sendSyncronously:(CKRequest *) request;
-
-@end
-
-
-@protocol CKConnectionDelegate <NSObject>
-
-@required 
-- (void) requestDidComplete:(CKRequest *) request;
-- (void) requestDidFail:(CKRequest *) request;
-- (void) requestDidReceiveData:(NSData *) data;
 
 @end

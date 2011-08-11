@@ -25,6 +25,6 @@
 /** Convert native objects to NSData objects
  @param object NSDictionary, NSArray, etc... to plain-text
  */
-- (NSData *) serialize:(id) object;
+- (id) serialize:(id) object;
 
 @end

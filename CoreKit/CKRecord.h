@@ -109,18 +109,18 @@ typedef enum CKRecordOptions {
 
 /** Automatically detects whether the object should be a GET, POST, PUT, or DELETE operation */
 - (void) sync;
-- (CKResult *) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 
-+ (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
++ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 + (CKRequest *) requestForGet;
 
-- (CKResult *) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 - (CKRequest *) requestForPost;
 
-- (CKResult *) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 - (CKRequest *) requestForPut;
 
-- (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
 - (CKRequest *) requestForGet;
 
 - (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;

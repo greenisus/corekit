@@ -12,3 +12,5 @@
  @param sort Example: @"id DESC"
  */
 NSArray* CK_SORT(NSString *sort);
+
+BOOL CK_CONNECTION_AVAILABLE();

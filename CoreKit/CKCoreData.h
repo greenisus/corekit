@@ -22,6 +22,7 @@
 - (NSManagedObjectContext*) newManagedObjectContext;
 - (NSString *) storePath;
 - (NSURL *) storeURL;
+- (NSString *) persistentStoreType;
 - (NSDictionary *) persistentStoreOptions;
 - (BOOL) save;
 

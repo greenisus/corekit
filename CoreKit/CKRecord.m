@@ -13,7 +13,7 @@
 #import "CKCoreData.h"
 #import "CKRecordPrivate.h"
 #import "CKResult.h"
-#import "CKRouter+CKRecord.h"
+#import "CKRecord+CKRouter.h"
 
 @implementation CKRecord
 
@@ -206,8 +206,14 @@
 
 #pragma mark -
 #pragma mark Remote Syncronization
-+ (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
++ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
     
+    CKRequest *request = [self requestForGet];
+    request.parseBlock = parseBlock;
+    request.completionBlock = completionBlock;
+    request.errorBlock = errorBlock;
+    
+    [[CKManager sharedManager] sendRequest:request];    
 }
 
 + (CKRequest *) requestForGet{
@@ -215,9 +221,9 @@
     return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodGET]];
 }
 
-- (CKResult *) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
     
-    return [self sync:[self requestForPost] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+    [self sync:[self requestForPost] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
 
 - (CKRequest *) requestForPost{
@@ -228,9 +234,9 @@
     return request;    
 }
 
-- (CKResult *) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
         
-    return [self sync:[self requestForPut] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+    [self sync:[self requestForPut] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
 
 - (CKRequest *) requestForPut{
@@ -241,9 +247,9 @@
     return request;
 }
 
-- (CKResult *) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
         
-    return [self sync:[self requestForGet] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
+    [self sync:[self requestForGet] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
 
 - (CKRequest *) requestForGet{
@@ -273,7 +279,7 @@
         [self removeRemotely:nil errorBlock:nil];
 }
 
-- (CKResult *) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
     
     if(request.parseBlock == nil)
         request.parseBlock = parseBlock;
@@ -433,7 +439,7 @@
         fixturePath = [fixturePath stringByAppendingFormat:@"/%@", path];
     
     id contents = [[CKManager sharedManager] parse:[NSData dataWithContentsOfFile:fixturePath]];
-    
+
     if([contents isKindOfClass:[NSDictionary class]] && name != nil && [[contents allKeys] containsObject:name])
         contents = [contents objectForKey:name];
     

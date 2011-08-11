@@ -16,13 +16,20 @@
 @synthesize connectionClass = _connectionClass;
 @synthesize coreData = _coreData;
 @synthesize router = _router;
+@synthesize baseURL = _baseURL;
+@synthesize httpUser = _httpUser;
+@synthesize httpPassword = _httpPassword;
+@synthesize connection = _connection;
+@synthesize serializer = _serializer;
+@synthesize batchAllRequests = _batchAllRequests;
+@synthesize secureAllConnections = _secureAllConnections;
 
 #pragma mark -
 # pragma mark Initializations
 
 + (CKManager *) sharedManager{
     
-    static dispatch_once_t predicate = 0;
+    static dispatch_once_t predicate;
     static CKManager *_shared = nil;
     
     dispatch_once(&predicate, ^{
@@ -37,17 +44,30 @@
     if(self = [super init]){
         
         _coreData = [[CKCoreData alloc] init];
-        _serializationClass = [[CKNSJSONSerialization alloc] init];
         _router = [[CKRouter alloc] init];
     }
     
     return self;
 }
 
-- (CKManager *) setSharedURL:(NSString *) url user:(NSString *) user password:(NSString *) password{
+- (void) dealloc{
     
-    //RELEASE_SAFELY(_connection);
-    //_connection = [[_connectionClass alloc] initWithURL:url user:user password:password];
+    RELEASE_SAFELY(_coreData);
+    RELEASE_SAFELY(_router);
+    RELEASE_SAFELY(_baseURL);
+    RELEASE_SAFELY(_httpUser);
+    RELEASE_SAFELY(_httpPassword);
+    RELEASE_SAFELY(_connection);
+    RELEASE_SAFELY(_serializer);
+    
+    [super dealloc];
+}
+
+- (CKManager *) setBaseURL:(NSString *) url user:(NSString *) user password:(NSString *) password{
+    
+    self.baseURL = url;
+    self.httpUser = user;
+    self.httpPassword = password;
     
     return self;
 }
@@ -64,12 +84,32 @@
 
 - (id) parse:(id) object{
     
-    return [_serializationClass deserialize:object];
+    return [self.serializer deserialize:object];
 }
 
 - (id) serialize:(id) object{
     
-    return [_serializationClass serialize:object];
+    return [self.serializer serialize:object];
+}
+
+- (id) serializer{
+    
+    if(_serializer == nil && _serializationClass != nil)
+        _serializer = [[_serializationClass alloc] init];
+    
+    return _serializer;
+}
+
+- (void) sendRequest:(CKRequest *) request{
+ 
+    id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
+    [conn send:request];
+}
+
+- (CKResult *) sendSyncronousRequest:(CKRequest *) request{
+    
+    id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
+    return [conn sendSyncronously:request];
 }
 
 

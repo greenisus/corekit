@@ -12,18 +12,18 @@
 #import "RegexKitLite.h"
 
 @implementation CWInflector
-static CWInflector* sharedInstance = nil;
 
 + (CWInflector*)inflector
 {
-    
-	static dispatch_once_t predicate = 0;
+        
+	static dispatch_once_t predicate;
+    static CWInflector *_shared = nil;
     
     dispatch_once(&predicate, ^{
-        sharedInstance = [[self alloc] init];
+        _shared = [[self alloc] init];
     });
     
-    return sharedInstance;
+    return _shared;
 }
 
 - (id)init

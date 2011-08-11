@@ -8,7 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "CKConnection.h"
+#import "CKRequest.h"
 
-@interface CKNSURLConnection : NSObject <CKConnection>
+@interface CKNSURLConnection : NSObject <CKConnection, NSURLConnectionDelegate>{
+    
+    NSUInteger _responseCode;
+    NSMutableData *_responseData;
+	CKRequest *_request;
+}
+
+@property (nonatomic, assign) NSUInteger responseCode;
+@property (nonatomic, retain) NSMutableData *responseData;
+@property (nonatomic, retain) CKRequest *request;
+
+- (BOOL) connectionVerified;
+- (void) sendBatch;
 
 @end

@@ -128,12 +128,13 @@
 	_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_managedObjectModel];
 	
 	NSDictionary* options = [self persistentStoreOptions];
+    NSString *storageType = [self persistentStoreType];
 	
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataApplicationStorageType configuration:nil URL:storeURL options:options error:&error]){
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
         
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];
 		
-		if (![_persistentStoreCoordinator addPersistentStoreWithType:ckCoreDataApplicationStorageType configuration:nil URL:storeURL options:options error:&error]){
+		if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
             
             // Something is terribly wrong
             abort();
@@ -141,6 +142,11 @@
 	}
 	
 	return _persistentStoreCoordinator;
+}
+
+- (NSString *) persistentStoreType{
+    
+    return [[UIApplication sharedApplication] delegate] == nil ? ckCoreDataTestingStorageType : ckCoreDataApplicationStorageType;
 }
 
 - (NSDictionary *) persistentStoreOptions{
