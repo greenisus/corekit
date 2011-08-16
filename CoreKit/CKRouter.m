@@ -25,6 +25,16 @@
     return [CKManager sharedManager].router;
 }
 
+- (id) init{
+    
+    if(self = [super init]){
+        
+        _routes = [[NSMutableDictionary alloc] init];
+    }
+    
+    return self;
+}
+
 - (void) dealloc{
     
     RELEASE_SAFELY(_routes);
@@ -86,7 +96,7 @@
     
     [maps enumerateObjectsUsingBlock:^(CKRouterMap *map, NSUInteger index, BOOL *stop){
         
-        if(map.isInstanceMap == YES && map.requestMethod == method){
+        if(map.isInstanceMap == YES && (map.requestMethod == method || map.requestMethod == CKRequestMethodALL)){
             
             instanceMap = map;
             *stop = YES;
@@ -100,7 +110,7 @@
     
     NSArray *routes = [self mapsForModel:model];
     CKRouterMap *map = nil;
-    
+
     if([routes count] > 0){
         
         NSUInteger index = [routes indexOfObjectPassingTest:^BOOL(CKRouterMap *map, NSUInteger idx, BOOL *stop) {
@@ -113,7 +123,7 @@
                     return NO;
             }
             else if(method)
-                return map.requestMethod == method;
+                return (map.requestMethod == method || map.requestMethod == CKRequestMethodALL);
             else
                 return [relationship isEqualToString:map.localAttribute];
         }];

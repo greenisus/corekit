@@ -11,7 +11,7 @@
 #import "CKManager.h"
 #import "CKRecord+CKRouter.h"
 #import "CKNSURLConnection.h"
-#import "CKNSJSONSerialization.h"
+#import "CKJSONKit.h"
 
 @interface CKNSURLConnectionTests : SenTestCase
 
@@ -22,7 +22,7 @@
 - (void) setUp{
     
     [[CKManager sharedManager] setConnectionClass:[CKNSURLConnection class]];
-    [[CKManager sharedManager] setSerializationClass:[CKNSJSONSerialization class]];
+    [[CKManager sharedManager] setSerializationClass:[CKJSONKit class]];
 }
 
 - (void) testAsyncronous{
@@ -39,11 +39,7 @@
     request.completionBlock = ^(CKResult *result){
       
         complete = YES;
-    };
-    
-    request.parseBlock = ^(CKRequest *request, id object){
-        
-        [objects addObject:object];
+        [objects addObjectsFromArray:result.objects];
     };
     
     [request send];

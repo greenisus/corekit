@@ -107,11 +107,32 @@
 
 - (NSManagedObjectModel *) managedObjectModel{
     
-    if( _managedObjectModel != nil)
+    if( _managedObjectModel != nil )
 		return _managedObjectModel;
     
-    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:[NSBundle bundleForClass:[self class]]]]; 
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle bundleForClass:[self class]] bundlePath] error:nil];
+    NSArray *momFiles = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.mom' OR self ENDSWITH '.momd'"]];
     
+    BOOL modelExists = NO;
+    
+    if([momFiles count] > 0){
+        
+        for(NSString *file in momFiles){
+            
+            NSURL *momURL = [NSURL fileURLWithPath:file];
+            _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
+            
+            if(_managedObjectModel != nil){
+                
+                modelExists = YES;
+                break;
+            }
+        }
+    }
+    
+    if(!modelExists)
+        _managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+	
 	return _managedObjectModel;
 }
 
@@ -129,8 +150,10 @@
 	
 	NSDictionary* options = [self persistentStoreOptions];
     NSString *storageType = [self persistentStoreType];
-	
+
     if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
+        
+        NSLog(@"%@", [error localizedDescription]);
         
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];
 		
@@ -168,7 +191,7 @@
 
 - (NSString *) storePath{
     
-    return [[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingPathComponent:ckCoreDataStoreFileName];
+    return [[[NSBundle bundleForClass:[self class]] bundlePath] stringByAppendingPathComponent:ckCoreDataStoreFileName];
 }
 
 - (NSURL *) storeURL{

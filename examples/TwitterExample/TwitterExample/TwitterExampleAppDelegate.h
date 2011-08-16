@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TwitterExampleAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TwitterExampleAppDelegate : UIResponder <UIApplicationDelegate>{
+    
+    UINavigationController *_navigationController;
+}
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) UIWindow *window;
 
 @end

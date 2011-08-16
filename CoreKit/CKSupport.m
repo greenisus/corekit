@@ -26,7 +26,7 @@ NSArray* CK_SORT(NSString *sort){
     return sortDescriptors;
 }
 
-BOOL CK_CONNECTION_AVAILABLE(){
+BOOL CK_CONNECTION_AVAILABLE(void){
     
     return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable;
 }

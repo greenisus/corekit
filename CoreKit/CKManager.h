@@ -30,6 +30,8 @@
     CKCoreData *_coreData;
     CKRouter *_router;
     
+    NSDateFormatter *_dateFormatter;
+    
 @private
     id <CKConnection> _connection;
     id <CKSerialization> _serializer;
@@ -91,6 +93,7 @@
 @property (nonatomic, retain) NSString *httpPassword;
 @property (nonatomic, readonly, retain) id <CKConnection> connection;
 @property (nonatomic, readonly, retain) id <CKSerialization> serializer;
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, assign) BOOL batchAllRequests;
 @property (nonatomic, assign) BOOL secureAllConnections;

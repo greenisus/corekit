@@ -13,27 +13,36 @@
 		C996351613F30A80003E7CDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C996351413F30A80003E7CDD /* InfoPlist.strings */; };
 		C996351813F30A80003E7CDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C996351713F30A80003E7CDD /* main.m */; };
 		C996351C13F30A80003E7CDD /* TwitterExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C996351B13F30A80003E7CDD /* TwitterExampleAppDelegate.m */; };
-		C996354C13F30AB1003E7CDD /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C996352413F30AB1003E7CDD /* CKBindings.m */; };
-		C996354D13F30AB1003E7CDD /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C996352713F30AB1003E7CDD /* CKCoreData.m */; };
-		C996354E13F30AB1003E7CDD /* CKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C996352A13F30AB1003E7CDD /* CKManager.m */; };
-		C996354F13F30AB1003E7CDD /* CKNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C996352C13F30AB1003E7CDD /* CKNSJSONSerialization.m */; };
-		C996355013F30AB1003E7CDD /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C996352E13F30AB1003E7CDD /* CKNSURLConnection.m */; };
-		C996355113F30AB1003E7CDD /* CKRecord+CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353013F30AB1003E7CDD /* CKRecord+CKRouter.m */; };
-		C996355213F30AB1003E7CDD /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353213F30AB1003E7CDD /* CKRecord.m */; };
-		C996355313F30AB1003E7CDD /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353413F30AB1003E7CDD /* CKRecordPrivate.m */; };
-		C996355413F30AB1003E7CDD /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353613F30AB1003E7CDD /* CKRequest.m */; };
-		C996355513F30AB1003E7CDD /* CKResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353813F30AB1003E7CDD /* CKResult.m */; };
-		C996355613F30AB1003E7CDD /* CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353A13F30AB1003E7CDD /* CKRouter.m */; };
-		C996355713F30AB1003E7CDD /* CKRouterMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353C13F30AB1003E7CDD /* CKRouterMap.m */; };
-		C996355813F30AB1003E7CDD /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C996353F13F30AB1003E7CDD /* CKSupport.m */; };
-		C996355913F30AB1003E7CDD /* CWInflector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C996354313F30AB1003E7CDD /* CWInflector.mm */; };
-		C996355A13F30AB1003E7CDD /* inflections.plist in Resources */ = {isa = PBXBuildFile; fileRef = C996354413F30AB1003E7CDD /* inflections.plist */; };
-		C996355B13F30AB1003E7CDD /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C996354613F30AB1003E7CDD /* NIPaths.m */; };
-		C996355C13F30AB1003E7CDD /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C996354813F30AB1003E7CDD /* NSString+InflectionSupport.m */; };
-		C996355D13F30AB1003E7CDD /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C996354913F30AB1003E7CDD /* NSThread+Blocks.m */; };
-		C996355E13F30AB1003E7CDD /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C996354B13F30AB1003E7CDD /* RegexKitLite.m */; };
 		C996356013F30AC9003E7CDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996355F13F30AC9003E7CDD /* CoreData.framework */; };
 		C996356213F30B16003E7CDD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C996356113F30B16003E7CDD /* libicucore.dylib */; };
+		C9E67B7813F9B76D00B5C5EF /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E67B7713F9B76D00B5C5EF /* TweetCell.m */; };
+		C9E7DF8D13F993D900AB98FF /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF5F13F993D900AB98FF /* CKBindings.m */; };
+		C9E7DF8E13F993D900AB98FF /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6213F993D900AB98FF /* CKCoreData.m */; };
+		C9E7DF8F13F993D900AB98FF /* CKJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6513F993D900AB98FF /* CKJSONKit.m */; };
+		C9E7DF9013F993D900AB98FF /* CKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6713F993D900AB98FF /* CKManager.m */; };
+		C9E7DF9113F993D900AB98FF /* CKNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6913F993D900AB98FF /* CKNSJSONSerialization.m */; };
+		C9E7DF9213F993D900AB98FF /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6B13F993D900AB98FF /* CKNSURLConnection.m */; };
+		C9E7DF9313F993D900AB98FF /* CKRecord+CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6D13F993D900AB98FF /* CKRecord+CKRouter.m */; };
+		C9E7DF9413F993D900AB98FF /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF6F13F993D900AB98FF /* CKRecord.m */; };
+		C9E7DF9513F993D900AB98FF /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7113F993D900AB98FF /* CKRecordPrivate.m */; };
+		C9E7DF9613F993D900AB98FF /* CKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7313F993D900AB98FF /* CKRequest.m */; };
+		C9E7DF9713F993D900AB98FF /* CKResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7513F993D900AB98FF /* CKResult.m */; };
+		C9E7DF9813F993D900AB98FF /* CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7713F993D900AB98FF /* CKRouter.m */; };
+		C9E7DF9913F993D900AB98FF /* CKRouterMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7913F993D900AB98FF /* CKRouterMap.m */; };
+		C9E7DF9A13F993D900AB98FF /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF7C13F993D900AB98FF /* CKSupport.m */; };
+		C9E7DF9B13F993D900AB98FF /* CWInflector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8013F993D900AB98FF /* CWInflector.mm */; };
+		C9E7DF9C13F993D900AB98FF /* inflections.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E7DF8113F993D900AB98FF /* inflections.plist */; };
+		C9E7DF9D13F993D900AB98FF /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8313F993D900AB98FF /* JSONKit.m */; };
+		C9E7DF9E13F993D900AB98FF /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8513F993D900AB98FF /* NIPaths.m */; };
+		C9E7DF9F13F993D900AB98FF /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8713F993D900AB98FF /* NSString+InflectionSupport.m */; };
+		C9E7DFA013F993D900AB98FF /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8813F993D900AB98FF /* NSThread+Blocks.m */; };
+		C9E7DFA113F993D900AB98FF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8A13F993D900AB98FF /* Reachability.m */; };
+		C9E7DFA213F993D900AB98FF /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF8C13F993D900AB98FF /* RegexKitLite.m */; };
+		C9E7DFA413F993EC00AB98FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E7DFA313F993EC00AB98FF /* SystemConfiguration.framework */; };
+		C9E7DFA713F994D300AB98FF /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFA513F994D300AB98FF /* Twitter.xcdatamodeld */; };
+		C9E7DFAA13F9973700AB98FF /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFA913F9973700AB98FF /* Tweet.m */; };
+		C9E7DFAE13F99E5300AB98FF /* TwitterSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFAD13F99E5300AB98FF /* TwitterSearchTableViewController.m */; };
+		C9E7E06C13F9B4EE00AB98FF /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E7E06B13F9B4EE00AB98FF /* TweetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,49 +56,64 @@
 		C996351913F30A80003E7CDD /* TwitterExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterExample-Prefix.pch"; sourceTree = "<group>"; };
 		C996351A13F30A80003E7CDD /* TwitterExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterExampleAppDelegate.h; sourceTree = "<group>"; };
 		C996351B13F30A80003E7CDD /* TwitterExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterExampleAppDelegate.m; sourceTree = "<group>"; };
-		C996352313F30AB1003E7CDD /* CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindings.h; sourceTree = "<group>"; };
-		C996352413F30AB1003E7CDD /* CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindings.m; sourceTree = "<group>"; };
-		C996352513F30AB1003E7CDD /* CKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConnection.h; sourceTree = "<group>"; };
-		C996352613F30AB1003E7CDD /* CKCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCoreData.h; sourceTree = "<group>"; };
-		C996352713F30AB1003E7CDD /* CKCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCoreData.m; sourceTree = "<group>"; };
-		C996352813F30AB1003E7CDD /* CKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefines.h; sourceTree = "<group>"; };
-		C996352913F30AB1003E7CDD /* CKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKManager.h; sourceTree = "<group>"; };
-		C996352A13F30AB1003E7CDD /* CKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManager.m; sourceTree = "<group>"; };
-		C996352B13F30AB1003E7CDD /* CKNSJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSJSONSerialization.h; sourceTree = "<group>"; };
-		C996352C13F30AB1003E7CDD /* CKNSJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSJSONSerialization.m; sourceTree = "<group>"; };
-		C996352D13F30AB1003E7CDD /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
-		C996352E13F30AB1003E7CDD /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
-		C996352F13F30AB1003E7CDD /* CKRecord+CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKRouter.h"; sourceTree = "<group>"; };
-		C996353013F30AB1003E7CDD /* CKRecord+CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKRouter.m"; sourceTree = "<group>"; };
-		C996353113F30AB1003E7CDD /* CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecord.h; sourceTree = "<group>"; };
-		C996353213F30AB1003E7CDD /* CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecord.m; sourceTree = "<group>"; };
-		C996353313F30AB1003E7CDD /* CKRecordPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecordPrivate.h; sourceTree = "<group>"; };
-		C996353413F30AB1003E7CDD /* CKRecordPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecordPrivate.m; sourceTree = "<group>"; };
-		C996353513F30AB1003E7CDD /* CKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequest.h; sourceTree = "<group>"; };
-		C996353613F30AB1003E7CDD /* CKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRequest.m; sourceTree = "<group>"; };
-		C996353713F30AB1003E7CDD /* CKResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKResult.h; sourceTree = "<group>"; };
-		C996353813F30AB1003E7CDD /* CKResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKResult.m; sourceTree = "<group>"; };
-		C996353913F30AB1003E7CDD /* CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouter.h; sourceTree = "<group>"; };
-		C996353A13F30AB1003E7CDD /* CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouter.m; sourceTree = "<group>"; };
-		C996353B13F30AB1003E7CDD /* CKRouterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouterMap.h; sourceTree = "<group>"; };
-		C996353C13F30AB1003E7CDD /* CKRouterMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterMap.m; sourceTree = "<group>"; };
-		C996353D13F30AB1003E7CDD /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
-		C996353E13F30AB1003E7CDD /* CKSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSupport.h; sourceTree = "<group>"; };
-		C996353F13F30AB1003E7CDD /* CKSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSupport.m; sourceTree = "<group>"; };
-		C996354013F30AB1003E7CDD /* CoreKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreKit-Prefix.pch"; sourceTree = "<group>"; };
-		C996354113F30AB1003E7CDD /* CoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreKit.h; sourceTree = "<group>"; };
-		C996354213F30AB1003E7CDD /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
-		C996354313F30AB1003E7CDD /* CWInflector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CWInflector.mm; sourceTree = "<group>"; };
-		C996354413F30AB1003E7CDD /* inflections.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = inflections.plist; sourceTree = "<group>"; };
-		C996354513F30AB1003E7CDD /* NIPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPaths.h; sourceTree = "<group>"; };
-		C996354613F30AB1003E7CDD /* NIPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIPaths.m; sourceTree = "<group>"; };
-		C996354713F30AB1003E7CDD /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
-		C996354813F30AB1003E7CDD /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
-		C996354913F30AB1003E7CDD /* NSThread+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Blocks.m"; sourceTree = "<group>"; };
-		C996354A13F30AB1003E7CDD /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
-		C996354B13F30AB1003E7CDD /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		C996355F13F30AC9003E7CDD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C996356113F30B16003E7CDD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		C9E67B7613F9B76D00B5C5EF /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		C9E67B7713F9B76D00B5C5EF /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
+		C9E7DF5E13F993D900AB98FF /* CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindings.h; sourceTree = "<group>"; };
+		C9E7DF5F13F993D900AB98FF /* CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindings.m; sourceTree = "<group>"; };
+		C9E7DF6013F993D900AB98FF /* CKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConnection.h; sourceTree = "<group>"; };
+		C9E7DF6113F993D900AB98FF /* CKCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCoreData.h; sourceTree = "<group>"; };
+		C9E7DF6213F993D900AB98FF /* CKCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCoreData.m; sourceTree = "<group>"; };
+		C9E7DF6313F993D900AB98FF /* CKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefines.h; sourceTree = "<group>"; };
+		C9E7DF6413F993D900AB98FF /* CKJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJSONKit.h; sourceTree = "<group>"; };
+		C9E7DF6513F993D900AB98FF /* CKJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKJSONKit.m; sourceTree = "<group>"; };
+		C9E7DF6613F993D900AB98FF /* CKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKManager.h; sourceTree = "<group>"; };
+		C9E7DF6713F993D900AB98FF /* CKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManager.m; sourceTree = "<group>"; };
+		C9E7DF6813F993D900AB98FF /* CKNSJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSJSONSerialization.h; sourceTree = "<group>"; };
+		C9E7DF6913F993D900AB98FF /* CKNSJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSJSONSerialization.m; sourceTree = "<group>"; };
+		C9E7DF6A13F993D900AB98FF /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
+		C9E7DF6B13F993D900AB98FF /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
+		C9E7DF6C13F993D900AB98FF /* CKRecord+CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKRouter.h"; sourceTree = "<group>"; };
+		C9E7DF6D13F993D900AB98FF /* CKRecord+CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKRouter.m"; sourceTree = "<group>"; };
+		C9E7DF6E13F993D900AB98FF /* CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecord.h; sourceTree = "<group>"; };
+		C9E7DF6F13F993D900AB98FF /* CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecord.m; sourceTree = "<group>"; };
+		C9E7DF7013F993D900AB98FF /* CKRecordPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecordPrivate.h; sourceTree = "<group>"; };
+		C9E7DF7113F993D900AB98FF /* CKRecordPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecordPrivate.m; sourceTree = "<group>"; };
+		C9E7DF7213F993D900AB98FF /* CKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequest.h; sourceTree = "<group>"; };
+		C9E7DF7313F993D900AB98FF /* CKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRequest.m; sourceTree = "<group>"; };
+		C9E7DF7413F993D900AB98FF /* CKResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKResult.h; sourceTree = "<group>"; };
+		C9E7DF7513F993D900AB98FF /* CKResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKResult.m; sourceTree = "<group>"; };
+		C9E7DF7613F993D900AB98FF /* CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouter.h; sourceTree = "<group>"; };
+		C9E7DF7713F993D900AB98FF /* CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouter.m; sourceTree = "<group>"; };
+		C9E7DF7813F993D900AB98FF /* CKRouterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouterMap.h; sourceTree = "<group>"; };
+		C9E7DF7913F993D900AB98FF /* CKRouterMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterMap.m; sourceTree = "<group>"; };
+		C9E7DF7A13F993D900AB98FF /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
+		C9E7DF7B13F993D900AB98FF /* CKSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSupport.h; sourceTree = "<group>"; };
+		C9E7DF7C13F993D900AB98FF /* CKSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSupport.m; sourceTree = "<group>"; };
+		C9E7DF7D13F993D900AB98FF /* CoreKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreKit-Prefix.pch"; sourceTree = "<group>"; };
+		C9E7DF7E13F993D900AB98FF /* CoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreKit.h; sourceTree = "<group>"; };
+		C9E7DF7F13F993D900AB98FF /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
+		C9E7DF8013F993D900AB98FF /* CWInflector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CWInflector.mm; sourceTree = "<group>"; };
+		C9E7DF8113F993D900AB98FF /* inflections.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = inflections.plist; sourceTree = "<group>"; };
+		C9E7DF8213F993D900AB98FF /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		C9E7DF8313F993D900AB98FF /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		C9E7DF8413F993D900AB98FF /* NIPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPaths.h; sourceTree = "<group>"; };
+		C9E7DF8513F993D900AB98FF /* NIPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIPaths.m; sourceTree = "<group>"; };
+		C9E7DF8613F993D900AB98FF /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
+		C9E7DF8713F993D900AB98FF /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
+		C9E7DF8813F993D900AB98FF /* NSThread+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Blocks.m"; sourceTree = "<group>"; };
+		C9E7DF8913F993D900AB98FF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C9E7DF8A13F993D900AB98FF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C9E7DF8B13F993D900AB98FF /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		C9E7DF8C13F993D900AB98FF /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		C9E7DFA313F993EC00AB98FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C9E7DFA613F994D300AB98FF /* Twitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twitter.xcdatamodel; sourceTree = "<group>"; };
+		C9E7DFA813F9973700AB98FF /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		C9E7DFA913F9973700AB98FF /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		C9E7DFAC13F99E5300AB98FF /* TwitterSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterSearchTableViewController.h; sourceTree = "<group>"; };
+		C9E7DFAD13F99E5300AB98FF /* TwitterSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterSearchTableViewController.m; sourceTree = "<group>"; };
+		C9E7E06B13F9B4EE00AB98FF /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E7DFA413F993EC00AB98FF /* SystemConfiguration.framework in Frameworks */,
 				C996356213F30B16003E7CDD /* libicucore.dylib in Frameworks */,
 				C996356013F30AC9003E7CDD /* CoreData.framework in Frameworks */,
 				C996350C13F30A80003E7CDD /* UIKit.framework in Frameworks */,
@@ -128,9 +153,10 @@
 		C996350A13F30A80003E7CDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9E7DFA313F993EC00AB98FF /* SystemConfiguration.framework */,
+				C9E7DF5D13F993D900AB98FF /* CoreKit */,
 				C996355F13F30AC9003E7CDD /* CoreData.framework */,
 				C996356113F30B16003E7CDD /* libicucore.dylib */,
-				C996352213F30AB1003E7CDD /* CoreKit */,
 				C996350B13F30A80003E7CDD /* UIKit.framework */,
 				C996350D13F30A80003E7CDD /* Foundation.framework */,
 				C996350F13F30A80003E7CDD /* CoreGraphics.framework */,
@@ -143,6 +169,12 @@
 			children = (
 				C996351A13F30A80003E7CDD /* TwitterExampleAppDelegate.h */,
 				C996351B13F30A80003E7CDD /* TwitterExampleAppDelegate.m */,
+				C9E7DFAC13F99E5300AB98FF /* TwitterSearchTableViewController.h */,
+				C9E7DFAD13F99E5300AB98FF /* TwitterSearchTableViewController.m */,
+				C9E7E06B13F9B4EE00AB98FF /* TweetCell.xib */,
+				C9E67B7613F9B76D00B5C5EF /* TweetCell.h */,
+				C9E67B7713F9B76D00B5C5EF /* TweetCell.m */,
+				C9E7DFAB13F9974000AB98FF /* Model */,
 				C996351213F30A80003E7CDD /* Supporting Files */,
 			);
 			path = TwitterExample;
@@ -159,53 +191,69 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C996352213F30AB1003E7CDD /* CoreKit */ = {
+		C9E7DF5D13F993D900AB98FF /* CoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				C996352313F30AB1003E7CDD /* CKBindings.h */,
-				C996352413F30AB1003E7CDD /* CKBindings.m */,
-				C996352513F30AB1003E7CDD /* CKConnection.h */,
-				C996352613F30AB1003E7CDD /* CKCoreData.h */,
-				C996352713F30AB1003E7CDD /* CKCoreData.m */,
-				C996352813F30AB1003E7CDD /* CKDefines.h */,
-				C996352913F30AB1003E7CDD /* CKManager.h */,
-				C996352A13F30AB1003E7CDD /* CKManager.m */,
-				C996352B13F30AB1003E7CDD /* CKNSJSONSerialization.h */,
-				C996352C13F30AB1003E7CDD /* CKNSJSONSerialization.m */,
-				C996352D13F30AB1003E7CDD /* CKNSURLConnection.h */,
-				C996352E13F30AB1003E7CDD /* CKNSURLConnection.m */,
-				C996352F13F30AB1003E7CDD /* CKRecord+CKRouter.h */,
-				C996353013F30AB1003E7CDD /* CKRecord+CKRouter.m */,
-				C996353113F30AB1003E7CDD /* CKRecord.h */,
-				C996353213F30AB1003E7CDD /* CKRecord.m */,
-				C996353313F30AB1003E7CDD /* CKRecordPrivate.h */,
-				C996353413F30AB1003E7CDD /* CKRecordPrivate.m */,
-				C996353513F30AB1003E7CDD /* CKRequest.h */,
-				C996353613F30AB1003E7CDD /* CKRequest.m */,
-				C996353713F30AB1003E7CDD /* CKResult.h */,
-				C996353813F30AB1003E7CDD /* CKResult.m */,
-				C996353913F30AB1003E7CDD /* CKRouter.h */,
-				C996353A13F30AB1003E7CDD /* CKRouter.m */,
-				C996353B13F30AB1003E7CDD /* CKRouterMap.h */,
-				C996353C13F30AB1003E7CDD /* CKRouterMap.m */,
-				C996353D13F30AB1003E7CDD /* CKSerialization.h */,
-				C996353E13F30AB1003E7CDD /* CKSupport.h */,
-				C996353F13F30AB1003E7CDD /* CKSupport.m */,
-				C996354013F30AB1003E7CDD /* CoreKit-Prefix.pch */,
-				C996354113F30AB1003E7CDD /* CoreKit.h */,
-				C996354213F30AB1003E7CDD /* CWInflector.h */,
-				C996354313F30AB1003E7CDD /* CWInflector.mm */,
-				C996354413F30AB1003E7CDD /* inflections.plist */,
-				C996354513F30AB1003E7CDD /* NIPaths.h */,
-				C996354613F30AB1003E7CDD /* NIPaths.m */,
-				C996354713F30AB1003E7CDD /* NSString+InflectionSupport.h */,
-				C996354813F30AB1003E7CDD /* NSString+InflectionSupport.m */,
-				C996354913F30AB1003E7CDD /* NSThread+Blocks.m */,
-				C996354A13F30AB1003E7CDD /* RegexKitLite.h */,
-				C996354B13F30AB1003E7CDD /* RegexKitLite.m */,
+				C9E7DF5E13F993D900AB98FF /* CKBindings.h */,
+				C9E7DF5F13F993D900AB98FF /* CKBindings.m */,
+				C9E7DF6013F993D900AB98FF /* CKConnection.h */,
+				C9E7DF6113F993D900AB98FF /* CKCoreData.h */,
+				C9E7DF6213F993D900AB98FF /* CKCoreData.m */,
+				C9E7DF6313F993D900AB98FF /* CKDefines.h */,
+				C9E7DF6413F993D900AB98FF /* CKJSONKit.h */,
+				C9E7DF6513F993D900AB98FF /* CKJSONKit.m */,
+				C9E7DF6613F993D900AB98FF /* CKManager.h */,
+				C9E7DF6713F993D900AB98FF /* CKManager.m */,
+				C9E7DF6813F993D900AB98FF /* CKNSJSONSerialization.h */,
+				C9E7DF6913F993D900AB98FF /* CKNSJSONSerialization.m */,
+				C9E7DF6A13F993D900AB98FF /* CKNSURLConnection.h */,
+				C9E7DF6B13F993D900AB98FF /* CKNSURLConnection.m */,
+				C9E7DF6C13F993D900AB98FF /* CKRecord+CKRouter.h */,
+				C9E7DF6D13F993D900AB98FF /* CKRecord+CKRouter.m */,
+				C9E7DF6E13F993D900AB98FF /* CKRecord.h */,
+				C9E7DF6F13F993D900AB98FF /* CKRecord.m */,
+				C9E7DF7013F993D900AB98FF /* CKRecordPrivate.h */,
+				C9E7DF7113F993D900AB98FF /* CKRecordPrivate.m */,
+				C9E7DF7213F993D900AB98FF /* CKRequest.h */,
+				C9E7DF7313F993D900AB98FF /* CKRequest.m */,
+				C9E7DF7413F993D900AB98FF /* CKResult.h */,
+				C9E7DF7513F993D900AB98FF /* CKResult.m */,
+				C9E7DF7613F993D900AB98FF /* CKRouter.h */,
+				C9E7DF7713F993D900AB98FF /* CKRouter.m */,
+				C9E7DF7813F993D900AB98FF /* CKRouterMap.h */,
+				C9E7DF7913F993D900AB98FF /* CKRouterMap.m */,
+				C9E7DF7A13F993D900AB98FF /* CKSerialization.h */,
+				C9E7DF7B13F993D900AB98FF /* CKSupport.h */,
+				C9E7DF7C13F993D900AB98FF /* CKSupport.m */,
+				C9E7DF7D13F993D900AB98FF /* CoreKit-Prefix.pch */,
+				C9E7DF7E13F993D900AB98FF /* CoreKit.h */,
+				C9E7DF7F13F993D900AB98FF /* CWInflector.h */,
+				C9E7DF8013F993D900AB98FF /* CWInflector.mm */,
+				C9E7DF8113F993D900AB98FF /* inflections.plist */,
+				C9E7DF8213F993D900AB98FF /* JSONKit.h */,
+				C9E7DF8313F993D900AB98FF /* JSONKit.m */,
+				C9E7DF8413F993D900AB98FF /* NIPaths.h */,
+				C9E7DF8513F993D900AB98FF /* NIPaths.m */,
+				C9E7DF8613F993D900AB98FF /* NSString+InflectionSupport.h */,
+				C9E7DF8713F993D900AB98FF /* NSString+InflectionSupport.m */,
+				C9E7DF8813F993D900AB98FF /* NSThread+Blocks.m */,
+				C9E7DF8913F993D900AB98FF /* Reachability.h */,
+				C9E7DF8A13F993D900AB98FF /* Reachability.m */,
+				C9E7DF8B13F993D900AB98FF /* RegexKitLite.h */,
+				C9E7DF8C13F993D900AB98FF /* RegexKitLite.m */,
 			);
 			name = CoreKit;
 			path = ../../CoreKit;
+			sourceTree = "<group>";
+		};
+		C9E7DFAB13F9974000AB98FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9E7DFA813F9973700AB98FF /* Tweet.h */,
+				C9E7DFA913F9973700AB98FF /* Tweet.m */,
+				C9E7DFA513F994D300AB98FF /* Twitter.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +282,7 @@
 		C99634FE13F30A7F003E7CDD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "MNDCreative, LLC";
 			};
 			buildConfigurationList = C996350113F30A7F003E7CDD /* Build configuration list for PBXProject "TwitterExample" */;
@@ -259,7 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C996351613F30A80003E7CDD /* InfoPlist.strings in Resources */,
-				C996355A13F30AB1003E7CDD /* inflections.plist in Resources */,
+				C9E7DF9C13F993D900AB98FF /* inflections.plist in Resources */,
+				C9E7E06C13F9B4EE00AB98FF /* TweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,24 +322,31 @@
 			files = (
 				C996351813F30A80003E7CDD /* main.m in Sources */,
 				C996351C13F30A80003E7CDD /* TwitterExampleAppDelegate.m in Sources */,
-				C996354C13F30AB1003E7CDD /* CKBindings.m in Sources */,
-				C996354D13F30AB1003E7CDD /* CKCoreData.m in Sources */,
-				C996354E13F30AB1003E7CDD /* CKManager.m in Sources */,
-				C996354F13F30AB1003E7CDD /* CKNSJSONSerialization.m in Sources */,
-				C996355013F30AB1003E7CDD /* CKNSURLConnection.m in Sources */,
-				C996355113F30AB1003E7CDD /* CKRecord+CKRouter.m in Sources */,
-				C996355213F30AB1003E7CDD /* CKRecord.m in Sources */,
-				C996355313F30AB1003E7CDD /* CKRecordPrivate.m in Sources */,
-				C996355413F30AB1003E7CDD /* CKRequest.m in Sources */,
-				C996355513F30AB1003E7CDD /* CKResult.m in Sources */,
-				C996355613F30AB1003E7CDD /* CKRouter.m in Sources */,
-				C996355713F30AB1003E7CDD /* CKRouterMap.m in Sources */,
-				C996355813F30AB1003E7CDD /* CKSupport.m in Sources */,
-				C996355913F30AB1003E7CDD /* CWInflector.mm in Sources */,
-				C996355B13F30AB1003E7CDD /* NIPaths.m in Sources */,
-				C996355C13F30AB1003E7CDD /* NSString+InflectionSupport.m in Sources */,
-				C996355D13F30AB1003E7CDD /* NSThread+Blocks.m in Sources */,
-				C996355E13F30AB1003E7CDD /* RegexKitLite.m in Sources */,
+				C9E7DF8D13F993D900AB98FF /* CKBindings.m in Sources */,
+				C9E7DF8E13F993D900AB98FF /* CKCoreData.m in Sources */,
+				C9E7DF8F13F993D900AB98FF /* CKJSONKit.m in Sources */,
+				C9E7DF9013F993D900AB98FF /* CKManager.m in Sources */,
+				C9E7DF9113F993D900AB98FF /* CKNSJSONSerialization.m in Sources */,
+				C9E7DF9213F993D900AB98FF /* CKNSURLConnection.m in Sources */,
+				C9E7DF9313F993D900AB98FF /* CKRecord+CKRouter.m in Sources */,
+				C9E7DF9413F993D900AB98FF /* CKRecord.m in Sources */,
+				C9E7DF9513F993D900AB98FF /* CKRecordPrivate.m in Sources */,
+				C9E7DF9613F993D900AB98FF /* CKRequest.m in Sources */,
+				C9E7DF9713F993D900AB98FF /* CKResult.m in Sources */,
+				C9E7DF9813F993D900AB98FF /* CKRouter.m in Sources */,
+				C9E7DF9913F993D900AB98FF /* CKRouterMap.m in Sources */,
+				C9E7DF9A13F993D900AB98FF /* CKSupport.m in Sources */,
+				C9E7DF9B13F993D900AB98FF /* CWInflector.mm in Sources */,
+				C9E7DF9D13F993D900AB98FF /* JSONKit.m in Sources */,
+				C9E7DF9E13F993D900AB98FF /* NIPaths.m in Sources */,
+				C9E7DF9F13F993D900AB98FF /* NSString+InflectionSupport.m in Sources */,
+				C9E7DFA013F993D900AB98FF /* NSThread+Blocks.m in Sources */,
+				C9E7DFA113F993D900AB98FF /* Reachability.m in Sources */,
+				C9E7DFA213F993D900AB98FF /* RegexKitLite.m in Sources */,
+				C9E7DFA713F994D300AB98FF /* Twitter.xcdatamodeld in Sources */,
+				C9E7DFAA13F9973700AB98FF /* Tweet.m in Sources */,
+				C9E7DFAE13F99E5300AB98FF /* TwitterSearchTableViewController.m in Sources */,
+				C9E67B7813F9B76D00B5C5EF /* TweetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,8 +452,22 @@
 				C996352113F30A80003E7CDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9E7DFA513F994D300AB98FF /* Twitter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9E7DFA613F994D300AB98FF /* Twitter.xcdatamodel */,
+			);
+			currentVersion = C9E7DFA613F994D300AB98FF /* Twitter.xcdatamodel */;
+			path = Twitter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C99634FE13F30A7F003E7CDD /* Project object */;
 }

@@ -15,7 +15,7 @@
 
 typedef void (^CKResultBlock) (CKResult *result);
 typedef void (^CKErrorBlock) (CKResult *result, NSError **error);
-typedef void (^CKParseBlock) (CKRequest *request, id object);
+typedef void (^CKParseBlock) (id object);
 
 /**
  * HTTP methods for requests

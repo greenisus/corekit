@@ -46,6 +46,10 @@
 		C9C4198013D4A61C00B2FC31 /* CKSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */; };
 		C9C4198713D4AA8400B2FC31 /* CKNSURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */; };
 		C9C4198813D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
+		C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E7DF4A13F98F2800AB98FF /* JSONKit.h */; };
+		C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF4B13F98F2800AB98FF /* JSONKit.m */; };
+		C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */; };
+		C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */; };
 		C9F05F3413E6F12300557828 /* CKRecord+CKRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3213E6F12300557828 /* CKRecord+CKRouter.h */; };
 		C9F05F3513E6F12300557828 /* CKRecord+CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRecord+CKRouter.m */; };
 		C9F05F4013E7391700557828 /* CWInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3913E7391700557828 /* CWInflector.h */; };
@@ -133,6 +137,10 @@
 		C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
 		C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
 		C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
+		C9E7DF4A13F98F2800AB98FF /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		C9E7DF4B13F98F2800AB98FF /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJSONKit.h; sourceTree = "<group>"; };
+		C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKJSONKit.m; sourceTree = "<group>"; };
 		C9F05F3213E6F12300557828 /* CKRecord+CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKRouter.h"; sourceTree = "<group>"; };
 		C9F05F3313E6F12300557828 /* CKRecord+CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKRouter.m"; sourceTree = "<group>"; };
 		C9F05F3913E7391700557828 /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
@@ -206,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
-				C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */,
-				C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */,
+				C9E7DF4F13F98F3400AB98FF /* Apple */,
+				C9E7DF4E13F98F2B00AB98FF /* JSONKit */,
 			);
 			name = Serializations;
 			sourceTree = "<group>";
@@ -222,6 +230,26 @@
 				C9F4F2B213D75B91009DAC73 /* NIPaths.m */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C9E7DF4E13F98F2B00AB98FF /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */,
+				C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */,
+				C9E7DF4A13F98F2800AB98FF /* JSONKit.h */,
+				C9E7DF4B13F98F2800AB98FF /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		C9E7DF4F13F98F3400AB98FF /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */,
+				C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */,
+			);
+			name = Apple;
 			sourceTree = "<group>";
 		};
 		C9EC63E113DE00670059C65F /* Routing */ = {
@@ -411,6 +439,8 @@
 				C9F05F4613E7391700557828 /* RegexKitLite.h in Headers */,
 				C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */,
 				C996356913F31A7F003E7CDD /* Reachability.h in Headers */,
+				C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */,
+				C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +490,7 @@
 		C9FB7C0813CF4381009597E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "MNDCreative, LLC";
 			};
 			buildConfigurationList = C9FB7C0B13CF4381009597E7 /* Build configuration list for PBXProject "CoreKit" */;
@@ -534,6 +565,8 @@
 				C9F05F4413E7391700557828 /* RegexKitLite.m in Sources */,
 				C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */,
 				C996356A13F31A7F003E7CDD /* Reachability.m in Sources */,
+				C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */,
+				C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

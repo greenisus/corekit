@@ -15,11 +15,13 @@
     NSUInteger _responseCode;
     NSMutableData *_responseData;
 	CKRequest *_request;
+    NSURLConnection *_connection;
 }
 
 @property (nonatomic, assign) NSUInteger responseCode;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, retain) CKRequest *request;
+@property (nonatomic, retain) NSURLConnection *connection;
 
 - (BOOL) connectionVerified;
 - (void) sendBatch;

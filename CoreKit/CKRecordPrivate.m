@@ -30,8 +30,11 @@
             case NSDateAttributeType:
                 if(![value isKindOfClass:[NSDate class]] && [value isKindOfClass:[NSString class]]){
                  
-                    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-                    [formatter setDateFormat:[[self class] dateFormat]];
+                    NSDateFormatter *formatter = [CKManager sharedManager].dateFormatter;
+                    
+                    if(formatter.dateFormat == nil)
+                        [formatter setDateFormat:[[self class] dateFormat]];
+                    
                     value = [formatter dateFromString:value];
                 }
                 else

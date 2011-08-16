@@ -18,6 +18,7 @@
 @synthesize responseCode = _responseCode;
 @synthesize responseData = _responseData;
 @synthesize request = _request;
+@synthesize connection = _connection;
 
 - (id) init{
     
@@ -48,11 +49,10 @@
     
     self.request = request;
     
-    if(request.batch && !request.isBatched)
-        [self sendBatch];
+    //if(request.batch && !request.isBatched)
+    //    [self sendBatch];
     
-    else{
-                
+    //else{
         NSURLConnection *connection = [[NSURLConnection	alloc] initWithRequest:[_request remoteRequest] delegate:self startImmediately:NO];
         self.request.connection = connection;
         
@@ -66,8 +66,8 @@
         
         [connection unscheduleFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         
-        RELEASE_SAFELY(connection);
-    }
+    //RELEASE_SAFELY(connection);
+    // }
 }
 
 - (void) sendBatch{
@@ -115,13 +115,13 @@
         id object = [[CKManager sharedManager] parse:data];
         
         if(object != nil)
-            _request.parseBlock(_request, object);
+            _request.parseBlock(object);
     }
     
     [_responseData appendData:data];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+- (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
     
     [[challenge sender] useCredential:[_request credentials] forAuthenticationChallenge:challenge];
 }
@@ -132,7 +132,7 @@
 	
 	CKResult *result = [CKResult resultWithRequest:_request andError:&error];
     	
-	if(_request.errorBlock)
+	if(_request.errorBlock != nil)
 		_request.errorBlock(result, &error);
 }
 
@@ -142,7 +142,7 @@
     
 	CKResult *result = [CKResult resultWithRequest:_request andResponse:_responseData];
     
-	if(_request.completionBlock && _responseCode < 500)
+	if(_request.completionBlock != nil)
 		_request.completionBlock(result);	
 }
 

@@ -8,7 +8,8 @@
 
 #import "CKManager.h"
 #import "CKDefines.h"
-#import "CKNSJSONSerialization.h"
+#import "CKJSONKit.h"
+#import "CKNSURLConnection.h"
 
 @implementation CKManager
 
@@ -21,6 +22,7 @@
 @synthesize httpPassword = _httpPassword;
 @synthesize connection = _connection;
 @synthesize serializer = _serializer;
+@synthesize dateFormatter = _dateFormatter;
 @synthesize batchAllRequests = _batchAllRequests;
 @synthesize secureAllConnections = _secureAllConnections;
 
@@ -45,6 +47,9 @@
         
         _coreData = [[CKCoreData alloc] init];
         _router = [[CKRouter alloc] init];
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _connectionClass = [CKNSURLConnection class];
+        _serializationClass = [CKJSONKit class];
     }
     
     return self;
@@ -52,6 +57,7 @@
 
 - (void) dealloc{
     
+    RELEASE_SAFELY(_dateFormatter);
     RELEASE_SAFELY(_coreData);
     RELEASE_SAFELY(_router);
     RELEASE_SAFELY(_baseURL);
