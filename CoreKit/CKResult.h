@@ -12,7 +12,7 @@
 
 /** Standard interface to handle HTTP responses and local CoreData fetch requests */
 
-@interface CKResult : NSObject{
+@interface CKResult : NSObject <NSFastEnumeration>{
     
     NSArray *_objects;
 	NSError *_error;
@@ -32,6 +32,8 @@
 + (CKResult *) resultWithRequest:(CKRequest *) request andError:(NSError **) error;
 - (id) initWithRequest:(CKRequest *) request response:(id) response httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error; 
 - (id) initWithObjects:(NSArray *) objects; 
+- (id) object;
 - (void) setResponse:(id) response;
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len;
 
 @end

@@ -16,6 +16,7 @@
     NSString *_remotePath;
     NSString *_localAttribute;
     NSString *_remoteAttribute;
+    NSString *_responseKeyPath;
     CKRequestMethod _requestMethod;
     BOOL _isInstanceMap;
     
@@ -27,6 +28,7 @@
 @property (nonatomic, retain) NSString *remotePath;
 @property (nonatomic, retain) NSString *localAttribute;
 @property (nonatomic, retain) NSString *remoteAttribute;
+@property (nonatomic, retain) NSString *responseKeyPath;
 @property (nonatomic, assign) CKRequestMethod requestMethod;
 @property (nonatomic, assign) BOOL isInstanceMap;
 

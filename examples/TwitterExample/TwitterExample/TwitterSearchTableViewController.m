@@ -68,19 +68,14 @@
     
     [Tweet search:searchBar.text parseBlock:nil completionBlock:^(CKResult *result){
         
-        if([[result objects] count] > 0){
+        for(id obj in result){
             
-            NSArray *tweets = [[[result objects] objectAtIndex:0] objectForKey:@"results"];
-            
-            [tweets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-
-                Tweet *tweet = [Tweet build:obj];
-                [_tweets addObject:tweet];
-            }];
-            
-            [self.tableView reloadData];
-            [_loadingView stopAnimating];
-        }
+            Tweet *tweet = [Tweet build:obj];
+            [_tweets addObject:tweet];
+        };
+        
+        [self.tableView reloadData];
+        [_loadingView stopAnimating];
             
     } errorBlock:nil];
 }

@@ -107,32 +107,11 @@
 
 - (NSManagedObjectModel *) managedObjectModel{
     
-    if( _managedObjectModel != nil )
+    if( _managedObjectModel != nil)
 		return _managedObjectModel;
     
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle bundleForClass:[self class]] bundlePath] error:nil];
-    NSArray *momFiles = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.mom' OR self ENDSWITH '.momd'"]];
+    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:[NSBundle bundleForClass:[self class]]]]; 
     
-    BOOL modelExists = NO;
-    
-    if([momFiles count] > 0){
-        
-        for(NSString *file in momFiles){
-            
-            NSURL *momURL = [NSURL fileURLWithPath:file];
-            _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
-            
-            if(_managedObjectModel != nil){
-                
-                modelExists = YES;
-                break;
-            }
-        }
-    }
-    
-    if(!modelExists)
-        _managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
-	
 	return _managedObjectModel;
 }
 

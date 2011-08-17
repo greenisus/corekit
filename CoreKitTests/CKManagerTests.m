@@ -10,6 +10,7 @@
 #import "CKManager.h"
 #import "CKCoreData.h"
 #import "CKConnection.h"
+#import "CKRequest.h"
 
 @interface CKManagerTests : SenTestCase {
 @private
@@ -33,6 +34,35 @@
 - (void) testCoreDataInit{
     
     STAssertNotNil(_manager.coreData.managedObjectContext, @"Failed to init CoreData");
+}
+
+- (void) testBatchRequests{
+    
+    _manager.baseURL = @"http://search.twitter.com";
+    CKRequest *request = [CKRequest request];
+    request.remotePath = @"/search.json";
+    [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
+    request.batch = YES;
+        
+    __block BOOL complete = NO;
+    NSMutableArray *objects = [NSMutableArray array];
+    
+    request.completionBlock = ^(CKResult *result){
+        
+        [objects addObjectsFromArray:result.objects];
+        //complete = YES;
+    };
+    
+    [request send];
+    
+    while(complete == NO){
+        // keep the main thread alive
+        NSLog(@"NOOO");
+    }
+    
+    int expectedResults = request.batchMaxPages * request.batchNumPerPage;
+    NSLog(@"%i results ********************************************", [objects count]);
+    STAssertEquals(expectedResults, [objects count], @"Failed to batch requests");
 }
 
 

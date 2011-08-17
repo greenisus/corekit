@@ -9,6 +9,7 @@
 #import "CKResult.h"
 #import "CKDefines.h"
 #import "CKManager.h"
+#import "NSDictionary+NSDictionary_KeyPath.h"
 
 @implementation CKResult
 
@@ -48,9 +49,17 @@
     return [self initWithRequest:nil response:objects httpResponse:nil error:nil];
 }
 
-- (void) setResponse:(id) response{
+- (id) object{
+	
+	return _objects != nil && [_objects count] > 0 ? [_objects objectAtIndex:0] : nil;
+}
 
+- (void) setResponse:(id) response{
+    
     id parsedResponse = [[CKManager sharedManager] parse:response];
+    
+    if([_request.routerMap.responseKeyPath length] > 0 && [parsedResponse isKindOfClass:[NSDictionary class]])        
+        parsedResponse = [parsedResponse objectForKeyPath:_request.routerMap.responseKeyPath];
     
     if([parsedResponse isKindOfClass:[NSArray class]])
 		[self setObjects:parsedResponse];
@@ -66,6 +75,10 @@
 		else
 			[self setObjects:[NSArray arrayWithObject:parsedResponse]];
 	}
+}
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len {
+    return [_objects countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
 - (void) dealloc{

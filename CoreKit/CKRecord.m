@@ -277,6 +277,9 @@
     
     else if([self isDeleted])
         [self removeRemotely:nil errorBlock:nil];
+    
+    else
+        [self get:nil completionBlock:nil errorBlock:nil];
 }
 
 - (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{

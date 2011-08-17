@@ -24,6 +24,8 @@
     NSString *_httpUser;
     NSString *_httpPassword;
     
+    NSString *_responseKeyPath;
+    
     BOOL _batchAllRequests;
     BOOL _secureAllConnections;
     
@@ -91,6 +93,7 @@
 @property (nonatomic, retain) NSString *baseURL;
 @property (nonatomic, retain) NSString *httpUser;
 @property (nonatomic, retain) NSString *httpPassword;
+@property (nonatomic, retain) NSString *responseKeyPath;
 @property (nonatomic, readonly, retain) id <CKConnection> connection;
 @property (nonatomic, readonly, retain) id <CKSerialization> serializer;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;

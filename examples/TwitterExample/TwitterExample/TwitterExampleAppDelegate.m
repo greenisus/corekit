@@ -26,6 +26,8 @@
     [dateFormatter release];
     
     [[CKManager sharedManager] setBaseURL:@"http://search.twitter.com/"];
+    [[CKManager sharedManager] setResponseKeyPath:@"results"];
+    
     [Tweet mapToRemotePath:@"search.json" forRequestMethod:CKRequestMethodGET];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    

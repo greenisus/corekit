@@ -13,6 +13,7 @@
 
 @class CKRouterMap;
 
+typedef void (^CKBasicBlock) ();
 typedef void (^CKResultBlock) (CKResult *result);
 typedef void (^CKErrorBlock) (CKResult *result, NSError **error);
 typedef void (^CKParseBlock) (id object);

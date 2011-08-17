@@ -33,6 +33,8 @@
 		C95D78A213D08ADF005C3C29 /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D78A013D08ADF005C3C29 /* CKCoreData.m */; };
 		C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C96C15CD13D5E91700A78055 /* CKRecord.h */; };
 		C96C15D013D5E91800A78055 /* CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C15CE13D5E91800A78055 /* CKRecord.m */; };
+		C986F28513FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = C986F28313FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h */; };
+		C986F28613FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F28413FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m */; };
 		C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C987410713E1E94600D7ECF1 /* CKRouterTests.m */; };
 		C996356913F31A7F003E7CDD /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C996356713F31A7F003E7CDD /* Reachability.h */; };
 		C996356A13F31A7F003E7CDD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C996356813F31A7F003E7CDD /* Reachability.m */; };
@@ -126,6 +128,8 @@
 		C95D78A013D08ADF005C3C29 /* CKCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCoreData.m; sourceTree = "<group>"; };
 		C96C15CD13D5E91700A78055 /* CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecord.h; sourceTree = "<group>"; };
 		C96C15CE13D5E91800A78055 /* CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecord.m; sourceTree = "<group>"; };
+		C986F28313FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSDictionary_KeyPath.h"; sourceTree = "<group>"; };
+		C986F28413FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSDictionary_KeyPath.m"; sourceTree = "<group>"; };
 		C987410713E1E94600D7ECF1 /* CKRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterTests.m; sourceTree = "<group>"; };
 		C996356713F31A7F003E7CDD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C996356813F31A7F003E7CDD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				C9F05F3813E738E600557828 /* NSString Inflections */,
 				C9F4F2B113D75B91009DAC73 /* NIPaths.h */,
 				C9F4F2B213D75B91009DAC73 /* NIPaths.m */,
+				C986F28313FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h */,
+				C986F28413FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				C996356913F31A7F003E7CDD /* Reachability.h in Headers */,
 				C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */,
 				C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */,
+				C986F28513FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +574,7 @@
 				C996356A13F31A7F003E7CDD /* Reachability.m in Sources */,
 				C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */,
 				C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */,
+				C986F28613FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

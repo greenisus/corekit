@@ -8,6 +8,8 @@
 
 #import "CKRouterMap.h"
 #import "CKRecord.h"
+#import "CKDefines.h"
+#import "CKManager.h"
 
 @implementation CKRouterMap
 
@@ -16,17 +18,29 @@
 @synthesize remotePath = _remotePath;
 @synthesize localAttribute = _localAttribute;
 @synthesize remoteAttribute = _remoteAttribute;
+@synthesize responseKeyPath = _responseKeyPath;
 @synthesize requestMethod = _requestMethod;
 @synthesize isInstanceMap = _isInstanceMap;
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
+    if (self = [super init]) {
+        
+        self.responseKeyPath = [CKManager sharedManager].responseKeyPath;
     }
     
     return self;
+}
+
+- (void) dealloc{
+    
+    [super dealloc];
+    
+    RELEASE_SAFELY(_object);
+    RELEASE_SAFELY(_remotePath);
+    RELEASE_SAFELY(_localAttribute);
+    RELEASE_SAFELY(_remoteAttribute);
+    RELEASE_SAFELY(_responseKeyPath);
 }
 
 + (CKRouterMap *) map{

@@ -10,6 +10,7 @@
 #import "CKDefines.h"
 #import "CKJSONKit.h"
 #import "CKNSURLConnection.h"
+#import "CKNSJSONSerialization.h"
 
 @implementation CKManager
 
@@ -20,6 +21,7 @@
 @synthesize baseURL = _baseURL;
 @synthesize httpUser = _httpUser;
 @synthesize httpPassword = _httpPassword;
+@synthesize responseKeyPath = _responseKeyPath;
 @synthesize connection = _connection;
 @synthesize serializer = _serializer;
 @synthesize dateFormatter = _dateFormatter;
@@ -49,7 +51,7 @@
         _router = [[CKRouter alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
-        _serializationClass = [CKJSONKit class];
+        _serializationClass = [CKNSJSONSerialization class];
     }
     
     return self;
@@ -65,6 +67,7 @@
     RELEASE_SAFELY(_httpPassword);
     RELEASE_SAFELY(_connection);
     RELEASE_SAFELY(_serializer);
+    RELEASE_SAFELY(_responseKeyPath);
     
     [super dealloc];
 }
@@ -109,7 +112,42 @@
 - (void) sendRequest:(CKRequest *) request{
  
     id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
-    [conn send:request];
+    
+    if(request.batch && !request.isBatched){
+        
+        __block NSMutableArray *objects = [NSMutableArray array];
+         __block int pagesComplete = 0;
+        CKResultBlock completionBlock = request.completionBlock;
+        
+        for(int page = 1; page <= request.batchMaxPages; page++){
+            
+            CKRequest *pagedRequest = [CKRequest requestWithMap:request.routerMap];
+            pagedRequest.isBatched = YES;
+            [pagedRequest addParameters:request.parameters];
+            [pagedRequest addParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%i", page] forKey:pagedRequest.batchPageString]];
+            
+            pagedRequest.completionBlock = ^(CKResult *result){
+                
+                if([result.objects count] > 0)
+                    [objects addObjectsFromArray:result.objects];
+                
+                pagesComplete++;
+                
+                if(pagesComplete == request.batchMaxPages || [result.objects count] == 0){
+                    
+                    NSLog(@"COMPLETION BLOCK FIRED - %@", [result.request remoteURL]);
+                    result.objects = objects;
+                    
+                    if(completionBlock != nil)
+                        completionBlock(result);
+                }
+            }; 
+            
+            [pagedRequest send];
+        }
+    }
+    else
+        [conn send:request];
 }
 
 - (CKResult *) sendSyncronousRequest:(CKRequest *) request{

@@ -32,7 +32,7 @@
                  
                     NSDateFormatter *formatter = [CKManager sharedManager].dateFormatter;
                     
-                    if(formatter.dateFormat == nil)
+                    if([formatter.dateFormat length] == 0)
                         [formatter setDateFormat:[[self class] dateFormat]];
                     
                     value = [formatter dateFromString:value];
