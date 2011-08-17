@@ -18,17 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterFullStyle];
-    [dateFormatter setDateFormat:@"EEE, dd MMMM yyyy HH:mm:ss ZZ"];
-    
-    [[CKManager sharedManager] setDateFormatter:dateFormatter];
-    [dateFormatter release];
-    
     [[CKManager sharedManager] setBaseURL:@"http://search.twitter.com/"];
     [[CKManager sharedManager] setResponseKeyPath:@"results"];
+    [[CKManager sharedManager] setDateFormat:@"EEE, dd MMMM yyyy HH:mm:ss ZZ"];
     
-    [Tweet mapToRemotePath:@"search.json" forRequestMethod:CKRequestMethodGET];
+    [Tweet mapToRemotePath:@"search.json"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    
     

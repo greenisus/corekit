@@ -19,6 +19,8 @@
 
 /**
  Send asyncronous request
+ 
+ @param request
  */
 - (void) send:(CKRequest *) request;
 
@@ -29,5 +31,15 @@
  @return CKResult object
  */
 - (CKResult *) sendSyncronously:(CKRequest *) request;
+
+@optional
+/**
+ Send a batched, asyncronous request.
+ 
+ By default, CKManager will handle this for you with a series of enumerated requests. However, if your 3rd party connection library already implements this functionality, CKManager will fire this method instead.
+ 
+ @param request 
+ */
+- (void) sendBatchRequest:(CKRequest *) request;
 
 @end

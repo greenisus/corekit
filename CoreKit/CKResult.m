@@ -9,6 +9,8 @@
 #import "CKResult.h"
 #import "CKDefines.h"
 #import "CKManager.h"
+#import "CKRecord.h"
+#import "CKRouterMap.h"
 #import "NSDictionary+NSDictionary_KeyPath.h"
 
 @implementation CKResult
@@ -56,25 +58,15 @@
 
 - (void) setResponse:(id) response{
     
-    id parsedResponse = [[CKManager sharedManager] parse:response];
+    id objects = [[CKManager sharedManager] parse:response];
     
-    if([_request.routerMap.responseKeyPath length] > 0 && [parsedResponse isKindOfClass:[NSDictionary class]])        
-        parsedResponse = [parsedResponse objectForKeyPath:_request.routerMap.responseKeyPath];
+    if([_request.routerMap.responseKeyPath length] > 0 && [objects isKindOfClass:[NSDictionary class]])        
+        objects = [objects objectForKeyPath:_request.routerMap.responseKeyPath];
+        
+    if(_request.routerMap.model != nil)        
+        objects = [_request.routerMap.model build:objects];
     
-    if([parsedResponse isKindOfClass:[NSArray class]])
-		[self setObjects:parsedResponse];
-    
-	else if([parsedResponse isKindOfClass:[NSDictionary class]]){
-		
-		id rootObject = [parsedResponse objectForKey:[[parsedResponse allKeys] objectAtIndex:0]];
-		
-		if([rootObject isKindOfClass:[NSDictionary class]])
-			[self setObjects:[NSArray arrayWithObject:rootObject]];
-		else if([rootObject isKindOfClass:[NSArray class]])
-			[self setObjects:rootObject];
-		else
-			[self setObjects:[NSArray arrayWithObject:parsedResponse]];
-	}
+    [objects isKindOfClass:[NSArray class]] ? [self setObjects:objects] : [self setObjects:[NSArray arrayWithObject:objects]];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len {

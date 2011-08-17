@@ -25,6 +25,7 @@
 @synthesize connection = _connection;
 @synthesize serializer = _serializer;
 @synthesize dateFormatter = _dateFormatter;
+@synthesize dateFormat = _dateFormat;
 @synthesize batchAllRequests = _batchAllRequests;
 @synthesize secureAllConnections = _secureAllConnections;
 
@@ -59,6 +60,7 @@
 
 - (void) dealloc{
     
+    RELEASE_SAFELY(_dateFormat);
     RELEASE_SAFELY(_dateFormatter);
     RELEASE_SAFELY(_coreData);
     RELEASE_SAFELY(_router);
@@ -79,6 +81,11 @@
     self.httpPassword = password;
     
     return self;
+}
+
+- (void) setDateFormat:(NSString *)dateFormat{
+    
+    [_dateFormatter setDateFormat:dateFormat];
 }
 
 - (NSManagedObjectContext *) managedObjectContext{
@@ -113,7 +120,10 @@
  
     id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
     
-    if(request.batch && !request.isBatched){
+    if(request.batch && [conn respondsToSelector:@selector(sendBatchRequest:)])
+        [conn performSelector:@selector(sendBatchRequest:) withObject:request];
+    
+    else if(request.batch && !request.isBatched){
         
         __block NSMutableArray *objects = [NSMutableArray array];
          __block int pagesComplete = 0;
@@ -123,8 +133,8 @@
             
             CKRequest *pagedRequest = [CKRequest requestWithMap:request.routerMap];
             pagedRequest.isBatched = YES;
+            pagedRequest.batchCurrentPage = page;
             [pagedRequest addParameters:request.parameters];
-            [pagedRequest addParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%i", page] forKey:pagedRequest.batchPageString]];
             
             pagedRequest.completionBlock = ^(CKResult *result){
                 
@@ -135,7 +145,6 @@
                 
                 if(pagesComplete == request.batchMaxPages || [result.objects count] == 0){
                     
-                    NSLog(@"COMPLETION BLOCK FIRED - %@", [result.request remoteURL]);
                     result.objects = objects;
                     
                     if(completionBlock != nil)

@@ -73,6 +73,7 @@ typedef enum CKRequestInterval {
     NSString *_batchMaxPerPageString;
     NSUInteger _batchNumPerPage;
     NSUInteger _batchMaxPages;
+    NSUInteger _batchCurrentPage;
     
     NSUInteger _connectionTimeout;
     
@@ -105,6 +106,7 @@ typedef enum CKRequestInterval {
 @property (nonatomic, retain) NSString *batchMaxPerPageString;
 @property (nonatomic, assign) NSUInteger batchNumPerPage;
 @property (nonatomic, assign) NSUInteger batchMaxPages;
+@property (nonatomic, assign) NSUInteger batchCurrentPage;
 @property (nonatomic, assign) NSUInteger connectionTimeout;
 @property (nonatomic, assign) CKRequestInterval interval;
 @property (nonatomic, retain) id connection;

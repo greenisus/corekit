@@ -68,11 +68,7 @@
     
     [Tweet search:searchBar.text parseBlock:nil completionBlock:^(CKResult *result){
         
-        for(id obj in result){
-            
-            Tweet *tweet = [Tweet build:obj];
-            [_tweets addObject:tweet];
-        };
+        [_tweets addObjectsFromArray:result.objects];
         
         [self.tableView reloadData];
         [_loadingView stopAnimating];
@@ -125,16 +121,7 @@
     CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
     
     cell.tweet.frame = CGRectMake(cell.tweet.frame.origin.x, cell.tweet.frame.origin.y, cell.tweet.frame.size.width, size.height);
-    
-    NSTimeInterval interval = abs([tweet.created_at timeIntervalSinceNow]);
-    
-    if(interval <= 60)
-        cell.time.text = [NSString stringWithFormat:@"%is",(int)interval];
-    else{
-        int mins = (int)(interval / 60);
-        cell.time.text = [NSString stringWithFormat:@"%im",mins];
-    }
-    
+    cell.time.text = [tweet relativeDate];    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;

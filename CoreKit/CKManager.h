@@ -33,6 +33,7 @@
     CKRouter *_router;
     
     NSDateFormatter *_dateFormatter;
+    NSString *_dateFormat;
     
 @private
     id <CKConnection> _connection;
@@ -97,6 +98,7 @@
 @property (nonatomic, readonly, retain) id <CKConnection> connection;
 @property (nonatomic, readonly, retain) id <CKSerialization> serializer;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain) NSString *dateFormat;
 
 @property (nonatomic, assign) BOOL batchAllRequests;
 @property (nonatomic, assign) BOOL secureAllConnections;

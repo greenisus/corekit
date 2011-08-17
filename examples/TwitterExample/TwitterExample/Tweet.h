@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSString * text;
 
 + (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (NSString *) relativeDate;
 
 @end

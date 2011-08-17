@@ -67,7 +67,9 @@
                 break;
         }
     }
-    
+    else
+        value = [NSNull null];
+        
     [self setValue:value forKey:property];
 }
 

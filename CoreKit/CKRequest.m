@@ -33,6 +33,7 @@
 @synthesize batchMaxPerPageString = _batchMaxPerPageString;
 @synthesize batchNumPerPage = _batchNumPerPage;
 @synthesize batchMaxPages = _batchMaxPages;
+@synthesize batchCurrentPage = _batchCurrentPage;
 @synthesize connectionTimeout = _connectionTimeout;
 @synthesize interval = _interval;
 @synthesize connection = _connection;
@@ -52,6 +53,7 @@
         self.batchPageString = @"page";
         _batchNumPerPage = 50;
         _batchMaxPages = 5;
+        _batchCurrentPage = 1;
         _connectionTimeout = 60;
         _secure = NO;
         self.routerMap = map;
@@ -145,10 +147,12 @@
     
     [url insertString:baseURL atIndex:0];
     
-    if(_batch || [CKManager sharedManager].batchAllRequests){
+    if(_batch || _isBatched || [CKManager sharedManager].batchAllRequests){
         
         if(![_parameters objectForKey:_batchMaxPerPageString])
             [_parameters setObject:[NSString stringWithFormat:@"%i", _batchNumPerPage] forKey:_batchMaxPerPageString];
+        
+        [_parameters setObject:[NSString stringWithFormat:@"%i", _batchCurrentPage] forKey:_batchPageString];
     }
     
     if([_parameters count] > 0)
