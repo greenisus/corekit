@@ -38,13 +38,13 @@
                     value = [formatter dateFromString:value];
                 }
                 else
-                    value = nil;
+                    value = [NSNull null];
                 
                 break;
                 
             case NSStringAttributeType:
                 if(![value isKindOfClass:[NSString class]])
-                    value = [value respondsToSelector:@selector(stringValue)] ? [value stringValue] : nil;
+                    value = [value respondsToSelector:@selector(stringValue)] ? [value stringValue] : [NSNull null];
                 break;
                 
             case NSInteger16AttributeType:
