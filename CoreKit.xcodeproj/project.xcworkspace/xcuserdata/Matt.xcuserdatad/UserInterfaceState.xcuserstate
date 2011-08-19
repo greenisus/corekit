@@ -13557,7 +13557,7 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>335464027.94304198</real>
+		<real>335465083.87350202</real>
 		<string>{0, 978}</string>
 		<string>{779, 0}</string>
 		<string>-persistentStoreOptions</string>
@@ -13893,7 +13893,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94292301</real>
+		<real>335465083.87337899</real>
 		<string>{1528, 2700}</string>
 		<string>{2134, 0}</string>
 		<string>-managedObjectContext</string>
@@ -22052,7 +22052,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94736397</real>
+		<real>335465083.87869501</real>
 		<string>{0, 2495}</string>
 		<string>{712, 0}</string>
 		<string>-init</string>
@@ -22385,7 +22385,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94722998</real>
+		<real>335465083.87857902</real>
 		<string>{0, 1021}</string>
 		<string>{743, 57}</string>
 		<string>responseKeyPath</string>
@@ -25237,7 +25237,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94502002</real>
+		<real>335465083.87598902</real>
 		<string>{6272, 627}</string>
 		<string>{3190, 0}</string>
 		<string>-mapForRelationship:forModel:andRequestMethod:</string>
@@ -25567,9 +25567,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94484103</real>
-		<string>{0, 2702}</string>
-		<string>{2313, 0}</string>
+		<real>335465083.87585902</real>
+		<string>{0, 3200}</string>
+		<string>{2811, 0}</string>
 		<string>-setResponse:</string>
 		<dict>
 			<key>$class</key>
@@ -30275,7 +30275,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94202602</real>
+		<real>335465083.87236297</real>
 		<string>{6272, 627}</string>
 		<string>{3190, 0}</string>
 		<dict>
@@ -30605,7 +30605,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94189698</real>
+		<real>335465083.87223101</real>
 		<string>{3473, 9}</string>
 		<string>+create:</string>
 		<dict>
@@ -48951,7 +48951,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94922501</real>
+		<real>335465083.88075602</real>
 		<string>{0, 1237}</string>
 		<string>{873, 0}</string>
 		<string>@interface CKResult</string>
@@ -49273,9 +49273,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94910902</real>
-		<string>{0, 2702}</string>
-		<string>{2313, 0}</string>
+		<real>335465083.88064301</real>
+		<string>{0, 3200}</string>
+		<string>{2811, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -53929,7 +53929,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94609398</real>
+		<real>335465083.87725401</real>
 		<string>{499, 2476}</string>
 		<string>{2968, 0}</string>
 		<string>@interface CKManager</string>
@@ -54245,9 +54245,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94597203</real>
-		<string>{0, 4688}</string>
-		<string>{4680, 0}</string>
+		<real>335465083.87712598</real>
+		<string>{0, 4576}</string>
+		<string>{4568, 0}</string>
 		<string>@implementation CKManager</string>
 		<dict>
 			<key>$class</key>
@@ -57578,7 +57578,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94831002</real>
+		<real>335465083.879691</real>
 		<string>{0, 1772}</string>
 		<string>{983, 5}</string>
 		<string>-testAsyncronous</string>
@@ -61422,8 +61422,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94418597</real>
-		<string>{137, 2301}</string>
+		<real>335465083.87476802</real>
+		<string>{137, 2366}</string>
 		<string>{3121, 0}</string>
 		<string>-sendRequest:</string>
 		<dict>
@@ -61753,8 +61753,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.94405502</real>
-		<string>{775, 2951}</string>
+		<real>335465083.87462997</real>
+		<string>{2432, 1294}</string>
 		<string>{1811, 0}</string>
 		<string>@interface CKRequest</string>
 		<dict>
@@ -78315,51 +78315,51 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
+					<integer>4223</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
 					<integer>4224</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4225</integer>
+					<integer>4226</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4227</integer>
+					<integer>4228</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4229</integer>
+					<integer>4230</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4231</integer>
+					<integer>4232</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4233</integer>
+					<integer>4234</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4235</integer>
+					<integer>4236</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4237</integer>
+					<integer>4238</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4239</integer>
+					<integer>4240</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4241</integer>
+					<integer>4242</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>4243</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>4245</integer>
+					<integer>4244</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -79226,17 +79226,8 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4223</integer>
+				<integer>3333</integer>
 			</dict>
-		</dict>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>125</integer>
-			</dict>
-			<key>NS.string</key>
-			<string>file://localhost/Work/corekit/CoreKit/CKRequest.h</string>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -79269,7 +79260,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4226</integer>
+				<integer>4225</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79295,7 +79286,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4228</integer>
+				<integer>4227</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79321,7 +79312,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4230</integer>
+				<integer>4229</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79347,7 +79338,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4232</integer>
+				<integer>4231</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79373,7 +79364,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4234</integer>
+				<integer>4233</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79399,7 +79390,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4236</integer>
+				<integer>4235</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79425,7 +79416,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4238</integer>
+				<integer>4237</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79451,7 +79442,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4240</integer>
+				<integer>4239</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79477,7 +79468,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4242</integer>
+				<integer>4241</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79503,7 +79494,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>4244</integer>
+				<integer>4243</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -79529,8 +79520,17 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1519</integer>
+				<integer>4245</integer>
 			</dict>
+		</dict>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>125</integer>
+			</dict>
+			<key>NS.string</key>
+			<string>file://localhost/Work/corekit/CoreKit/CKResult.m</string>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -81788,7 +81788,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.93934703</real>
+		<real>335464084.52768499</real>
 		<string>{775, 2951}</string>
 		<string>{1811, 0}</string>
 		<dict>
@@ -83937,7 +83937,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.93926698</real>
+		<real>335465083.86961699</real>
 		<string>{0, 1772}</string>
 		<string>{983, 5}</string>
 		<dict>
@@ -85834,7 +85834,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335464027.939179</real>
+		<real>335465083.86949599</real>
 		<string>{0, 1021}</string>
 		<string>{743, 57}</string>
 		<dict>

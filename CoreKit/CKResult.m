@@ -75,7 +75,17 @@
         
         [CKRecord save];
         
-        self.objects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
+        NSArray *parsedObjects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSMutableArray *safeObjects = [NSMutableArray arrayWithCapacity:[parsedObjects count]];
+            
+            for(id obj in parsedObjects)
+                [obj isKindOfClass:[NSManagedObject class]] ? [safeObjects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]] : [safeObjects addObject:obj];
+            
+            self.objects = safeObjects;
+        });
     }
 }
 

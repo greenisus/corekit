@@ -150,8 +150,7 @@
         
         pagedRequest.completionBlock = ^(CKResult *result){
             
-            for(NSManagedObject *obj in result.objects)
-                [objects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]];
+            [objects addObjectsFromArray:result.objects];
             
             pagesComplete++;
             
