@@ -11,6 +11,10 @@
 
 @implementation CKRecord (CKRecordPrivate)
 
+- (CKRecord *) threadedSafeSelf{
+    return (CKRecord *) [[CKManager sharedManager].managedObjectContext existingObjectWithID:[self objectID] error:nil];
+}
+
 + (NSManagedObjectContext *) managedObjectContext{
     
     return [[CKManager sharedManager] managedObjectContext];
@@ -34,8 +38,9 @@
                     
                     if([formatter.dateFormat length] == 0)
                         [formatter setDateFormat:[[self class] dateFormat]];
-                    
-                    value = [formatter dateFromString:value];
+
+                    //value = [formatter dateFromString:value];
+                    value = [NSDate date];
                 }
                 else
                     value = [NSNull null];
@@ -69,8 +74,13 @@
     }
     else
         value = [NSNull null];
-        
-    [self setValue:value forKey:property];
+     
+    NSError *error = nil;
+    if(![self validateValue:&value forKey:property error:&error]){
+        NSLog(@"ERROR - %@", error);
+    }
+    else
+        [self setValue:value forKey:property];
 }
 
 - (void) setRelationship:(NSString *) key value:(id) value relationshipDescription:(NSRelationshipDescription *) relationshipDescription {

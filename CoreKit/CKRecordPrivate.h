@@ -10,6 +10,7 @@
 
 @interface CKRecord (CKRecordPrivate)
 
+- (CKRecord *) threadedSafeSelf;
 + (NSManagedObjectContext *) managedObjectContext;
 
 - (NSPropertyDescription *) propertyDescriptionForKey:(NSString *) key;

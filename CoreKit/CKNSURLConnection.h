@@ -24,6 +24,5 @@
 @property (nonatomic, retain) NSURLConnection *connection;
 
 - (BOOL) connectionVerified;
-- (void) sendBatch;
 
 @end

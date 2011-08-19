@@ -58,15 +58,25 @@
 
 - (void) setResponse:(id) response{
     
-    id objects = [[CKManager sharedManager] parse:response];
+    if([response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
+        self.objects = response;
     
-    if([_request.routerMap.responseKeyPath length] > 0 && [objects isKindOfClass:[NSDictionary class]])        
-        objects = [objects objectForKeyPath:_request.routerMap.responseKeyPath];
+    else{
         
-    if(_request.routerMap.model != nil)        
-        objects = [_request.routerMap.model build:objects];
-    
-    [objects isKindOfClass:[NSArray class]] ? [self setObjects:objects] : [self setObjects:[NSArray arrayWithObject:objects]];
+        id parsed = [[CKManager sharedManager] parse:response];
+        
+        if([_request.routerMap.responseKeyPath length] > 0 && [parsed isKindOfClass:[NSDictionary class]])        
+            parsed = [parsed objectForKeyPath:_request.routerMap.responseKeyPath];
+        
+        Class model = _request.routerMap.model;
+        
+        if(model != nil && parsed != nil)        
+            parsed = [model build:parsed];
+        
+        [CKRecord save];
+        
+        self.objects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
+    }
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len {

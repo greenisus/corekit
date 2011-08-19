@@ -111,9 +111,9 @@ typedef enum CKRequestInterval {
 @property (nonatomic, assign) CKRequestInterval interval;
 @property (nonatomic, retain) id connection;
 @property (nonatomic, retain) id parser;
-@property (nonatomic, assign) CKResultBlock completionBlock;
-@property (nonatomic, assign) CKErrorBlock errorBlock;
-@property (nonatomic, assign) CKParseBlock parseBlock;
+@property (nonatomic, copy) CKResultBlock completionBlock;
+@property (nonatomic, copy) CKErrorBlock errorBlock;
+@property (nonatomic, copy) CKParseBlock parseBlock;
 
 + (CKRequest *) request;
 + (CKRequest *) requestWithMap:(CKRouterMap *) map;
@@ -125,5 +125,6 @@ typedef enum CKRequestInterval {
 - (void) addHeaders:(NSDictionary *) data;
 - (void) send;
 - (CKResult *) sendSyncronously;
+- (void) scheduleRepeatRequest;
 
 @end

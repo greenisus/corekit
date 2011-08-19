@@ -111,7 +111,7 @@
 			
 			id resource = [self findById:[NSNumber numberWithInt:[resourceId intValue]]];
             
-            returnValue = resource == nil ? [self create:data] : [resource update:data];
+            returnValue = resource == nil ? [self create:data] : [[resource threadedSafeSelf] update:data];
 		}
 		else
 			returnValue = [self create:data];
@@ -144,26 +144,33 @@
 
 - (id) update:(NSDictionary *) data{
         
-    [data enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id key, id obj, BOOL *stop){
+    CKRecord *safe = [self threadedSafeSelf];
+    
+    [data enumerateKeysAndObjectsWithOptions:0 usingBlock:^(id key, id obj, BOOL *stop){
         
-        NSDictionary *propertyMap = [[self class] attributeMap];
+        NSDictionary *propertyMap = [[safe class] attributeMap];
         NSString *localKey = [[propertyMap allKeys] containsObject:key] ? [propertyMap objectForKey:key] : key;  
         
-        NSPropertyDescription *propertyDescription = [self propertyDescriptionForKey:localKey];
+        NSPropertyDescription *propertyDescription = [safe propertyDescriptionForKey:localKey];
         
         if(propertyDescription != nil){
             
             if([propertyDescription isKindOfClass:[NSRelationshipDescription class]])
-                [self setRelationship:localKey value:obj relationshipDescription:(NSRelationshipDescription *) propertyDescription];
+                [safe setRelationship:localKey value:obj relationshipDescription:(NSRelationshipDescription *) propertyDescription];
             else if([propertyDescription isKindOfClass:[NSAttributeDescription class]]){
                 
                 NSAttributeDescription *attributeDescription = (NSAttributeDescription *) propertyDescription;
-                [self setProperty:localKey value:obj attributeType:[attributeDescription attributeType]];
+                [safe setProperty:localKey value:obj attributeType:[attributeDescription attributeType]];
             }
         }
     }];
     
-    return self;
+    NSError *error = nil;
+    if(![safe validateForUpdate:&error]){
+        NSLog(@"%@", error);
+    }
+    
+    return safe;
 }
 
 + (void) updateWithPredicate:(NSPredicate *)predicate withData:(NSDictionary *)data{

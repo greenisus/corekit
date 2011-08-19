@@ -48,42 +48,14 @@
 		return;
     
     self.request = request;
+        
+    _connection = [[NSURLConnection	alloc] initWithRequest:[_request remoteRequest] delegate:self];
+    self.request.connection = _connection;
     
-    //if(request.batch && !request.isBatched)
-    //    [self sendBatch];
-    
-    //else{
-        NSURLConnection *connection = [[NSURLConnection	alloc] initWithRequest:[_request remoteRequest] delegate:self startImmediately:NO];
-        self.request.connection = connection;
+    do {
         
-        [connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        [connection start];
-        
-        while (!_request.completed && !_request.failed) {			
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
-                                     beforeDate:[NSDate dateWithTimeIntervalSinceNow:_request.connectionTimeout]];
-        }
-        
-        [connection unscheduleFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
-    //RELEASE_SAFELY(connection);
-    // }
-}
-
-- (void) sendBatch{
-    
-    for(int page = 1; page <= _request.batchMaxPages; page++){
-        
-//        CKRequest *pagedRequest = [_request copy];
-//        pagedRequest.isBatched = YES;
-//        
-//        [pagedRequest addParameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%i", page] forKey:pagedRequest.batchPageString]];
-//        
-//        CKNSURLConnection *connection = [[CKNSURLConnection alloc] init];
-//        [connection send:pagedRequest];
-//        
-//        [pagedRequest release];
-    }
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:_request.connectionTimeout]];
+    } while (!self.request.completed);
     
 }
 
@@ -100,7 +72,7 @@
     
 	_responseCode = [httpResponse statusCode];
     
-	return [[[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error]autorelease];
+	return [[[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error] autorelease];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response{
@@ -129,11 +101,14 @@
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     
     _request.failed = YES;
+    _request.completed = YES;
 	
 	CKResult *result = [CKResult resultWithRequest:_request andError:&error];
     	
 	if(_request.errorBlock != nil)
-		_request.errorBlock(result, &error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _request.errorBlock(result, &error);
+        });
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
@@ -143,13 +118,16 @@
 	CKResult *result = [CKResult resultWithRequest:_request andResponse:_responseData];
     
 	if(_request.completionBlock != nil)
-		_request.completionBlock(result);	
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _request.completionBlock(result);	
+        });
 }
 
 - (void) dealloc{
     
     RELEASE_SAFELY(_responseData);
     RELEASE_SAFELY(_request);
+    RELEASE_SAFELY(_connection);
     
     [super dealloc];
 }

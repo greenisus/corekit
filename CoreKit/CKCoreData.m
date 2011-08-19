@@ -75,9 +75,9 @@
 
 - (NSManagedObjectContext *) managedObjectContext{
     
-    if (([NSThread isMainThread] && _managedObjectContext != nil) || _managedObjectContext != nil)
+    if ([NSThread isMainThread])
 		return _managedObjectContext;
-    else {
+    else{
 		
 		NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
 		NSManagedObjectContext *backgroundThreadContext = [threadDictionary objectForKey:ckCoreDataThreadKey];
@@ -131,9 +131,7 @@
     NSString *storageType = [self persistentStoreType];
 
     if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
-        
-        NSLog(@"%@", [error localizedDescription]);
-        
+                
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];
 		
 		if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
@@ -157,7 +155,7 @@
 }
 
 - (void) managedObjectContextDidSave:(NSNotification *)notification{
-    
+
 	[self.managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:)
 												withObject:notification
 											 waitUntilDone:YES];
@@ -180,14 +178,14 @@
 
 - (BOOL) save{
     
-    int insertedObjectsCount = [[_managedObjectContext insertedObjects] count];
-	int updatedObjectsCount = [[_managedObjectContext updatedObjects] count];
-	int deletedObjectsCount = [[_managedObjectContext deletedObjects] count];
+    int insertedObjectsCount = [[self.managedObjectContext insertedObjects] count];
+	int updatedObjectsCount = [[self.managedObjectContext updatedObjects] count];
+	int deletedObjectsCount = [[self.managedObjectContext deletedObjects] count];
     
 	NSDate *startTime = [NSDate date];
     
-	NSError *error;
-    BOOL saved = [_managedObjectContext save:&error];
+	NSError *error = nil;
+    BOOL saved = [self.managedObjectContext save:&error];
     
 	if(!saved) {
 		NSLog(@"******** CORE DATA FAILURE: Failed to save to data store: %@", [error localizedDescription]);

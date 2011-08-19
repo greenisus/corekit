@@ -109,6 +109,7 @@
 - (NSManagedObjectModel *) managedObjectModel;
 
 - (void) sendRequest:(CKRequest *) request;
+- (void) sendBatchRequest:(CKRequest *) request;
 - (CKResult *) sendSyncronousRequest:(CKRequest *) request;
 
 

@@ -18,6 +18,8 @@
 
 #define ckLogLevel 1 
 
+#define ckDomainID "com.corekit"
+
 
 /** @name Methods */
 #define RELEASE_SAFELY(__POINTER) { [__POINTER release]; __POINTER = nil; }

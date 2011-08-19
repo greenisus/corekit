@@ -52,7 +52,7 @@
         self.batchMaxPerPageString = @"limit";
         self.batchPageString = @"page";
         _batchNumPerPage = 50;
-        _batchMaxPages = 5;
+        _batchMaxPages = 20;
         _batchCurrentPage = 1;
         _connectionTimeout = 60;
         _secure = NO;
@@ -176,12 +176,36 @@
 
 - (void) send{
     
+    if(self.interval)
+        [self scheduleRepeatRequest];
+    
     [[CKManager sharedManager] sendRequest:self];
 }
 
 - (CKResult *) sendSyncronously{
     
     return [[CKManager sharedManager] sendSyncronousRequest:self];
+}
+
+- (void) scheduleRepeatRequest{
+    
+    if(self.interval < CKRequestIntervalAppDidBecomeActive){
+        
+        [NSTimer scheduledTimerWithTimeInterval:self.interval target:self selector:@selector(scheduledRequest:) userInfo:self repeats:YES];
+    }
+    
+    else if(self.interval == CKRequestIntervalAppDidBecomeActive)        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendRequest:) name:UIApplicationDidBecomeActiveNotification object:self];
+    
+    else if(self.interval == CKRequestIntervalAppDidEnterBackground)        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendRequest:) name:UIApplicationDidEnterBackgroundNotification object:self];
+}
+
+- (void) scheduledRequest:(NSTimer *) timer{
+    
+    CKRequest *request = [timer userInfo];
+    request.interval = CKRequestIntervalNone;
+    [[CKManager sharedManager] sendRequest:request];
 }
 
 - (void) dealloc{
@@ -197,6 +221,9 @@
     RELEASE_SAFELY(_connection);
     RELEASE_SAFELY(_body);
     RELEASE_SAFELY(_parser);
+    RELEASE_SAFELY(_completionBlock);
+    RELEASE_SAFELY(_errorBlock);
+    RELEASE_SAFELY(_parseBlock);
 
     [super dealloc];
 }

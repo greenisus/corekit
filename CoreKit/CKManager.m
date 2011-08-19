@@ -11,6 +11,8 @@
 #import "CKJSONKit.h"
 #import "CKNSURLConnection.h"
 #import "CKNSJSONSerialization.h"
+#import "CKJSONKit.h"
+#import <UIKit/UIKit.h>
 
 @implementation CKManager
 
@@ -52,7 +54,7 @@
         _router = [[CKRouter alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
-        _serializationClass = [CKNSJSONSerialization class];
+        _serializationClass = [CKJSONKit class];
     }
     
     return self;
@@ -117,46 +119,55 @@
 }
 
 - (void) sendRequest:(CKRequest *) request{
- 
+    
     id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
     
     if(request.batch && [conn respondsToSelector:@selector(sendBatchRequest:)])
         [conn performSelector:@selector(sendBatchRequest:) withObject:request];
     
-    else if(request.batch && !request.isBatched){
-        
-        __block NSMutableArray *objects = [NSMutableArray array];
-         __block int pagesComplete = 0;
-        CKResultBlock completionBlock = request.completionBlock;
-        
-        for(int page = 1; page <= request.batchMaxPages; page++){
-            
-            CKRequest *pagedRequest = [CKRequest requestWithMap:request.routerMap];
-            pagedRequest.isBatched = YES;
-            pagedRequest.batchCurrentPage = page;
-            [pagedRequest addParameters:request.parameters];
-            
-            pagedRequest.completionBlock = ^(CKResult *result){
-                
-                if([result.objects count] > 0)
-                    [objects addObjectsFromArray:result.objects];
-                
-                pagesComplete++;
-                
-                if(pagesComplete == request.batchMaxPages || [result.objects count] == 0){
-                    
-                    result.objects = objects;
-                    
-                    if(completionBlock != nil)
-                        completionBlock(result);
-                }
-            }; 
-            
-            [pagedRequest send];
-        }
-    }
+    else if(request.batch && !request.isBatched)
+        [self sendBatchRequest:request];
+    
     else
-        [conn send:request];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [conn send:request];
+        });
+}
+
+- (void) sendBatchRequest:(CKRequest *) request{
+    
+    __block NSMutableArray *objects = [[NSMutableArray alloc] init];
+    __block int pagesComplete = 0;
+    
+    for(int page = 1; page <= request.batchMaxPages; page++){
+        
+        CKRequest *pagedRequest = [CKRequest requestWithMap:request.routerMap];
+        pagedRequest.isBatched = YES;
+        pagedRequest.batchCurrentPage = page;
+        [pagedRequest addParameters:request.parameters];
+        
+        NSLog(@"%@", [pagedRequest remoteURL]);
+        
+        pagedRequest.completionBlock = ^(CKResult *result){
+            
+            for(NSManagedObject *obj in result.objects)
+                [objects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]];
+            
+            pagesComplete++;
+            
+            if(pagesComplete == request.batchMaxPages){
+                
+                result.objects = objects;
+                
+                if(request.completionBlock != nil)
+                    request.completionBlock(result);
+                
+                [objects release];
+            }
+        }; 
+        
+        [pagedRequest send];
+    }
 }
 
 - (CKResult *) sendSyncronousRequest:(CKRequest *) request{

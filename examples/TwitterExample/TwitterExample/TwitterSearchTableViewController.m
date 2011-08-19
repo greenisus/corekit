@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
     
+    [_tweets addObjectsFromArray:[Tweet all]];
+    
     self.title = @"Search Twitter";
 
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -64,7 +66,6 @@
     [searchBar resignFirstResponder];
     [_loadingView startAnimating];
     [_tweets removeAllObjects];
-    [self.tableView reloadData];
     
     [Tweet search:searchBar.text parseBlock:nil completionBlock:^(CKResult *result){
         
