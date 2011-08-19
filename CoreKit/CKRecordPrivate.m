@@ -34,16 +34,16 @@
             case NSDateAttributeType:
                 if(![value isKindOfClass:[NSDate class]] && [value isKindOfClass:[NSString class]]){
                  
-                    NSDateFormatter *formatter = [CKManager sharedManager].dateFormatter;
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    formatter.dateFormat = [CKManager sharedManager].dateFormat;
                     
                     if([formatter.dateFormat length] == 0)
                         [formatter setDateFormat:[[self class] dateFormat]];
-
-                    //value = [formatter dateFromString:value];
-                    value = [NSDate date];
+                    
+                    value = [formatter dateFromString:value];
+                    
+                    [formatter release];
                 }
-                else
-                    value = [NSNull null];
                 
                 break;
                 

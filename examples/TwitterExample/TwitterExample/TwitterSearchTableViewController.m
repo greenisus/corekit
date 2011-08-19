@@ -66,6 +66,8 @@
     [searchBar resignFirstResponder];
     [_loadingView startAnimating];
     [_tweets removeAllObjects];
+    [Tweet removeAll];
+    [self.tableView reloadData];
     
     [Tweet search:searchBar.text parseBlock:nil completionBlock:^(CKResult *result){
         

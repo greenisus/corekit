@@ -52,7 +52,7 @@
         self.batchMaxPerPageString = @"limit";
         self.batchPageString = @"page";
         _batchNumPerPage = 50;
-        _batchMaxPages = 20;
+        _batchMaxPages = 5;
         _batchCurrentPage = 1;
         _connectionTimeout = 60;
         _secure = NO;

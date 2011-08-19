@@ -129,14 +129,14 @@
 	
 	NSDictionary* options = [self persistentStoreOptions];
     NSString *storageType = [self persistentStoreType];
-
+    
     if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
                 
 		[[NSFileManager defaultManager] removeItemAtPath:storePath error:nil];
 		
 		if (![_persistentStoreCoordinator addPersistentStoreWithType:storageType configuration:nil URL:storeURL options:options error:&error]){
             
-            // Something is terribly wrong
+            NSLog(@"%@", error);
             abort();
         }
 	}
@@ -161,19 +161,25 @@
 											 waitUntilDone:YES];
 }
 
-- (void)mergeChanges:(NSNotification *)notification {
+- (void) mergeChanges:(NSNotification *)notification {
     
 	[self performSelectorOnMainThread:@selector(managedObjectContextDidSave:) withObject:notification waitUntilDone:YES];
 }
 
 - (NSString *) storePath{
     
-    return [[[NSBundle bundleForClass:[self class]] bundlePath] stringByAppendingPathComponent:ckCoreDataStoreFileName];
+    return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:ckCoreDataStoreFileName];
 }
 
 - (NSURL *) storeURL{
     
     return [NSURL fileURLWithPath:[self storePath]];
+}
+
+- (NSString *) applicationDocumentsDirectory {	
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
 }
 
 - (BOOL) save{

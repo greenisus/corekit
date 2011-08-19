@@ -32,18 +32,18 @@
 		C986F2D113FC2D41005662B3 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F2BA13FC2D41005662B3 /* RegexKitLite.m */; };
 		C996350C13F30A80003E7CDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996350B13F30A80003E7CDD /* UIKit.framework */; };
 		C996350E13F30A80003E7CDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996350D13F30A80003E7CDD /* Foundation.framework */; };
-		C996351013F30A80003E7CDD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996350F13F30A80003E7CDD /* CoreGraphics.framework */; };
 		C996351613F30A80003E7CDD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C996351413F30A80003E7CDD /* InfoPlist.strings */; };
 		C996351813F30A80003E7CDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C996351713F30A80003E7CDD /* main.m */; };
 		C996351C13F30A80003E7CDD /* TwitterExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C996351B13F30A80003E7CDD /* TwitterExampleAppDelegate.m */; };
 		C996356013F30AC9003E7CDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996355F13F30AC9003E7CDD /* CoreData.framework */; };
-		C996356213F30B16003E7CDD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C996356113F30B16003E7CDD /* libicucore.dylib */; };
 		C9E67B7813F9B76D00B5C5EF /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E67B7713F9B76D00B5C5EF /* TweetCell.m */; };
 		C9E7DFA413F993EC00AB98FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E7DFA313F993EC00AB98FF /* SystemConfiguration.framework */; };
 		C9E7DFA713F994D300AB98FF /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFA513F994D300AB98FF /* Twitter.xcdatamodeld */; };
 		C9E7DFAA13F9973700AB98FF /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFA913F9973700AB98FF /* Tweet.m */; };
 		C9E7DFAE13F99E5300AB98FF /* TwitterSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DFAD13F99E5300AB98FF /* TwitterSearchTableViewController.m */; };
 		C9E7E06C13F9B4EE00AB98FF /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E7E06B13F9B4EE00AB98FF /* TweetCell.xib */; };
+		C9F7906713FEE8820012DD94 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C996350F13F30A80003E7CDD /* CoreGraphics.framework */; };
+		C9F7906813FEE8890012DD94 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C996356113F30B16003E7CDD /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,12 +124,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E7DFA413F993EC00AB98FF /* SystemConfiguration.framework in Frameworks */,
-				C996356213F30B16003E7CDD /* libicucore.dylib in Frameworks */,
-				C996356013F30AC9003E7CDD /* CoreData.framework in Frameworks */,
-				C996350C13F30A80003E7CDD /* UIKit.framework in Frameworks */,
 				C996350E13F30A80003E7CDD /* Foundation.framework in Frameworks */,
-				C996351013F30A80003E7CDD /* CoreGraphics.framework in Frameworks */,
+				C996350C13F30A80003E7CDD /* UIKit.framework in Frameworks */,
+				C996356013F30AC9003E7CDD /* CoreData.framework in Frameworks */,
+				C9F7906813FEE8890012DD94 /* libicucore.dylib in Frameworks */,
+				C9F7906713FEE8820012DD94 /* CoreGraphics.framework in Frameworks */,
+				C9E7DFA413F993EC00AB98FF /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +391,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -410,6 +411,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -54,7 +54,7 @@
         _router = [[CKRouter alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
-        _serializationClass = [CKJSONKit class];
+        _serializationClass = [CKNSJSONSerialization class];
     }
     
     return self;
@@ -88,6 +88,9 @@
 - (void) setDateFormat:(NSString *)dateFormat{
     
     [_dateFormatter setDateFormat:dateFormat];
+    
+    RELEASE_SAFELY(_dateFormat);
+    _dateFormat = [dateFormat retain];
 }
 
 - (NSManagedObjectContext *) managedObjectContext{
@@ -150,7 +153,8 @@
         
         pagedRequest.completionBlock = ^(CKResult *result){
             
-            [objects addObjectsFromArray:result.objects];
+            for(NSManagedObject *obj in result.objects)
+                [objects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]];
             
             pagesComplete++;
             

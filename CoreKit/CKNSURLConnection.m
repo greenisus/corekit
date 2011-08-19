@@ -44,6 +44,8 @@
 
 - (void) send:(CKRequest *) request{
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     if(![self connectionVerified])
 		return;
     
@@ -102,6 +104,7 @@
     
     _request.failed = YES;
     _request.completed = YES;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	CKResult *result = [CKResult resultWithRequest:_request andError:&error];
     	
@@ -114,6 +117,7 @@
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
 	
     _request.completed = YES;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 	CKResult *result = [CKResult resultWithRequest:_request andResponse:_responseData];
     

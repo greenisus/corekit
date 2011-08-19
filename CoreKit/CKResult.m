@@ -58,13 +58,13 @@
 
 - (void) setResponse:(id) response{
     
-    if([response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
+    if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
         self.objects = response;
     
-    else{
+    else if (response != nil){
         
         id parsed = [[CKManager sharedManager] parse:response];
-        
+
         if([_request.routerMap.responseKeyPath length] > 0 && [parsed isKindOfClass:[NSDictionary class]])        
             parsed = [parsed objectForKeyPath:_request.routerMap.responseKeyPath];
         
@@ -72,21 +72,19 @@
         
         if(model != nil && parsed != nil)        
             parsed = [model build:parsed];
+                
+        self.objects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
         
+//        NSMutableArray *safeObjects = [NSMutableArray arrayWithCapacity:[parsedObjects count]];
+//        
+//        for(id obj in parsedObjects)
+//            [obj isKindOfClass:[NSManagedObject class]] ? [safeObjects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]] : [safeObjects addObject:obj];
+//        
+//        self.objects = safeObjects;
         [CKRecord save];
-        
-        NSArray *parsedObjects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSMutableArray *safeObjects = [NSMutableArray arrayWithCapacity:[parsedObjects count]];
-            
-            for(id obj in parsedObjects)
-                [obj isKindOfClass:[NSManagedObject class]] ? [safeObjects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]] : [safeObjects addObject:obj];
-            
-            self.objects = safeObjects;
-        });
     }
+    else
+        self.objects = [NSArray array];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len {

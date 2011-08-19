@@ -25,7 +25,7 @@
     request.completionBlock = completionBlock;
     request.errorBlock = errorBlock;
     request.batch = YES;
-    request.interval = CKRequestIntervalEvery10Seconds;
+    //request.interval = CKRequestIntervalEvery10Seconds;
     [request addParameters:[NSDictionary dictionaryWithObject:query forKey:@"q"]];
     
     [request send];

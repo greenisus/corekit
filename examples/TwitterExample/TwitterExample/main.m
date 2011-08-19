@@ -12,7 +12,8 @@
 
 int main(int argc, char *argv[])
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TwitterExampleAppDelegate class]));
-    }
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    int retval = UIApplicationMain(argc, argv, nil, NSStringFromClass([TwitterExampleAppDelegate class]));
+    [pool release];
+    return retval;
 }
