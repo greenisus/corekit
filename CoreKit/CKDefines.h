@@ -6,9 +6,13 @@
 //  Copyright 2011 MNDCreative, LLC. All rights reserved.
 //
 
-/** @name Properties */
-/** The default path for fixtures, used for testing or seeding inital data */
+/** @name ckFixturePath */
+/** The default path for testing fixtures */
 #define ckFixturePath @"fixtures/"
+
+/** @name ckFixturePath */
+/** The default path for seeds */
+#define ckSeedPath @"seeds/"
 
 /** Set a class prefix such as RS, RAX, etc.. Will be parsed out when necessary for remote operations and local file mapping */
 #define ckCoreDataClassPrefix @""

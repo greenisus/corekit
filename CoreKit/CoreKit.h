@@ -6,7 +6,7 @@
 //  Copyright 2011 MNDCreative, LLC. All rights reserved.
 //
 
-#import "CKSupport.h"
+#import "CKDefines.h"
 #import "CKManager.h"
 #import "CKCoreData.h"
 #import "CKRecord.h"

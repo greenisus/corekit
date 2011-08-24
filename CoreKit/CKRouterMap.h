@@ -33,6 +33,7 @@
 @property (nonatomic, assign) BOOL isInstanceMap;
 
 + (CKRouterMap *) map;
++ (CKRouterMap *) mapWithRemotePath:(NSString *) remotePath;
 
 - (BOOL) isAttributeMap;
 - (BOOL) isRelationshipMap;

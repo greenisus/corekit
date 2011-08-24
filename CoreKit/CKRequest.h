@@ -15,8 +15,9 @@
 
 typedef void (^CKBasicBlock) ();
 typedef void (^CKResultBlock) (CKResult *result);
-typedef void (^CKErrorBlock) (CKResult *result, NSError **error);
 typedef void (^CKParseBlock) (id object);
+typedef id (^CKFormatBlock) (id object);
+
 
 /**
  * HTTP methods for requests
@@ -83,7 +84,7 @@ typedef enum CKRequestInterval {
     id <CKSerialization> _parser;
     
     CKResultBlock _completionBlock;
-    CKErrorBlock _errorBlock;
+    CKResultBlock _errorBlock;
     CKParseBlock _parseBlock;
 }
 
@@ -112,7 +113,7 @@ typedef enum CKRequestInterval {
 @property (nonatomic, retain) id connection;
 @property (nonatomic, retain) id parser;
 @property (nonatomic, copy) CKResultBlock completionBlock;
-@property (nonatomic, copy) CKErrorBlock errorBlock;
+@property (nonatomic, copy) CKResultBlock errorBlock;
 @property (nonatomic, copy) CKParseBlock parseBlock;
 
 + (CKRequest *) request;

@@ -7,12 +7,7 @@
 //
 
 #import "CKCoreData.h"
-
-#ifndef __IPHONE_5_0
-#import "NSThread+Blocks.m"
-#else
 #import <UIKit/UIKit.h>
-#endif
 
 @implementation CKCoreData
 
@@ -29,49 +24,14 @@
 - (id)init{
     
     if (self = [super init]){
-        
-//#ifdef __IPHONE_5_0  
-//        UIManagedDocument *doc = [[UIManagedDocument alloc] initWithFileURL:[self storeURL]];
-//        doc.persistentStoreOptions = [self persistentStoreOptions];
-//        
-//        [doc openWithCompletionHandler:^(BOOL success){
-//            if (!success) {
-//                NSLog(@"****************** FAILED TO OPEN **********************");
-//            }
-//        }];
-//        
-//        self.managedObjectContext = doc.managedObjectContext; 
-//        self.managedObjectModel = doc.managedObjectModel;
-//#else
+
         self.managedObjectModel = [self managedObjectModel];
 		self.persistentStoreCoordinator = [self persistentStoreCoordinator];
 		_managedObjectContext = [self newManagedObjectContext];
-//#endif
     }
     
     return self;
 }
-
-#if NS_BLOCKS_AVAILABLE
-- (void)performBlock:(void (^)())block{
-    
-#ifdef __IPHONE_5_0
-    [_managedObjectContext performBlock:block];
-#else
-    [[NSThread currentThread] performBlockInBackground:block];
-#endif
-}
-
-- (void)performBlockAndWait:(void (^)())block{
-    
-#ifdef __IPHONE_5_0
-    [_managedObjectContext performBlockAndWait:block];
-#else
-    [[NSThread currentThread] performBlock:block waitUntilDone:YES];
-#endif
-}
-
-#endif
 
 - (NSManagedObjectContext *) managedObjectContext{
     

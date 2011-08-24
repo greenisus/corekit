@@ -11,7 +11,7 @@
 #import "CKSupport.h"
 #import "CKManager.h"
 #import "NSString+InflectionSupport.h"
-
+#import <UIKit/UIKit.h>
 
 @implementation CKNSURLConnection
 
@@ -19,6 +19,7 @@
 @synthesize responseData = _responseData;
 @synthesize request = _request;
 @synthesize connection = _connection;
+@synthesize responseHeaders = _responseHeaders;
 
 - (id) init{
     
@@ -44,12 +45,11 @@
 
 - (void) send:(CKRequest *) request{
     
+    self.request = request;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     if(![self connectionVerified])
 		return;
-    
-    self.request = request;
         
     _connection = [[NSURLConnection	alloc] initWithRequest:[_request remoteRequest] delegate:self];
     self.request.connection = _connection;
@@ -73,6 +73,7 @@
 	NSData *response = [NSURLConnection sendSynchronousRequest:[_request remoteRequest] returningResponse:&httpResponse error:&error];
     
 	_responseCode = [httpResponse statusCode];
+    self.responseHeaders = [httpResponse allHeaderFields];
     
 	return [[[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error] autorelease];
 }
@@ -110,7 +111,7 @@
     	
 	if(_request.errorBlock != nil)
         dispatch_async(dispatch_get_main_queue(), ^{
-            _request.errorBlock(result, &error);
+            _request.errorBlock(result);
         });
 }
 
@@ -132,6 +133,7 @@
     RELEASE_SAFELY(_responseData);
     RELEASE_SAFELY(_request);
     RELEASE_SAFELY(_connection);
+    RELEASE_SAFELY(_responseHeaders);
     
     [super dealloc];
 }

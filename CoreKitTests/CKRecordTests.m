@@ -243,7 +243,7 @@
     CKRequest *request1 = [record requestForGet];
     request1.batch = YES;
     
-    STAssertEqualObjects([[request1 remoteURL] absoluteString], @"http://shopify.com/orders/1?limit=50", @"Failed to properly format URL");
+    STAssertEqualObjects([[request1 remoteURL] absoluteString], @"http://shopify.com/orders/1?page=1&limit=50", @"Failed to properly format URL");
 }
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C97631B613FF084E00C883A2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C97631B213FF084E00C883A2 /* Default.png */; };
+		C97631B713FF084E00C883A2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97631B313FF084E00C883A2 /* Default@2x.png */; };
+		C97631B813FF084E00C883A2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C97631B413FF084E00C883A2 /* Icon.png */; };
+		C97631B913FF084E00C883A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97631B513FF084E00C883A2 /* Icon@2x.png */; };
 		C986F2BB13FC2D41005662B3 /* CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F28B13FC2D41005662B3 /* CKBindings.m */; };
 		C986F2BC13FC2D41005662B3 /* CKCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F28E13FC2D41005662B3 /* CKCoreData.m */; };
 		C986F2BD13FC2D41005662B3 /* CKJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F29113FC2D41005662B3 /* CKJSONKit.m */; };
@@ -47,6 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C97631B213FF084E00C883A2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
+		C97631B313FF084E00C883A2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
+		C97631B413FF084E00C883A2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
+		C97631B513FF084E00C883A2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
 		C986F28A13FC2D41005662B3 /* CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindings.h; sourceTree = "<group>"; };
 		C986F28B13FC2D41005662B3 /* CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindings.m; sourceTree = "<group>"; };
 		C986F28C13FC2D41005662B3 /* CKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConnection.h; sourceTree = "<group>"; };
@@ -96,7 +104,7 @@
 		C986F2B813FC2D41005662B3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C986F2B913FC2D41005662B3 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		C986F2BA13FC2D41005662B3 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		C996350713F30A80003E7CDD /* TwitterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C996350713F30A80003E7CDD /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C996350B13F30A80003E7CDD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C996350D13F30A80003E7CDD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C996350F13F30A80003E7CDD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,7 +213,7 @@
 		C996350813F30A80003E7CDD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C996350713F30A80003E7CDD /* TwitterExample.app */,
+				C996350713F30A80003E7CDD /* Twitter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,6 +251,10 @@
 		C996351213F30A80003E7CDD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C97631B213FF084E00C883A2 /* Default.png */,
+				C97631B313FF084E00C883A2 /* Default@2x.png */,
+				C97631B413FF084E00C883A2 /* Icon.png */,
+				C97631B513FF084E00C883A2 /* Icon@2x.png */,
 				C996351313F30A80003E7CDD /* TwitterExample-Info.plist */,
 				C996351413F30A80003E7CDD /* InfoPlist.strings */,
 				C996351713F30A80003E7CDD /* main.m */,
@@ -278,7 +290,7 @@
 			);
 			name = TwitterExample;
 			productName = TwitterExample;
-			productReference = C996350713F30A80003E7CDD /* TwitterExample.app */;
+			productReference = C996350713F30A80003E7CDD /* Twitter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -315,6 +327,10 @@
 				C996351613F30A80003E7CDD /* InfoPlist.strings in Resources */,
 				C9E7E06C13F9B4EE00AB98FF /* TweetCell.xib in Resources */,
 				C986F2CA13FC2D41005662B3 /* inflections.plist in Resources */,
+				C97631B613FF084E00C883A2 /* Default.png in Resources */,
+				C97631B713FF084E00C883A2 /* Default@2x.png in Resources */,
+				C97631B813FF084E00C883A2 /* Icon.png in Resources */,
+				C97631B913FF084E00C883A2 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +441,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TwitterExample/TwitterExample-Prefix.pch";
 				INFOPLIST_FILE = "TwitterExample/TwitterExample-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Twitter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -436,7 +452,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TwitterExample/TwitterExample-Prefix.pch";
 				INFOPLIST_FILE = "TwitterExample/TwitterExample-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Twitter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

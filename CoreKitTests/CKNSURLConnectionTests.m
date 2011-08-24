@@ -21,30 +21,30 @@
 
 - (void) setUp{
     
-    [[CKManager sharedManager] setConnectionClass:[CKNSURLConnection class]];
-    [[CKManager sharedManager] setSerializationClass:[CKJSONKit class]];
 }
 
 - (void) testAsyncronous{
     
+    // NEED TO STUB 
+    return;
+    
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     
-    CKRequest *request = [CKRequest request];
-    request.remotePath = @"/search.json";
+    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     
-    __block BOOL complete = NO;
+    NSLog(@"%@", [request remoteURL]);
+    
     NSMutableArray *objects = [NSMutableArray array];
     
     request.completionBlock = ^(CKResult *result){
       
-        complete = YES;
         [objects addObjectsFromArray:result.objects];
     };
     
     [request send];
     
-    while(!complete){
+    while(!request.completed){
         // keep the main thread alive
     }
     
@@ -53,10 +53,12 @@
 
 - (void) testSyncronously{
     
+    // NEED TO STUB 
+    return;
+    
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     
-    CKRequest *request = [CKRequest request];
-    request.remotePath = @"search.json";
+    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     
     CKResult *result = [request sendSyncronously];

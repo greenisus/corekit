@@ -109,22 +109,24 @@ typedef enum CKRecordOptions {
 
 /** Automatically detects whether the object should be a GET, POST, PUT, or DELETE operation */
 - (void) sync;
-- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 
-+ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
++ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 + (CKRequest *) requestForGet;
 
-- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (CKRequest *) requestForPost;
 
-- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (CKRequest *) requestForPut;
 
-- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (CKRequest *) requestForGet;
 
-- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
+- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (CKRequest *) requestForRemoveRemotely;
+
+- (id) serialize;
 
 
 /** @name Counting */
@@ -158,7 +160,7 @@ typedef enum CKRecordOptions {
 /** Return all records using a predfined class CKSearch object 
  @param search 
  */ 
-// + (NSArray *) find:(CKSearch *) search;
+// + (NSArray *) findWithPredicate:(CKSearch *) search;
 
 /** Find all results matching the specified predicate 
  @param predicate `NSPredicate` object
@@ -236,6 +238,11 @@ typedef enum CKRecordOptions {
  */
 + (id) fixtureNamed:(NSString *) name atPath:(NSString *) path;
 
+
+/** @name Seeds */
+
++ (BOOL) seed;
++ (BOOL) seedGroup:(NSString *) groupName;
 
 /** @name Defaults */
 

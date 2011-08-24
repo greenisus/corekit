@@ -27,10 +27,4 @@
 - (BOOL) save;
 - (NSString *) applicationDocumentsDirectory;
 
-#if NS_BLOCKS_AVAILABLE
-- (void)performBlock:(void (^)())block NS_AVAILABLE(10_7,  5_0);
-- (void)performBlockAndWait:(void (^)())block NS_AVAILABLE(10_7,  5_0);
-#endif
-
-
 @end

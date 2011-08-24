@@ -19,6 +19,7 @@
         
     Class _connectionClass;
 	Class _serializationClass;
+    Class _fixtureSerializationClass;
     
     NSString *_baseURL;
     NSString *_httpUser;
@@ -38,6 +39,7 @@
 @private
     id <CKConnection> _connection;
     id <CKSerialization> _serializer;
+    id <CKSerialization> _fixtureSerializer;
 }
 
 
@@ -79,6 +81,12 @@
  */
 @property (nonatomic, assign) Class serializationClass;
 
+/** The class used to parse local fixtures
+ 
+ Must conform to protocol CKSerialization
+ */
+@property (nonatomic, assign) Class fixtureSerializationClass;
+
 /** Used for all remote connections
  
  Must conform to protocol CKConnection
@@ -97,12 +105,18 @@
 @property (nonatomic, retain) NSString *responseKeyPath;
 @property (nonatomic, readonly, retain) id <CKConnection> connection;
 @property (nonatomic, readonly, retain) id <CKSerialization> serializer;
+@property (nonatomic, readonly, retain) id <CKSerialization> fixtureSerializer;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
 @property (nonatomic, retain) NSString *dateFormat;
 
 @property (nonatomic, assign) BOOL batchAllRequests;
 @property (nonatomic, assign) BOOL secureAllConnections;
 
+
+- (BOOL) loadSeedFiles:(NSArray *) files groupName:(NSString *) groupName;
+- (BOOL) loadSeedFilesForGroupName:(NSString *) groupName;
+- (BOOL) loadAllSeedFiles;
++ (NSArray *) seedFiles;
 
 
 - (NSManagedObjectContext *) managedObjectContext;

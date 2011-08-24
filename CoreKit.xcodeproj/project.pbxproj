@@ -10,6 +10,8 @@
 		C9030A2F13D60A630024AE31 /* CKRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A2E13D60A630024AE31 /* CKRecordTests.m */; };
 		C9030A3B13D624A10024AE31 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = C9030A3A13D624A10024AE31 /* fixtures */; };
 		C915059913E889A9004941A5 /* inflections.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9F05F3B13E7391700557828 /* inflections.plist */; };
+		C91F9D2E14042A2500C42219 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
+		C91F9D3414042A2500C42219 /* CoreSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F9D3314042A2500C42219 /* CoreSupport.m */; };
 		C92BA7CE13F4297800EF4BAE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BA7CD13F4297800EF4BAE /* SystemConfiguration.framework */; };
 		C92BA7D613F47B9100EF4BAE /* CKNSURLConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BA7D513F47B9100EF4BAE /* CKNSURLConnectionTests.m */; };
 		C9377D7213D4CD370062C015 /* CKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C9377D7013D4CD370062C015 /* CKRequest.h */; };
@@ -109,6 +111,10 @@
 		C9030A3313D60D610024AE31 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
 		C9030A3413D60D610024AE31 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		C9030A3A13D624A10024AE31 /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fixtures; sourceTree = "<group>"; };
+		C91F9D2D14042A2500C42219 /* libCoreSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91F9D3114042A2500C42219 /* CoreSupport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreSupport-Prefix.pch"; sourceTree = "<group>"; };
+		C91F9D3214042A2500C42219 /* CoreSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreSupport.h; sourceTree = "<group>"; };
+		C91F9D3314042A2500C42219 /* CoreSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreSupport.m; sourceTree = "<group>"; };
 		C92BA7CD13F4297800EF4BAE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C92BA7D513F47B9100EF4BAE /* CKNSURLConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnectionTests.m; sourceTree = "<group>"; };
 		C9377D7013D4CD370062C015 /* CKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRequest.h; sourceTree = "<group>"; };
@@ -176,6 +182,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C91F9D2A14042A2500C42219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91F9D2E14042A2500C42219 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FB7C0E13CF4381009597E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,6 +218,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C91F9D2F14042A2500C42219 /* CoreSupport */ = {
+			isa = PBXGroup;
+			children = (
+				C91F9D3214042A2500C42219 /* CoreSupport.h */,
+				C91F9D3314042A2500C42219 /* CoreSupport.m */,
+				C91F9D3014042A2500C42219 /* Supporting Files */,
+			);
+			path = CoreSupport;
+			sourceTree = "<group>";
+		};
+		C91F9D3014042A2500C42219 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C91F9D3114042A2500C42219 /* CoreSupport-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C9C4198313D4A8D600B2FC31 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +364,7 @@
 				C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */,
 				C9FB7C1613CF4381009597E7 /* CoreKit */,
 				C9FB7C2C13CF4381009597E7 /* CoreKitTests */,
+				C91F9D2F14042A2500C42219 /* CoreSupport */,
 				C9FB7C1313CF4381009597E7 /* Frameworks */,
 				C9FB7C1213CF4381009597E7 /* Products */,
 			);
@@ -342,6 +375,7 @@
 			children = (
 				C9FB7C1113CF4381009597E7 /* libCoreKit.a */,
 				C9FB7C2113CF4381009597E7 /* CoreKitTests.octest */,
+				C91F9D2D14042A2500C42219 /* libCoreSupport.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,6 +453,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		C91F9D2B14042A2500C42219 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FB7C0F13CF4381009597E7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +495,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C91F9D2C14042A2500C42219 /* CoreSupport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C91F9D3714042A2500C42219 /* Build configuration list for PBXNativeTarget "CoreSupport" */;
+			buildPhases = (
+				C91F9D2914042A2500C42219 /* Sources */,
+				C91F9D2A14042A2500C42219 /* Frameworks */,
+				C91F9D2B14042A2500C42219 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreSupport;
+			productName = CoreSupport;
+			productReference = C91F9D2D14042A2500C42219 /* libCoreSupport.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		C9FB7C1013CF4381009597E7 /* CoreKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9FB7C3813CF4381009597E7 /* Build configuration list for PBXNativeTarget "CoreKit" */;
@@ -513,6 +571,7 @@
 			projectRoot = "";
 			targets = (
 				C9FB7C1013CF4381009597E7 /* CoreKit */,
+				C91F9D2C14042A2500C42219 /* CoreSupport */,
 				C9FB7C2013CF4381009597E7 /* CoreKitTests */,
 			);
 		};
@@ -548,6 +607,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C91F9D2914042A2500C42219 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91F9D3414042A2500C42219 /* CoreSupport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9FB7C0D13CF4381009597E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +681,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C91F9D3514042A2500C42219 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreSupport.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreSupport/CoreSupport-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C91F9D3614042A2500C42219 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreSupport.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreSupport/CoreSupport-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		C9FB7C3613CF4381009597E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -731,6 +824,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C91F9D3714042A2500C42219 /* Build configuration list for PBXNativeTarget "CoreSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C91F9D3514042A2500C42219 /* Debug */,
+				C91F9D3614042A2500C42219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C9FB7C0B13CF4381009597E7 /* Build configuration list for PBXProject "CoreKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

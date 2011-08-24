@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString * profile_image_url;
 @property (nonatomic, retain) NSString * text;
 
-+ (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock;
++ (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (NSString *) relativeDate;
 
 @end

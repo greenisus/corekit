@@ -18,14 +18,14 @@
 @dynamic profile_image_url;
 @dynamic text;
 
-+ (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
++ (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
     
     CKRequest *request = [Tweet requestForGet];
     request.parseBlock = parseBlock;
     request.completionBlock = completionBlock;
     request.errorBlock = errorBlock;
     request.batch = YES;
-    //request.interval = CKRequestIntervalEvery10Seconds;
+    request.interval = CKRequestIntervalEvery10Seconds;
     [request addParameters:[NSDictionary dictionaryWithObject:query forKey:@"q"]];
     
     [request send];

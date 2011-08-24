@@ -16,12 +16,14 @@
     NSMutableData *_responseData;
 	CKRequest *_request;
     NSURLConnection *_connection;
+    NSDictionary *_responseHeaders;
 }
 
 @property (nonatomic, assign) NSUInteger responseCode;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, retain) CKRequest *request;
 @property (nonatomic, retain) NSURLConnection *connection;
+@property (nonatomic, retain) NSDictionary *responseHeaders;
 
 - (BOOL) connectionVerified;
 

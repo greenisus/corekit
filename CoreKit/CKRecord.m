@@ -213,7 +213,7 @@
 
 #pragma mark -
 #pragma mark Remote Syncronization
-+ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
++ (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
     
     CKRequest *request = [self requestForGet];
     request.parseBlock = parseBlock;
@@ -228,7 +228,7 @@
     return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodGET]];
 }
 
-- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) post:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
     
     [self sync:[self requestForPost] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
@@ -236,12 +236,12 @@
 - (CKRequest *) requestForPost{
     
     CKRequest *request = [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodPOST]];
-    request.body = [[CKManager sharedManager] serialize:self];
+    request.body = [self serialize];
     
     return request;    
 }
 
-- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) put:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
         
     [self sync:[self requestForPut] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
@@ -249,12 +249,12 @@
 - (CKRequest *) requestForPut{
     
     CKRequest *request = [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodPUT]];
-    request.body = [[CKManager sharedManager] serialize:self];
+    request.body = [self serialize];
     
     return request;
 }
 
-- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) get:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
         
     [self sync:[self requestForGet] parseBlock:parseBlock completionBlock:completionBlock errorBlock:errorBlock];
 }
@@ -264,7 +264,7 @@
     return [CKRequest requestWithMap:[self mapForRequestMethod:CKRequestMethodGET]];
 }
 
-- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) removeRemotely:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
     
    [self sync:[self requestForRemoveRemotely] parseBlock:nil completionBlock:completionBlock errorBlock:errorBlock];
 }
@@ -289,7 +289,7 @@
         [self get:nil completionBlock:nil errorBlock:nil];
 }
 
-- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKErrorBlock) errorBlock{
+- (void) sync:(CKRequest *) request parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock{
     
     if(request.parseBlock == nil)
         request.parseBlock = parseBlock;
@@ -299,6 +299,12 @@
     
     if(request.errorBlock == nil)
         request.errorBlock = errorBlock;    
+}
+
+
+- (id) serialize{
+    
+    return [[CKManager sharedManager] serialize:self];
 }
 
 
@@ -454,6 +460,21 @@
         contents = [contents objectForKey:name];
     
     return contents;
+}
+
+#pragma mark -
+#pragma mark Seeds
+
++ (BOOL) seed{
+    
+    return [self seedGroup:nil];
+}
+
++ (BOOL) seedGroup:(NSString *) groupName{
+    
+    NSArray *files = [CKManager seedFiles];
+    NSArray *seeds = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH %@", [self entityNameWithPrefix:NO]]];
+    return [[CKManager sharedManager] loadSeedFiles:seeds groupName:groupName];
 }
 
 

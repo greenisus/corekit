@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>CoreSupport.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C91F9D2C14042A2500C42219</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C9FB7C1013CF4381009597E7</key>
 		<dict>
 			<key>primary</key>

@@ -12,10 +12,13 @@
 #import "CKNSURLConnection.h"
 #import "CKNSJSONSerialization.h"
 #import "CKJSONKit.h"
-#import <UIKit/UIKit.h>
+#import "CKRecord.h"
+
 
 @implementation CKManager
 
+@synthesize fixtureSerializer = _fixtureSerializer;
+@synthesize fixtureSerializationClass = _fixtureSerializationClass;
 @synthesize serializationClass = _serializationClass;
 @synthesize connectionClass = _connectionClass;
 @synthesize coreData = _coreData;
@@ -50,11 +53,13 @@
     
     if(self = [super init]){
         
+        _baseURL = @"";
         _coreData = [[CKCoreData alloc] init];
         _router = [[CKRouter alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
-        _serializationClass = [CKNSJSONSerialization class];
+        _serializationClass = [CKJSONKit class];
+        _fixtureSerializationClass = [CKJSONKit class];
     }
     
     return self;
@@ -71,6 +76,7 @@
     RELEASE_SAFELY(_httpPassword);
     RELEASE_SAFELY(_connection);
     RELEASE_SAFELY(_serializer);
+    RELEASE_SAFELY(_fixtureSerializer);
     RELEASE_SAFELY(_responseKeyPath);
     
     [super dealloc];
@@ -113,6 +119,16 @@
     return [self.serializer serialize:object];
 }
 
+- (id) parseFixture:(NSString *) object{
+    
+    if(_fixtureSerializationClass != nil){
+        id <CKSerialization> parser = [[[_fixtureSerializationClass alloc] init] autorelease];
+        return [parser deserialize:[object dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    else
+        return [self parse:object];
+}
+
 - (id) serializer{
     
     if(_serializer == nil && _serializationClass != nil)
@@ -122,18 +138,16 @@
 }
 
 - (void) sendRequest:(CKRequest *) request{
-    
-    id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
-    
-    if(request.batch && [conn respondsToSelector:@selector(sendBatchRequest:)])
-        [conn performSelector:@selector(sendBatchRequest:) withObject:request];
+        
+    if(request.batch && [request.connection respondsToSelector:@selector(sendBatchRequest:)])
+        [request.connection performSelector:@selector(sendBatchRequest:) withObject:request];
     
     else if(request.batch && !request.isBatched)
         [self sendBatchRequest:request];
     
     else
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [conn send:request];
+            [request.connection send:request];
         });
 }
 
@@ -146,6 +160,8 @@
         
         CKRequest *pagedRequest = [CKRequest requestWithMap:request.routerMap];
         pagedRequest.isBatched = YES;
+        pagedRequest.parseBlock = request.parseBlock;
+        pagedRequest.errorBlock = request.errorBlock;
         pagedRequest.batchCurrentPage = page;
         [pagedRequest addParameters:request.parameters];
         
@@ -153,8 +169,13 @@
         
         pagedRequest.completionBlock = ^(CKResult *result){
             
-            for(NSManagedObject *obj in result.objects)
-                [objects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]];
+            for(NSManagedObject *obj in result.objects){
+                
+                id managedObject = [[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]];
+                                    
+                if(managedObject != nil)
+                    [objects addObject:managedObject];
+            }
             
             pagesComplete++;
             
@@ -175,8 +196,64 @@
 
 - (CKResult *) sendSyncronousRequest:(CKRequest *) request{
     
-    id <CKConnection> conn = [[[_connectionClass alloc] init] autorelease];
-    return [conn sendSyncronously:request];
+    return [request.connection sendSyncronously:request];
+}
+
++ (NSArray *) seedFiles{
+    
+    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle bundleForClass:[self class]] bundlePath], ckSeedPath] error:nil]; 
+}
+
+- (BOOL) loadAllSeedFiles{
+    
+    return [self loadSeedFilesForGroupName:nil];
+}
+
+- (BOOL) loadSeedFilesForGroupName:(NSString *) groupName{
+    
+    return [self loadSeedFiles:[[self class] seedFiles] groupName:groupName];
+}
+
+- (BOOL) loadSeedFiles:(NSArray *) files groupName:(NSString *) groupName{
+    
+    NSError *error = nil;
+    
+    for(NSString *file in files){
+        
+        NSString *content = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/%@/%@", [[NSBundle bundleForClass:[self class]] bundlePath], ckSeedPath, file] encoding:NSUTF8StringEncoding error:&error];
+        
+        id value = [self parseFixture:content];
+        
+        if(value == nil){
+            
+            error = [NSError errorWithDomain:@"com.corekit" code:1 userInfo:[NSDictionary dictionaryWithObject:content forKey:file]];
+            continue;
+        }
+        
+        NSMutableString *class = [NSMutableString stringWithString:[[[file stringByDeletingPathExtension] componentsSeparatedByString:@"_"] objectAtIndex:0]];
+        
+        if([ckCoreDataClassPrefix length] > 0)
+            [class replaceOccurrencesOfString:ckCoreDataClassPrefix withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [ckCoreDataClassPrefix length])];
+        
+        Class modelClass = NSClassFromString(class);
+        [modelClass removeAll];
+        
+        if([value isKindOfClass:[NSDictionary class]]){
+            
+            [value enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
+                
+                if(groupName == nil || (groupName != nil && [groupName isEqualToString:key]))
+                    [modelClass build:obj];
+            }];
+        }
+        else if(groupName == nil)
+            [modelClass build:value];
+        
+    }
+    
+    [CKRecord save];
+    
+    return error == nil;
 }
 
 

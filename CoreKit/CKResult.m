@@ -58,7 +58,10 @@
 
 - (void) setResponse:(id) response{
     
-    if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
+    if([response isKindOfClass:[NSData class]] && [response length] == 0)
+        self.objects = [NSArray array];
+    
+    else if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
         self.objects = response;
     
     else if (response != nil){
@@ -74,13 +77,6 @@
             parsed = [model build:parsed];
                 
         self.objects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
-        
-//        NSMutableArray *safeObjects = [NSMutableArray arrayWithCapacity:[parsedObjects count]];
-//        
-//        for(id obj in parsedObjects)
-//            [obj isKindOfClass:[NSManagedObject class]] ? [safeObjects addObject:[[CKManager sharedManager].managedObjectContext objectWithID:[obj objectID]]] : [safeObjects addObject:obj];
-//        
-//        self.objects = safeObjects;
         [CKRecord save];
     }
     else

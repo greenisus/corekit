@@ -38,26 +38,26 @@
 
 - (void) testBatchRequests{
     
+    // NEED TO STUB 
+    return;
+        
     _manager.baseURL = @"http://search.twitter.com";
-    CKRequest *request = [CKRequest request];
-    request.remotePath = @"/search.json";
+    
+    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     request.batch = YES;
-        
-    __block BOOL complete = NO;
+            
     NSMutableArray *objects = [NSMutableArray array];
     
     request.completionBlock = ^(CKResult *result){
         
         [objects addObjectsFromArray:result.objects];
-        //complete = YES;
     };
     
     [request send];
     
-    while(complete == NO){
+    while(!request.completed){
         // keep the main thread alive
-        NSLog(@"NOOO");
     }
     
     int expectedResults = request.batchMaxPages * request.batchNumPerPage;

@@ -22,10 +22,10 @@
 @synthesize requestMethod = _requestMethod;
 @synthesize isInstanceMap = _isInstanceMap;
 
-- (id)init
-{
+- (id)initWithRemotePath:(NSString *) remotePath{
     if (self = [super init]) {
         
+        self.remotePath = remotePath;
         self.responseKeyPath = [CKManager sharedManager].responseKeyPath;
     }
     
@@ -45,7 +45,12 @@
 
 + (CKRouterMap *) map{
     
-    return [[[CKRouterMap alloc] init] autorelease];
+    return [self mapWithRemotePath:nil];
+}
+
++ (CKRouterMap *) mapWithRemotePath:(NSString *) remotePath{
+    
+    return [[[CKRouterMap alloc] initWithRemotePath:remotePath] autorelease];
 }
 
 - (NSString *) remotePath{

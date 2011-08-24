@@ -11,6 +11,7 @@
 #import "CKRouterMap.h"
 #import "CKManager.h"
 #import "NSString+InflectionSupport.h"
+#import <UIKit/UIKit.h>
 
 @implementation CKRequest
 
@@ -57,7 +58,6 @@
         _connectionTimeout = 60;
         _secure = NO;
         self.routerMap = map;
-        
     }
     
     return self;
@@ -131,11 +131,19 @@
     
     NSMutableString *url = [[_remotePath mutableCopy] autorelease];
     NSMutableString *baseURL = [[[CKManager sharedManager].baseURL mutableCopy] autorelease];
-
-    [url replaceOccurrencesOfString:baseURL withString:@"" options:0 range:NSMakeRange(0, [url length])];
-    [url replaceOccurrencesOfString:@"//" withString:@"/" options:0 range:NSMakeRange(0, [url length])];
     
-    BOOL baseURLContainsTrailingSlash = [[baseURL substringWithRange:NSMakeRange([baseURL length] - 1, 1)] isEqualToString:@"/"];
+    if([baseURL length] == 0){
+        
+        return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:4]];
+    }
+
+    if([baseURL length] > 0 && [url length] > 0){
+        
+        [url replaceOccurrencesOfString:baseURL withString:@"" options:0 range:NSMakeRange(0, [url length])];
+        [url replaceOccurrencesOfString:@"//" withString:@"/" options:0 range:NSMakeRange(0, [url length])];
+    }
+        
+    BOOL baseURLContainsTrailingSlash = [baseURL length] > 0 ? [[baseURL substringWithRange:NSMakeRange([baseURL length] - 1, 1)] isEqualToString:@"/"] : YES;
     
     if([[url substringToIndex:1] isEqualToString:@"/"] && baseURLContainsTrailingSlash)
         [url replaceCharactersInRange:NSMakeRange(0, 1) withString:@""];
@@ -145,7 +153,8 @@
     if([baseURL rangeOfString:@"http"].location == NSNotFound)
         [baseURL insertString: self.secure || [CKManager sharedManager].secureAllConnections ? @"https://" : @"http://" atIndex:0];
     
-    [url insertString:baseURL atIndex:0];
+    if([baseURL length] > 0)
+        [url insertString:baseURL atIndex:0];
     
     if(_batch || _isBatched || [CKManager sharedManager].batchAllRequests){
         
@@ -154,7 +163,7 @@
         
         [_parameters setObject:[NSString stringWithFormat:@"%i", _batchCurrentPage] forKey:_batchPageString];
     }
-    
+        
     if([_parameters count] > 0)
         [url appendString:[@"" stringByAddingQueryDictionary:_parameters]];
         
@@ -172,6 +181,11 @@
         [urlRequest setHTTPBody:_body];
     
     return urlRequest;
+}
+
+- (id) connection{
+    
+    return _connection == nil ? [[[[CKManager sharedManager].connectionClass alloc] init] autorelease] : _connection;
 }
 
 - (void) send{
