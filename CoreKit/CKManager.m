@@ -17,18 +17,18 @@
 
 @implementation CKManager
 
-@synthesize fixtureSerializer = _fixtureSerializer;
 @synthesize fixtureSerializationClass = _fixtureSerializationClass;
 @synthesize serializationClass = _serializationClass;
 @synthesize connectionClass = _connectionClass;
 @synthesize coreData = _coreData;
+@synthesize bindings = _bindings;
 @synthesize router = _router;
 @synthesize baseURL = _baseURL;
 @synthesize httpUser = _httpUser;
 @synthesize httpPassword = _httpPassword;
 @synthesize responseKeyPath = _responseKeyPath;
-@synthesize connection = _connection;
 @synthesize serializer = _serializer;
+@synthesize fixtureSerializer = _fixtureSerializer;
 @synthesize dateFormatter = _dateFormatter;
 @synthesize dateFormat = _dateFormat;
 @synthesize batchAllRequests = _batchAllRequests;
@@ -56,6 +56,7 @@
         _baseURL = @"";
         _coreData = [[CKCoreData alloc] init];
         _router = [[CKRouter alloc] init];
+        _bindings = [[CKBindings alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
         _serializationClass = [CKJSONKit class];
@@ -74,10 +75,8 @@
     RELEASE_SAFELY(_baseURL);
     RELEASE_SAFELY(_httpUser);
     RELEASE_SAFELY(_httpPassword);
-    RELEASE_SAFELY(_connection);
-    RELEASE_SAFELY(_serializer);
-    RELEASE_SAFELY(_fixtureSerializer);
     RELEASE_SAFELY(_responseKeyPath);
+    RELEASE_SAFELY(_bindings);
     
     [super dealloc];
 }
@@ -121,12 +120,7 @@
 
 - (id) parseFixture:(NSString *) object{
     
-    if(_fixtureSerializationClass != nil){
-        id <CKSerialization> parser = [[[_fixtureSerializationClass alloc] init] autorelease];
-        return [parser deserialize:[object dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    else
-        return [self parse:object];
+    return [self.fixtureSerializer deserialize:[object dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (id) serializer{
@@ -135,6 +129,14 @@
         _serializer = [[_serializationClass alloc] init];
     
     return _serializer;
+}
+
+- (id) fixtureSerializer{
+    
+    if(_fixtureSerializer == nil && _fixtureSerializationClass != nil)
+        _fixtureSerializer = [[_fixtureSerializationClass alloc] init];
+    
+    return _fixtureSerializer;
 }
 
 - (void) sendRequest:(CKRequest *) request{

@@ -40,6 +40,10 @@
 		C987410813E1E94600D7ECF1 /* CKRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C987410713E1E94600D7ECF1 /* CKRouterTests.m */; };
 		C996356913F31A7F003E7CDD /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C996356713F31A7F003E7CDD /* Reachability.h */; };
 		C996356A13F31A7F003E7CDD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C996356813F31A7F003E7CDD /* Reachability.m */; };
+		C9BD06271408033C00F427A2 /* CKBindingMap.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BD06251408033C00F427A2 /* CKBindingMap.h */; };
+		C9BD06281408033C00F427A2 /* CKBindingMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD06261408033C00F427A2 /* CKBindingMap.m */; };
+		C9BD062B1408316700F427A2 /* CKRecord+CKBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BD06291408316700F427A2 /* CKRecord+CKBindings.h */; };
+		C9BD062C1408316700F427A2 /* CKRecord+CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD062A1408316700F427A2 /* CKRecord+CKBindings.m */; };
 		C9C4196413D08CF200B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
 		C9C4196B13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */; };
 		C9C4196D13D0B57000B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
@@ -66,6 +70,7 @@
 		C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A48613E1C905005E4711 /* CKSupport.m */; };
 		C9F2A4D613E1D067005E4711 /* CKRouterMap.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F2A4D413E1D067005E4711 /* CKRouterMap.h */; };
 		C9F2A4D713E1D067005E4711 /* CKRouterMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A4D513E1D067005E4711 /* CKRouterMap.m */; };
+		C9F2A599140BF4F300218666 /* CKBindingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A596140BF4BF00218666 /* CKBindingsTests.m */; };
 		C9F2B71813ED99DF0002D6AA /* inflections.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9F05F3B13E7391700557828 /* inflections.plist */; };
 		C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2AB13D759F6009DAC73 /* CKDefines.h */; };
 		C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B113D75B91009DAC73 /* NIPaths.h */; };
@@ -139,10 +144,14 @@
 		C987410713E1E94600D7ECF1 /* CKRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterTests.m; sourceTree = "<group>"; };
 		C996356713F31A7F003E7CDD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C996356813F31A7F003E7CDD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C9BD06251408033C00F427A2 /* CKBindingMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindingMap.h; sourceTree = "<group>"; };
+		C9BD06261408033C00F427A2 /* CKBindingMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindingMap.m; sourceTree = "<group>"; };
+		C9BD06291408316700F427A2 /* CKRecord+CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKBindings.h"; sourceTree = "<group>"; };
+		C9BD062A1408316700F427A2 /* CKRecord+CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKBindings.m"; sourceTree = "<group>"; };
 		C9C4196313D08CF200B2FC31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Blocks.m"; sourceTree = "<group>"; };
 		C9C4196F13D0B97500B2FC31 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
-		C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppledocSettings.plist; sourceTree = "<group>"; };
+		C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppledocSettings.plist; path = ../AppledocSettings.plist; sourceTree = "<group>"; };
 		C9C4197913D4A5EF00B2FC31 /* CKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConnection.h; sourceTree = "<group>"; };
 		C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
 		C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
@@ -164,6 +173,7 @@
 		C9F2A48613E1C905005E4711 /* CKSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSupport.m; sourceTree = "<group>"; };
 		C9F2A4D413E1D067005E4711 /* CKRouterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRouterMap.h; sourceTree = "<group>"; };
 		C9F2A4D513E1D067005E4711 /* CKRouterMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterMap.m; sourceTree = "<group>"; };
+		C9F2A596140BF4BF00218666 /* CKBindingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindingsTests.m; sourceTree = "<group>"; };
 		C9F4F2AB13D759F6009DAC73 /* CKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefines.h; sourceTree = "<group>"; };
 		C9F4F2B113D75B91009DAC73 /* NIPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPaths.h; sourceTree = "<group>"; };
 		C9F4F2B213D75B91009DAC73 /* NIPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIPaths.m; sourceTree = "<group>"; };
@@ -331,6 +341,10 @@
 			children = (
 				C9F4F2BC13D8C012009DAC73 /* CKBindings.h */,
 				C9F4F2BD13D8C012009DAC73 /* CKBindings.m */,
+				C9BD06251408033C00F427A2 /* CKBindingMap.h */,
+				C9BD06261408033C00F427A2 /* CKBindingMap.m */,
+				C9BD06291408316700F427A2 /* CKRecord+CKBindings.h */,
+				C9BD062A1408316700F427A2 /* CKRecord+CKBindings.m */,
 			);
 			name = Bindings;
 			sourceTree = "<group>";
@@ -361,7 +375,6 @@
 		C9FB7C0613CF4381009597E7 = {
 			isa = PBXGroup;
 			children = (
-				C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */,
 				C9FB7C1613CF4381009597E7 /* CoreKit */,
 				C9FB7C2C13CF4381009597E7 /* CoreKitTests */,
 				C91F9D2F14042A2500C42219 /* CoreSupport */,
@@ -414,6 +427,7 @@
 		C9FB7C1713CF4381009597E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */,
 				C9F2A48513E1C905005E4711 /* CKSupport.h */,
 				C9F2A48613E1C905005E4711 /* CKSupport.m */,
 				C9C4198D13D4B95900B2FC31 /* Vendor */,
@@ -426,6 +440,7 @@
 		C9FB7C2C13CF4381009597E7 /* CoreKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9F2A596140BF4BF00218666 /* CKBindingsTests.m */,
 				C95D787513CF481F005C3C29 /* CKManagerTests.m */,
 				C9030A2E13D60A630024AE31 /* CKRecordTests.m */,
 				C987410713E1E94600D7ECF1 /* CKRouterTests.m */,
@@ -489,6 +504,8 @@
 				C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */,
 				C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */,
 				C986F28513FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h in Headers */,
+				C9BD06271408033C00F427A2 /* CKBindingMap.h in Headers */,
+				C9BD062B1408316700F427A2 /* CKRecord+CKBindings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +659,8 @@
 				C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */,
 				C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */,
 				C986F28613FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m in Sources */,
+				C9BD06281408033C00F427A2 /* CKBindingMap.m in Sources */,
+				C9BD062C1408316700F427A2 /* CKRecord+CKBindings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +675,7 @@
 				C94FC37713E8877A002DFD92 /* Order.m in Sources */,
 				C94FC37813E8877A002DFD92 /* OrderItem.m in Sources */,
 				C92BA7D613F47B9100EF4BAE /* CKNSURLConnectionTests.m in Sources */,
+				C9F2A599140BF4F300218666 /* CKBindingsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +851,7 @@
 				C91F9D3614042A2500C42219 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9FB7C0B13CF4381009597E7 /* Build configuration list for PBXProject "CoreKit" */ = {
 			isa = XCConfigurationList;

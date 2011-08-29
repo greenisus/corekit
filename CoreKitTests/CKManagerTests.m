@@ -43,7 +43,7 @@
         
     _manager.baseURL = @"http://search.twitter.com";
     
-    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
+    CKRequest *request = [CKRequest requestWithRemotePath:@"search.json"];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     request.batch = YES;
             

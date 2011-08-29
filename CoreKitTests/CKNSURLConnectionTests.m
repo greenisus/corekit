@@ -30,7 +30,7 @@
     
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     
-    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
+    CKRequest *request = [CKRequest requestWithRemotePath:@"search.json"];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     
     NSLog(@"%@", [request remoteURL]);
@@ -58,7 +58,7 @@
     
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     
-    CKRequest *request = [CKRequest requestWithMap:[CKRouterMap mapWithRemotePath:@"search.json"]];
+    CKRequest *request = [CKRequest requestWithRemotePath:@"search.json"];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
     
     CKResult *result = [request sendSyncronously];

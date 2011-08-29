@@ -7,6 +7,7 @@
 //
 
 #import "CKCoreData.h"
+#import "CKBindings.h"
 #import <UIKit/UIKit.h>
 
 @implementation CKCoreData

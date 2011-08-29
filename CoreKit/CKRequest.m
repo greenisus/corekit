@@ -68,6 +68,12 @@
     return [self requestWithMap:nil];
 }
 
++ (CKRequest *) requestWithRemotePath:(NSString *) remotePath{
+    
+    CKRouterMap *map = [CKRouterMap mapWithRemotePath:remotePath];
+    return [self requestWithMap:map];
+}
+
 + (CKRequest *) requestWithMap:(CKRouterMap *) map{
     
     return [[[self alloc] initWithRouterMap:map] autorelease];

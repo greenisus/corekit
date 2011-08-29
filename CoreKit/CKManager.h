@@ -11,6 +11,7 @@
 #import "CKConnection.h"
 #import "CKSerialization.h"
 #import "CKRouter.h"
+#import "CKBindings.h"
 
 /** 
  * CKManager serves as the main coordinator for all things CoreKit. 
@@ -32,12 +33,12 @@
     
     CKCoreData *_coreData;
     CKRouter *_router;
+    CKBindings *_bindings;
     
     NSDateFormatter *_dateFormatter;
     NSString *_dateFormat;
     
 @private
-    id <CKConnection> _connection;
     id <CKSerialization> _serializer;
     id <CKSerialization> _fixtureSerializer;
 }
@@ -99,17 +100,40 @@
 /** Creates and manages routes */
 @property (nonatomic, readonly, retain) CKRouter *router;
 
+/** Creates and manages bindings */
+@property (nonatomic, readonly, retain) CKBindings *bindings;
+
+/** Base URL used to append all resource paths to, ex: https://api.rackspace.com/v1.0/ */
 @property (nonatomic, retain) NSString *baseURL;
+
+/** HTTP Basic Auth user */
 @property (nonatomic, retain) NSString *httpUser;
+
+/** HTTP Basic Auth password */
 @property (nonatomic, retain) NSString *httpPassword;
+
+/** Keypath to response objects
+ 
+ If response objects are not at the top level, you can specify the path to those objects (ex: Twitter, "results")
+ */
 @property (nonatomic, retain) NSString *responseKeyPath;
-@property (nonatomic, readonly, retain) id <CKConnection> connection;
+
+/** Internal connection instance */
 @property (nonatomic, readonly, retain) id <CKSerialization> serializer;
 @property (nonatomic, readonly, retain) id <CKSerialization> fixtureSerializer;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
 @property (nonatomic, retain) NSString *dateFormat;
 
+/** Global setting to batch all remote requests.
+ 
+ Can also be set on a per model basis
+ */
 @property (nonatomic, assign) BOOL batchAllRequests;
+
+/** Global setting to secure all remote requests.
+ 
+ Can also be set on a per model basis
+ */
 @property (nonatomic, assign) BOOL secureAllConnections;
 
 
