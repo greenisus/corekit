@@ -31,8 +31,8 @@
 @property (nonatomic, retain) NSString *keyPath;
 
 + (CKBindingMap *) map;
-- (void) fire: (NSManagedObject *) object;
-- (void) updateControl: (NSManagedObject *) object;
+- (void) fire;
+- (void) updateControl;
 - (NSManagedObject *) object;
 
 @end

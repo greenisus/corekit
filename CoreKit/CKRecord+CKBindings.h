@@ -11,7 +11,7 @@
 
 @interface CKRecord (CKBindings)
 
-- (CKBindingMap *) bindToControl:(id) control forKeyPath:(NSString *) keypath;
+- (CKBindingMap *) bindToUIObject:(id) control forKeyPath:(NSString *) keypath;
 
 - (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType;
 

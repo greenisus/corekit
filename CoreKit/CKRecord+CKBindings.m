@@ -11,9 +11,9 @@
 
 @implementation CKRecord (CKBindings)
 
-- (CKBindingMap *) bindToControl:(id) control forKeyPath:(NSString *) keypath{
+- (CKBindingMap *) bindToUIObject:(id) control forKeyPath:(NSString *) keypath{
     
-    return [[CKBindings sharedBindings] bindModel:self toControl:control inTarget:nil forKeyPath:keypath];
+    return [[CKBindings sharedBindings] bindModel:self toUIObject:control inTarget:nil forKeyPath:keypath];
 }
 
 - (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType{

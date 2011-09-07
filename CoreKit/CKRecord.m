@@ -406,12 +406,12 @@
 
 + (NSNumber *) minimum:(NSString *)attribute{
     
-    return [self aggregateForKeyPath:[NSString stringWithFormat:@"min.%@", attribute]];
+    return [self aggregateForKeyPath:[NSString stringWithFormat:@"@min.%@", attribute]];
 }
 
 + (NSNumber *) maximum:(NSString *)attribute{
     
-    return [self aggregateForKeyPath:[NSString stringWithFormat:@"max.%@", attribute]];
+    return [self aggregateForKeyPath:[NSString stringWithFormat:@"@max.%@", attribute]];
 }
 
 + (NSNumber *) sum:(NSString *)attribute{

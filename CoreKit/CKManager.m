@@ -155,7 +155,7 @@
 
 - (void) sendBatchRequest:(CKRequest *) request{
     
-    __block NSMutableArray *objects = [[NSMutableArray alloc] init];
+    __block NSMutableArray *objects = [[[NSMutableArray alloc] init] autorelease];
     __block int pagesComplete = 0;
     
     for(int page = 1; page <= request.batchMaxPages; page++){
@@ -166,9 +166,7 @@
         pagedRequest.errorBlock = request.errorBlock;
         pagedRequest.batchCurrentPage = page;
         [pagedRequest addParameters:request.parameters];
-        
-        NSLog(@"%@", [pagedRequest remoteURL]);
-        
+                
         pagedRequest.completionBlock = ^(CKResult *result){
             
             for(NSManagedObject *obj in result.objects){
@@ -187,8 +185,6 @@
                 
                 if(request.completionBlock != nil)
                     request.completionBlock(result);
-                
-                [objects release];
             }
         }; 
         

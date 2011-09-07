@@ -63,6 +63,8 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
+    return;
+    
     [searchBar resignFirstResponder];
     [_loadingView startAnimating];
     [_tweets removeAllObjects];

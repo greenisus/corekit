@@ -38,10 +38,10 @@
     return [[CKManager sharedManager].managedObjectContext objectWithID:_objectID];
 }
 
-- (void) fire: (NSManagedObject *) object{
+- (void) fire{
     
     if(_control != nil && _keyPath != nil)
-        [self updateControl:object];    
+        [self updateControl];    
     
     if(_selector != nil && _target != nil)
         [_target performSelector:_selector withObject:self];
@@ -50,9 +50,9 @@
         _block(self);
 }
 
-- (void) updateControl: (NSManagedObject *) object{
+- (void) updateControl{
     
-    id value = [object valueForKeyPath:_keyPath];
+    id value = [self.object valueForKeyPath:_keyPath];
         
     if(value == nil)
         return;

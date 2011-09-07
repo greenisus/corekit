@@ -14,8 +14,6 @@
 #import "Order.h"
 #import "CKManager.h"
 
-
-
 @interface CKBindingsTests : SenTestCase{
     
     CKBindings *_bindings;
@@ -105,8 +103,8 @@
     [order save];
     
     UILabel *label = [[[UILabel alloc] init] autorelease];
-    
-    [order bindToControl:label forKeyPath:@"name"];
+        
+    [order bindToUIObject:label forKeyPath:@"name"];
     
     order.name = @"Test123";
     [order save];

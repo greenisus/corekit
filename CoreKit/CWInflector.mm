@@ -87,7 +87,10 @@
 	NSEnumerator* enumerator = [plurals reverseObjectEnumerator];
 	while(NSArray* conversion = [enumerator nextObject])
 	{
-		NSString* result = [singular stringByReplacingOccurrencesOfRegex:[conversion objectAtIndex:0] withString:[conversion objectAtIndex:1]];
+        NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:[conversion objectAtIndex:0] options:0 error:nil];
+        
+        NSString *result = [expression stringByReplacingMatchesInString:singular options:0 range:NSMakeRange(0, [singular length]) withTemplate:[conversion objectAtIndex:1]];
+
 		if(result && ![result isEqualToString:singular])
 			return result;
 	}
@@ -102,7 +105,10 @@
 	NSEnumerator* enumerator = [singulars reverseObjectEnumerator];
 	while(NSArray* conversion = [enumerator nextObject])
 	{
-		NSString* result = [plural stringByReplacingOccurrencesOfRegex:[conversion objectAtIndex:0] withString:[conversion objectAtIndex:1]];
+        NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:[conversion objectAtIndex:0] options:0 error:nil];
+        
+        NSString *result = [expression stringByReplacingMatchesInString:plural options:0 range:NSMakeRange(0, [plural length]) withTemplate:[conversion objectAtIndex:1]];
+
 		if(result && ![result isEqualToString:plural])
 			return result;
 	}

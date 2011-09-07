@@ -31,7 +31,7 @@ typedef void (^CKBindingChangeBlock) (CKBindingMap *map);
 
 + (CKBindings *) sharedBindings;
 
-- (CKBindingMap *) bindModel:(NSManagedObject *) model toControl:(id) control inTarget:(id) target forKeyPath:(NSString *) keypath;
+- (CKBindingMap *) bindModel:(NSManagedObject *) model toUIObject:(id) control inTarget:(id) target forKeyPath:(NSString *) keypath;
 
 - (CKBindingMap *) bindModel:(NSManagedObject *) model toSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType;
 

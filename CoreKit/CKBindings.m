@@ -34,7 +34,7 @@
     return [CKManager sharedManager].bindings;
 }
 
-- (CKBindingMap *) bindModel:(NSManagedObject *) model toControl:(id) control inTarget:(id) target forKeyPath:(NSString *) keypath{
+- (CKBindingMap *) bindModel:(NSManagedObject *) model toUIObject:(id) control inTarget:(id) target forKeyPath:(NSString *) keypath{
     
     CKBindingMap *map = [CKBindingMap map];
     map.objectID = [model objectID];
@@ -208,7 +208,7 @@
                 
                 if([[object.entity managedObjectClassName] isEqualToString:NSStringFromClass(map.entityClass)]){
                     
-                    [map fire:object];
+                    [map fire];
                     [_firedMaps addObject:map];
                 }
             }];

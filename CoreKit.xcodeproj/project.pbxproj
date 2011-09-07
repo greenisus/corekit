@@ -24,8 +24,6 @@
 		C9377D8213D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */; };
 		C94FC37713E8877A002DFD92 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3213D60D610024AE31 /* Order.m */; };
 		C94FC37813E8877A002DFD92 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A3413D60D610024AE31 /* OrderItem.m */; };
-		C94FC37A13E8884B002DFD92 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C94FC37913E8884B002DFD92 /* libicucore.dylib */; };
-		C94FC37B13E8885F002DFD92 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C94FC37913E8884B002DFD92 /* libicucore.dylib */; };
 		C95D787613CF481F005C3C29 /* CKManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D787513CF481F005C3C29 /* CKManagerTests.m */; };
 		C95D787A13CF4D0A005C3C29 /* CKManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C95D787813CF4D0A005C3C29 /* CKManager.h */; };
 		C95D787B13CF4D0A005C3C29 /* CKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95D787913CF4D0A005C3C29 /* CKManager.m */; };
@@ -45,7 +43,6 @@
 		C9BD062B1408316700F427A2 /* CKRecord+CKBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BD06291408316700F427A2 /* CKRecord+CKBindings.h */; };
 		C9BD062C1408316700F427A2 /* CKRecord+CKBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD062A1408316700F427A2 /* CKRecord+CKBindings.m */; };
 		C9C4196413D08CF200B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
-		C9C4196B13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */; };
 		C9C4196D13D0B57000B2FC31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C4196313D08CF200B2FC31 /* UIKit.framework */; };
 		C9C4196E13D0B8D400B2FC31 /* CoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FB7C1913CF4381009597E7 /* CoreKit.h */; };
 		C9C4197013D0B97500B2FC31 /* Test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C9C4196F13D0B97500B2FC31 /* Test.xcdatamodel */; };
@@ -62,8 +59,6 @@
 		C9F05F3513E6F12300557828 /* CKRecord+CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRecord+CKRouter.m */; };
 		C9F05F4013E7391700557828 /* CWInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3913E7391700557828 /* CWInflector.h */; };
 		C9F05F4113E7391700557828 /* CWInflector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3A13E7391700557828 /* CWInflector.mm */; };
-		C9F05F4413E7391700557828 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3C13E7391700557828 /* RegexKitLite.m */; };
-		C9F05F4613E7391700557828 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3D13E7391700557828 /* RegexKitLite.h */; };
 		C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */; };
 		C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */; };
 		C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F2A48513E1C905005E4711 /* CKSupport.h */; };
@@ -130,7 +125,6 @@
 		C9377D7B13D4CD530062C015 /* CKResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKResult.m; sourceTree = "<group>"; };
 		C9377D7F13D4DA4B0062C015 /* CKNSJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSJSONSerialization.h; sourceTree = "<group>"; };
 		C9377D8013D4DA4B0062C015 /* CKNSJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSJSONSerialization.m; sourceTree = "<group>"; };
-		C94FC37913E8884B002DFD92 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		C95D787513CF481F005C3C29 /* CKManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManagerTests.m; sourceTree = "<group>"; };
 		C95D787813CF4D0A005C3C29 /* CKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKManager.h; sourceTree = "<group>"; };
 		C95D787913CF4D0A005C3C29 /* CKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKManager.m; sourceTree = "<group>"; };
@@ -149,7 +143,6 @@
 		C9BD06291408316700F427A2 /* CKRecord+CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKBindings.h"; sourceTree = "<group>"; };
 		C9BD062A1408316700F427A2 /* CKRecord+CKBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKBindings.m"; sourceTree = "<group>"; };
 		C9C4196313D08CF200B2FC31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Blocks.m"; sourceTree = "<group>"; };
 		C9C4196F13D0B97500B2FC31 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
 		C9C4197713D0DFB700B2FC31 /* AppledocSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppledocSettings.plist; path = ../AppledocSettings.plist; sourceTree = "<group>"; };
 		C9C4197913D4A5EF00B2FC31 /* CKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConnection.h; sourceTree = "<group>"; };
@@ -165,8 +158,6 @@
 		C9F05F3913E7391700557828 /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
 		C9F05F3A13E7391700557828 /* CWInflector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CWInflector.mm; sourceTree = "<group>"; };
 		C9F05F3B13E7391700557828 /* inflections.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = inflections.plist; sourceTree = "<group>"; };
-		C9F05F3C13E7391700557828 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		C9F05F3D13E7391700557828 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
 		C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
 		C9F2A48513E1C905005E4711 /* CKSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSupport.h; sourceTree = "<group>"; };
@@ -204,7 +195,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94FC37A13E8884B002DFD92 /* libicucore.dylib in Frameworks */,
 				C9C4196413D08CF200B2FC31 /* UIKit.framework in Frameworks */,
 				C95D789613CF90B6005C3C29 /* CoreData.framework in Frameworks */,
 				C9FB7C1513CF4381009597E7 /* Foundation.framework in Frameworks */,
@@ -216,7 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92BA7CE13F4297800EF4BAE /* SystemConfiguration.framework in Frameworks */,
-				C94FC37B13E8885F002DFD92 /* libicucore.dylib in Frameworks */,
 				C9FB7C2313CF4381009597E7 /* SenTestingKit.framework in Frameworks */,
 				C9FB7C2613CF4381009597E7 /* Foundation.framework in Frameworks */,
 				C9FB7C2B13CF4381009597E7 /* libCoreKit.a in Frameworks */,
@@ -355,8 +344,6 @@
 				C9F05F3913E7391700557828 /* CWInflector.h */,
 				C9F05F3A13E7391700557828 /* CWInflector.mm */,
 				C9F05F3B13E7391700557828 /* inflections.plist */,
-				C9F05F3D13E7391700557828 /* RegexKitLite.h */,
-				C9F05F3C13E7391700557828 /* RegexKitLite.m */,
 				C9F05F3E13E7391700557828 /* NSString+InflectionSupport.h */,
 				C9F05F3F13E7391700557828 /* NSString+InflectionSupport.m */,
 			);
@@ -396,7 +383,6 @@
 		C9FB7C1313CF4381009597E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C94FC37913E8884B002DFD92 /* libicucore.dylib */,
 				C92BA7CD13F4297800EF4BAE /* SystemConfiguration.framework */,
 				C9C4196313D08CF200B2FC31 /* UIKit.framework */,
 				C95D789513CF90B6005C3C29 /* CoreData.framework */,
@@ -431,7 +417,6 @@
 				C9F2A48513E1C905005E4711 /* CKSupport.h */,
 				C9F2A48613E1C905005E4711 /* CKSupport.m */,
 				C9C4198D13D4B95900B2FC31 /* Vendor */,
-				C9C4196A13D0B3A300B2FC31 /* NSThread+Blocks.m */,
 				C9FB7C1813CF4381009597E7 /* CoreKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -498,7 +483,6 @@
 				C9F2A4D613E1D067005E4711 /* CKRouterMap.h in Headers */,
 				C9F05F3413E6F12300557828 /* CKRecord+CKRouter.h in Headers */,
 				C9F05F4013E7391700557828 /* CWInflector.h in Headers */,
-				C9F05F4613E7391700557828 /* RegexKitLite.h in Headers */,
 				C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */,
 				C996356913F31A7F003E7CDD /* Reachability.h in Headers */,
 				C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */,
@@ -638,7 +622,6 @@
 			files = (
 				C95D787B13CF4D0A005C3C29 /* CKManager.m in Sources */,
 				C95D78A213D08ADF005C3C29 /* CKCoreData.m in Sources */,
-				C9C4196B13D0B3A300B2FC31 /* NSThread+Blocks.m in Sources */,
 				C9C4197013D0B97500B2FC31 /* Test.xcdatamodel in Sources */,
 				C9C4198813D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */,
 				C9377D7313D4CD370062C015 /* CKRequest.m in Sources */,
@@ -653,7 +636,6 @@
 				C9F2A4D713E1D067005E4711 /* CKRouterMap.m in Sources */,
 				C9F05F3513E6F12300557828 /* CKRecord+CKRouter.m in Sources */,
 				C9F05F4113E7391700557828 /* CWInflector.mm in Sources */,
-				C9F05F4413E7391700557828 /* RegexKitLite.m in Sources */,
 				C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */,
 				C996356A13F31A7F003E7CDD /* Reachability.m in Sources */,
 				C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */,
