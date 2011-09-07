@@ -34,12 +34,11 @@
     return [CKManager sharedManager].bindings;
 }
 
-- (CKBindingMap *) bindModel:(NSManagedObject *) model toUIObject:(id) control inTarget:(id) target forKeyPath:(NSString *) keypath{
+- (CKBindingMap *) bindModel:(NSManagedObject *) model toUIObject:(id) control forKeyPath:(NSString *) keypath{
     
     CKBindingMap *map = [CKBindingMap map];
     map.objectID = [model objectID];
     map.control = control;
-    map.target = target;
     map.keyPath = keypath;
     map.changeType = CKBindingChangeTypeUpdated;
     
@@ -54,7 +53,7 @@
     map.block = block;
     map.objectID = [model objectID];
     map.changeType = changeType;
-    
+        
     [self addMap:map];
     
     return map;
@@ -128,7 +127,8 @@
        
         [maps enumerateObjectsUsingBlock:^(CKBindingMap *map, NSUInteger idx, BOOL *stop){
             
-            if((target == nil || [map.target isEqual:target]) && (changeType == CKBindingChangeTypeAll || changeType == map.changeType)){
+            if([map.target isEqual:target]){
+                
                 [targetBindings addObject:map];   
             }
         }];
@@ -147,6 +147,7 @@
              
              CKBindingMap *map = (CKBindingMap *) obj;
              if([map.objectID isEqual:[model objectID]] && (changeType == CKBindingChangeTypeAll || changeType == map.changeType)){
+                 
                 [modelBindings addObject:map];
              }
         }];
@@ -168,6 +169,7 @@
             
             CKBindingMap *map = (CKBindingMap *) obj;
             if([map.entityClass isEqual:entity] && (changeType == CKBindingChangeTypeAll || changeType == map.changeType)){
+                
                 [entityBindings addObject:map];
             }
         }];
@@ -181,11 +183,24 @@
 
 - (NSArray *) bindingsForChangeType:(CKBindingChangeType)changeType{
     
-    return [self bindingsForTarget:nil forChangeType:changeType];
+    __block NSMutableArray *changeTypeBindings = [NSMutableArray array];
+    
+    [[_bindings allValues] enumerateObjectsUsingBlock:^(NSArray *maps, NSUInteger idx, BOOL *stop){
+        
+        [maps enumerateObjectsUsingBlock:^(CKBindingMap *map, NSUInteger idx, BOOL *stop){
+                        
+            if(changeType == map.changeType || map.changeType == CKBindingChangeTypeAll){
+                
+                [changeTypeBindings addObject:map];   
+            }
+        }];
+    }];
+    
+    return changeTypeBindings;
 }
 
 - (void) handleChangeNotification:(NSNotification *) notification{
-    
+        
     [self handleChangesForObjects:[[notification userInfo] objectForKey:NSInsertedObjectsKey] ofChangeType:CKBindingChangeTypeInserted];
     [self handleChangesForObjects:[[notification userInfo] objectForKey:NSUpdatedObjectsKey] ofChangeType:CKBindingChangeTypeUpdated];
     [self handleChangesForObjects:[[notification userInfo] objectForKey:NSDeletedObjectsKey] ofChangeType:CKBindingChangeTypeDeleted];
@@ -206,7 +221,7 @@
             
             [remainingObjects enumerateObjectsUsingBlock:^(NSManagedObject *object, BOOL *stop){
                 
-                if([[object.entity managedObjectClassName] isEqualToString:NSStringFromClass(map.entityClass)]){
+                if([[object.entity managedObjectClassName] isEqualToString:NSStringFromClass(map.entityClass)] && (map.objectID != nil || [map.objectID isEqual:[object objectID]])){
                     
                     [map fire];
                     [_firedMaps addObject:map];

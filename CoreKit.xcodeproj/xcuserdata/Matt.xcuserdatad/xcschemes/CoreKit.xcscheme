@@ -36,6 +36,20 @@
                BlueprintName = "CoreKitTests"
                ReferencedContainer = "container:CoreKit.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CKManagerTests">
+               </Test>
+               <Test
+                  Identifier = "CKNSURLConnectionTests">
+               </Test>
+               <Test
+                  Identifier = "CKRecordTests">
+               </Test>
+               <Test
+                  Identifier = "CKRouterTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

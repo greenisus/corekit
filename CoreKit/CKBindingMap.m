@@ -9,6 +9,7 @@
 #import "CKBindingMap.h"
 #import "CKDefines.h"
 #import "CKManager.h"
+#import "CKRecordPrivate.h"
 #import <UIKit/UIKit.h>
 
 @implementation CKBindingMap
@@ -33,9 +34,9 @@
     _objectID = [objectID retain];
 }
 
-- (NSManagedObject *) object{
+- (CKRecord *) object{
     
-    return [[CKManager sharedManager].managedObjectContext objectWithID:_objectID];
+    return (CKRecord *) [[CKManager sharedManager].managedObjectContext objectWithID:_objectID];
 }
 
 - (void) fire{
@@ -47,7 +48,7 @@
         [_target performSelector:_selector withObject:self];
     
     if(_block != nil)
-        _block(self);
+        _block();
 }
 
 - (void) updateControl{
@@ -62,9 +63,14 @@
         if([_control respondsToSelector:@selector(setText:)])
             [_control performSelectorOnMainThread:@selector(setText:) withObject:value waitUntilDone:YES];
     }
+    
     else if([value isKindOfClass:[NSNumber class]]){
-                
-        if([_control isKindOfClass:[UIProgressView class]]){
+        
+        if([_control respondsToSelector:@selector(setText:)]){
+         
+            [_control performSelectorOnMainThread:@selector(setText:) withObject:[[self object] stringValueForKeyPath:_keyPath] waitUntilDone:YES];
+        }
+        else if([_control isKindOfClass:[UIProgressView class]]){
             
             float progress = [value floatValue];
             progress = progress > 1 ? progress / 100 : progress;
@@ -79,6 +85,11 @@
             
             [_control setOn:[value boolValue] animated:NO];
         }
+    }
+    
+    else if([value isKindOfClass:[NSDate class]] && [_control respondsToSelector:@selector(setText:)]){
+        
+        [_control performSelectorOnMainThread:@selector(setText:) withObject:[[self object] stringValueForKeyPath:_keyPath] waitUntilDone:YES];
     }
 }
 

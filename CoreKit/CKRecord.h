@@ -239,6 +239,11 @@ typedef enum CKRecordOptions {
 + (id) fixtureNamed:(NSString *) name atPath:(NSString *) path;
 
 
+/** @name Value Formatting */
+- (id) stringValueForKeyPath:(NSString *) keyPath;
+- (NSDateFormatter *) dateFormatter;
+- (NSNumberFormatter *) numberFormatter;
+
 /** @name Seeds */
 
 + (BOOL) seed;

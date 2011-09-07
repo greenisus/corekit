@@ -33,6 +33,6 @@
 + (CKBindingMap *) map;
 - (void) fire;
 - (void) updateControl;
-- (NSManagedObject *) object;
+- (CKRecord *) object;
 
 @end

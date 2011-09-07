@@ -9,7 +9,6 @@
 */
 
 #import "CWInflector.h"
-#import "RegexKitLite.h"
 
 @implementation CWInflector
 

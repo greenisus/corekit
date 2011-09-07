@@ -11,11 +11,13 @@
 
 @interface CKRecord (CKBindings)
 
-- (CKBindingMap *) bindToUIObject:(id) control forKeyPath:(NSString *) keypath;
+- (CKBindingMap *) bindTo:(id) object forKeyPath:(NSString *) keyPath forChangeType:(CKBindingChangeType) changeType;
 
-- (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType;
+- (CKBindingMap *) bindTo:(id) object forKeyPath:(NSString *) keyPath;
 
-- (CKBindingMap *) bindToBlock:(CKBindingChangeBlock) block forChangeType:(CKBindingChangeType) changeType;
+- (CKBindingMap *) bindTo:(id) object;
+
+- (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forKeyPath:(NSString *) keyPath forChangeType:(CKBindingChangeType) changeType;
 
 + (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType;
 

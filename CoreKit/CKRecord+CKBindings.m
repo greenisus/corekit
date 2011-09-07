@@ -8,22 +8,39 @@
 
 #import "CKRecord+CKBindings.h"
 #import "CKBindings.h"
+#import <UIKit/UIKit.h>
 
 @implementation CKRecord (CKBindings)
 
-- (CKBindingMap *) bindToUIObject:(id) control forKeyPath:(NSString *) keypath{
+- (CKBindingMap *) bindTo:(id) object forKeyPath:(NSString *) keyPath forChangeType:(CKBindingChangeType) changeType{
     
-    return [[CKBindings sharedBindings] bindModel:self toUIObject:control inTarget:nil forKeyPath:keypath];
+    CKBindingMap *map = nil;
+        
+    if([object isKindOfClass:[UIView class]]){
+        
+        map = [[CKBindings sharedBindings] bindModel:self toUIObject:object forKeyPath:keyPath];
+    }
+    else{
+        
+        map = [[CKBindings sharedBindings] bindModel:self toBlock:object forChangeType:changeType];
+    }
+    
+    return map;
 }
 
-- (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType{
+- (CKBindingMap *) bindTo:(id) object forKeyPath:(NSString *) keyPath{
+    
+    return [self bindTo:object forKeyPath:keyPath forChangeType:CKBindingChangeTypeAll];
+}
+
+- (CKBindingMap *) bindTo:(id) object{
+    
+    return [self bindTo:object forKeyPath:nil];
+}
+
+- (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forKeyPath:(NSString *) keyPath forChangeType:(CKBindingChangeType) changeType{
     
     return [[CKBindings sharedBindings] bindModel:self toSelector:selector inTarget:target forChangeType:changeType];
-}
-
-- (CKBindingMap *) bindToBlock:(CKBindingChangeBlock) block forChangeType:(CKBindingChangeType) changeType{
-    
-    return [[CKBindings sharedBindings] bindModel:self toBlock:block forChangeType:changeType];
 }
 
 + (CKBindingMap *) bindToSelector:(SEL) selector inTarget:(id) target forChangeType:(CKBindingChangeType) changeType{

@@ -463,6 +463,63 @@
 }
 
 #pragma mark -
+#pragma mark Value Formatting
+- (id) stringValueForKeyPath:(NSString *) keyPath{
+    
+    id value = [self valueForKeyPath:keyPath];
+    NSString *stringValue = [NSString string];
+    
+    if([value isKindOfClass:[NSString class]])
+        stringValue = value;
+    
+    else if ([value isKindOfClass:[NSNumber class]]){
+        
+        NSNumberFormatter *formatter = [self numberFormatter];
+        
+        NSAttributeDescription *description = (NSAttributeDescription *) [self propertyDescriptionForKey:keyPath];
+        
+        switch ([description attributeType]) {
+            
+            default:
+                break;
+                
+            case NSFloatAttributeType:
+            case NSDecimalAttributeType:
+            case NSDoubleAttributeType:
+                [formatter setMaximumFractionDigits:2];
+                break;
+        }
+        
+        stringValue = [formatter stringFromNumber:value];
+    }
+    
+    else if([value isKindOfClass:[NSDate class]]){
+        
+        stringValue = [[self dateFormatter] stringFromDate:value];
+    }
+     
+    return stringValue;
+}
+
+- (NSDateFormatter *) dateFormatter{
+    
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    formatter.dateFormat = [CKManager sharedManager].dateFormat;
+    
+    if([formatter.dateFormat length] == 0)
+        [formatter setDateFormat:[[self class] dateFormat]];
+    
+    return formatter;
+}
+
+- (NSNumberFormatter *) numberFormatter{
+    
+    NSNumberFormatter *formatter = [[[NSNumberFormatter alloc] init] autorelease];
+    
+    return formatter;
+}
+
+#pragma mark -
 #pragma mark Seeds
 
 + (BOOL) seed{
