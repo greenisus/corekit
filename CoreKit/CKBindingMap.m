@@ -11,6 +11,7 @@
 #import "CKManager.h"
 #import "CKRecordPrivate.h"
 #import <UIKit/UIKit.h>
+#include <objc/message.h>
 
 @implementation CKBindingMap
 
@@ -45,7 +46,7 @@
         [self updateControl];    
     
     if(_selector != nil && _target != nil)
-        [_target performSelector:_selector withObject:self];
+        objc_msgSend(_target, _selector);
     
     if(_block != nil)
         _block();
