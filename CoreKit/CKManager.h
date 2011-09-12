@@ -95,34 +95,34 @@
 @property (nonatomic, assign) Class connectionClass;
 
 /** Creates and manages changes to the CoreData stack */
-@property (nonatomic, readonly, retain) CKCoreData *coreData;
+@property (nonatomic, readonly, strong) CKCoreData *coreData;
 
 /** Creates and manages routes */
-@property (nonatomic, readonly, retain) CKRouter *router;
+@property (nonatomic, readonly, strong) CKRouter *router;
 
 /** Creates and manages bindings */
-@property (nonatomic, readonly, retain) CKBindings *bindings;
+@property (nonatomic, readonly, strong) CKBindings *bindings;
 
 /** Base URL used to append all resource paths to, ex: https://api.rackspace.com/v1.0/ */
-@property (nonatomic, retain) NSString *baseURL;
+@property (nonatomic, strong) NSString *baseURL;
 
 /** HTTP Basic Auth user */
-@property (nonatomic, retain) NSString *httpUser;
+@property (nonatomic, strong) NSString *httpUser;
 
 /** HTTP Basic Auth password */
-@property (nonatomic, retain) NSString *httpPassword;
+@property (nonatomic, strong) NSString *httpPassword;
 
 /** Keypath to response objects
  
  If response objects are not at the top level, you can specify the path to those objects (ex: Twitter, "results")
  */
-@property (nonatomic, retain) NSString *responseKeyPath;
+@property (nonatomic, strong) NSString *responseKeyPath;
 
 /** Internal connection instance */
-@property (nonatomic, readonly, retain) id <CKSerialization> serializer;
-@property (nonatomic, readonly, retain) id <CKSerialization> fixtureSerializer;
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
-@property (nonatomic, retain) NSString *dateFormat;
+@property (nonatomic, readonly, strong) id <CKSerialization> serializer;
+@property (nonatomic, readonly, strong) id <CKSerialization> fixtureSerializer;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSString *dateFormat;
 
 /** Global setting to batch all remote requests.
  

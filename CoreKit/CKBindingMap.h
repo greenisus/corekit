@@ -21,14 +21,14 @@
     NSString *_keyPath;
 }
 
-@property (nonatomic, retain) NSManagedObjectID *objectID;
+@property (nonatomic, strong) NSManagedObjectID *objectID;
 @property (nonatomic, assign) Class entityClass;
-@property (nonatomic, retain) id control;
-@property (nonatomic, retain) id target;
+@property (nonatomic, strong) id control;
+@property (nonatomic, strong) id target;
 @property (nonatomic, assign) CKBindingChangeType changeType;
 @property (nonatomic, copy) CKBindingChangeBlock block;
 @property (nonatomic, assign) SEL selector;
-@property (nonatomic, retain) NSString *keyPath;
+@property (nonatomic, strong) NSString *keyPath;
 
 + (CKBindingMap *) map;
 - (void) fire;

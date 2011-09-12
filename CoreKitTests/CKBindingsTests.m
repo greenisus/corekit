@@ -102,7 +102,7 @@
     order.name = @"Test";
     [order save];
     
-    UILabel *nameLabel = [[UILabel alloc] autorelease];
+    UILabel *nameLabel = [UILabel alloc];
     [order bindTo:nameLabel forKeyPath:@"name"];
     
     order.name = @"Test123";
@@ -111,7 +111,7 @@
     STAssertTrue([nameLabel.text isEqualToString:order.name], @"Failed to fire test control"); 
     
     
-    UILabel *priceLabel = [[UILabel alloc] autorelease];
+    UILabel *priceLabel = [UILabel alloc];
     [order bindTo:priceLabel forKeyPath:@"price"];
     
     order.price = [NSNumber numberWithFloat:99.99];
@@ -120,7 +120,7 @@
     STAssertTrue([priceLabel.text isEqualToString:@"99.99"], @"Failed to map number to label");
     
     
-    UILabel *dateLabel = [[UILabel alloc] autorelease];
+    UILabel *dateLabel = [UILabel alloc];
     [order bindTo:dateLabel forKeyPath:@"created_at"];
     
     order.created_at = [NSDate date];

@@ -75,7 +75,7 @@
 	_responseCode = [httpResponse statusCode];
     self.responseHeaders = [httpResponse allHeaderFields];
     
-	return [[[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error] autorelease];
+	return [[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response{
@@ -126,16 +126,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             _request.completionBlock(result);	
         });
-}
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_responseData);
-    RELEASE_SAFELY(_request);
-    RELEASE_SAFELY(_connection);
-    RELEASE_SAFELY(_responseHeaders);
-    
-    [super dealloc];
 }
 
 @end

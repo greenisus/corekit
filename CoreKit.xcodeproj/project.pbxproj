@@ -51,10 +51,6 @@
 		C9C4198013D4A61C00B2FC31 /* CKSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */; };
 		C9C4198713D4AA8400B2FC31 /* CKNSURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */; };
 		C9C4198813D4AA8400B2FC31 /* CKNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */; };
-		C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E7DF4A13F98F2800AB98FF /* JSONKit.h */; };
-		C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF4B13F98F2800AB98FF /* JSONKit.m */; };
-		C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */; };
-		C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */; };
 		C9F05F3413E6F12300557828 /* CKRecord+CKRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3213E6F12300557828 /* CKRecord+CKRouter.h */; };
 		C9F05F3513E6F12300557828 /* CKRecord+CKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F05F3313E6F12300557828 /* CKRecord+CKRouter.m */; };
 		C9F05F4013E7391700557828 /* CWInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F05F3913E7391700557828 /* CWInflector.h */; };
@@ -149,10 +145,6 @@
 		C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSerialization.h; sourceTree = "<group>"; };
 		C9C4198513D4AA8400B2FC31 /* CKNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNSURLConnection.h; sourceTree = "<group>"; };
 		C9C4198613D4AA8400B2FC31 /* CKNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNSURLConnection.m; sourceTree = "<group>"; };
-		C9E7DF4A13F98F2800AB98FF /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		C9E7DF4B13F98F2800AB98FF /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJSONKit.h; sourceTree = "<group>"; };
-		C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKJSONKit.m; sourceTree = "<group>"; };
 		C9F05F3213E6F12300557828 /* CKRecord+CKRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+CKRouter.h"; sourceTree = "<group>"; };
 		C9F05F3313E6F12300557828 /* CKRecord+CKRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+CKRouter.m"; sourceTree = "<group>"; };
 		C9F05F3913E7391700557828 /* CWInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInflector.h; sourceTree = "<group>"; };
@@ -250,7 +242,6 @@
 			children = (
 				C9C4197E13D4A61C00B2FC31 /* CKSerialization.h */,
 				C9E7DF4F13F98F3400AB98FF /* Apple */,
-				C9E7DF4E13F98F2B00AB98FF /* JSONKit */,
 			);
 			name = Serializations;
 			sourceTree = "<group>";
@@ -267,17 +258,6 @@
 				C986F28413FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m */,
 			);
 			name = Vendor;
-			sourceTree = "<group>";
-		};
-		C9E7DF4E13F98F2B00AB98FF /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				C9E7DF5013F98F8D00AB98FF /* CKJSONKit.h */,
-				C9E7DF5113F98F8D00AB98FF /* CKJSONKit.m */,
-				C9E7DF4A13F98F2800AB98FF /* JSONKit.h */,
-				C9E7DF4B13F98F2800AB98FF /* JSONKit.m */,
-			);
-			name = JSONKit;
 			sourceTree = "<group>";
 		};
 		C9E7DF4F13F98F3400AB98FF /* Apple */ = {
@@ -485,8 +465,6 @@
 				C9F05F4013E7391700557828 /* CWInflector.h in Headers */,
 				C9F05F4713E7391700557828 /* NSString+InflectionSupport.h in Headers */,
 				C996356913F31A7F003E7CDD /* Reachability.h in Headers */,
-				C9E7DF4C13F98F2800AB98FF /* JSONKit.h in Headers */,
-				C9E7DF5213F98F8D00AB98FF /* CKJSONKit.h in Headers */,
 				C986F28513FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h in Headers */,
 				C9BD06271408033C00F427A2 /* CKBindingMap.h in Headers */,
 				C9BD062B1408316700F427A2 /* CKRecord+CKBindings.h in Headers */,
@@ -638,8 +616,6 @@
 				C9F05F4113E7391700557828 /* CWInflector.mm in Sources */,
 				C9F05F4813E7391700557828 /* NSString+InflectionSupport.m in Sources */,
 				C996356A13F31A7F003E7CDD /* Reachability.m in Sources */,
-				C9E7DF4D13F98F2800AB98FF /* JSONKit.m in Sources */,
-				C9E7DF5313F98F8D00AB98FF /* CKJSONKit.m in Sources */,
 				C986F28613FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m in Sources */,
 				C9BD06281408033C00F427A2 /* CKBindingMap.m in Sources */,
 				C9BD062C1408316700F427A2 /* CKRecord+CKBindings.m in Sources */,
@@ -714,7 +690,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -729,7 +705,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -739,7 +715,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
@@ -747,7 +723,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -756,6 +732,7 @@
 		C9FB7C3913CF4381009597E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/CoreKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
@@ -775,6 +752,7 @@
 		C9FB7C3A13CF4381009597E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/CoreKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreKit/CoreKit-Prefix.pch";
@@ -790,6 +768,7 @@
 		C9FB7C3C13CF4381009597E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -799,6 +778,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -808,6 +788,7 @@
 		C9FB7C3D13CF4381009597E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -817,6 +798,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;

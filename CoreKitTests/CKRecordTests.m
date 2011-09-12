@@ -27,7 +27,7 @@
     
     if(_defaultFixture == nil){
         
-        _defaultFixture = [[Order fixtureNamed:@"sample"] retain];
+        _defaultFixture = [Order fixtureNamed:@"sample"];
         [CKManager sharedManager].serializationClass = [CKNSJSONSerialization class];
     }
 }
@@ -171,7 +171,7 @@
     
     [Order create:[Order fixturesAsArray]];
     
-    NSSortDescriptor *sort = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO] autorelease];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     NSArray *all = [[Order all] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     
     NSArray *records = [Order findWithPredicate:nil sortedBy:@"name DESC"  withLimit:0];

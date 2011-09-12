@@ -88,14 +88,14 @@ typedef enum CKRequestInterval {
     CKParseBlock _parseBlock;
 }
 
-@property (nonatomic, retain) CKRouterMap *routerMap;
-@property (nonatomic, retain) NSString *username;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSString *remotePath;
+@property (nonatomic, strong) CKRouterMap *routerMap;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *remotePath;
 @property (nonatomic, assign) CKRequestMethod method;
-@property (nonatomic, retain) NSMutableDictionary *headers;
-@property (nonatomic, retain) NSMutableDictionary *parameters;
-@property (nonatomic, retain) id body;
+@property (nonatomic, strong) NSMutableDictionary *headers;
+@property (nonatomic, strong) NSMutableDictionary *parameters;
+@property (nonatomic, strong) id body;
 @property (nonatomic, assign) BOOL syncronous;
 @property (nonatomic, assign) BOOL started;
 @property (nonatomic, assign) BOOL completed;
@@ -103,15 +103,15 @@ typedef enum CKRequestInterval {
 @property (nonatomic, assign) BOOL isBatched;
 @property (nonatomic, assign) BOOL batch;
 @property (nonatomic, assign) BOOL secure;
-@property (nonatomic, retain) NSString *batchPageString;
-@property (nonatomic, retain) NSString *batchMaxPerPageString;
+@property (nonatomic, strong) NSString *batchPageString;
+@property (nonatomic, strong) NSString *batchMaxPerPageString;
 @property (nonatomic, assign) NSUInteger batchNumPerPage;
 @property (nonatomic, assign) NSUInteger batchMaxPages;
 @property (nonatomic, assign) NSUInteger batchCurrentPage;
 @property (nonatomic, assign) NSUInteger connectionTimeout;
 @property (nonatomic, assign) CKRequestInterval interval;
-@property (nonatomic, retain) id connection;
-@property (nonatomic, retain) id parser;
+@property (nonatomic, strong) id connection;
+@property (nonatomic, strong) id parser;
 @property (nonatomic, copy) CKResultBlock completionBlock;
 @property (nonatomic, copy) CKResultBlock errorBlock;
 @property (nonatomic, copy) CKParseBlock parseBlock;

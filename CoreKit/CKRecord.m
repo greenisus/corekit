@@ -23,16 +23,10 @@
     
     if (self = [super initWithEntity:entity insertIntoManagedObjectContext:context]){
         
-        _attributes = [[[[self class] entityDescription] propertiesByName] retain];
+        _attributes = [[[self class] entityDescription] propertiesByName];
     }
     
     return self;
-}
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_attributes);
-    [super dealloc];
 }
 
 #pragma mark -
@@ -60,7 +54,7 @@
 
 + (NSFetchRequest *) fetchRequest{
 	
-	NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+	NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
 	[fetch setEntity:[self entityDescription]];
 	return fetch;
 }
@@ -83,12 +77,12 @@
 
 + (id) blank{
     
-    return [[[self alloc] initWithEntity:[self entityDescription] insertIntoManagedObjectContext:[self managedObjectContext]] autorelease];
+    return [[self alloc] initWithEntity:[self entityDescription] insertIntoManagedObjectContext:[self managedObjectContext]];
 }
 
 + (id) build:(id) data{
     
-    __block id returnValue = nil;
+    __unsafe_unretained id returnValue = nil;
     
     if ([data isKindOfClass:[NSArray class]]) {
         
@@ -122,7 +116,7 @@
 
 + (id) create:(id) data{
     
-    __block id returnValue = nil;
+    __autoreleasing id returnValue = nil;
     
     if([data isKindOfClass:[NSDictionary class]])
         returnValue = [[self blank] update:data];
@@ -503,7 +497,7 @@
 
 - (NSDateFormatter *) dateFormatter{
     
-    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = [CKManager sharedManager].dateFormat;
     
     if([formatter.dateFormat length] == 0)
@@ -514,7 +508,7 @@
 
 - (NSNumberFormatter *) numberFormatter{
     
-    NSNumberFormatter *formatter = [[[NSNumberFormatter alloc] init] autorelease];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     
     return formatter;
 }

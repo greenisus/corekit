@@ -25,13 +25,13 @@
 
 + (CKBindingMap *) map{
     
-    return [[[CKBindingMap alloc] init] autorelease];
+    return [[CKBindingMap alloc] init];
 }
 
 - (void) setObjectID:(NSManagedObjectID *)objectID{
     
     self.entityClass = NSClassFromString([[objectID entity] managedObjectClassName]); 
-    _objectID = [objectID retain];
+    _objectID = objectID;
 }
 
 - (CKRecord *) object{
@@ -91,17 +91,6 @@
         
         [_control performSelectorOnMainThread:@selector(setText:) withObject:[[self object] stringValueForKeyPath:_keyPath] waitUntilDone:YES];
     }
-}
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_control);
-    RELEASE_SAFELY(_objectID);
-    RELEASE_SAFELY(_target);
-    RELEASE_SAFELY(_keyPath);
-    RELEASE_SAFELY(_block);
-    
-    [super dealloc];
 }
 
 @end

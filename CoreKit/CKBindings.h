@@ -26,8 +26,8 @@ typedef void (^CKBindingChangeBlock) (void);
     NSMutableSet *_firedMaps;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *bindings;
-@property (nonatomic, retain) NSMutableSet *firedMaps;
+@property (nonatomic, strong) NSMutableDictionary *bindings;
+@property (nonatomic, strong) NSMutableSet *firedMaps;
 
 + (CKBindings *) sharedBindings;
 

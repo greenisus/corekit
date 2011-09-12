@@ -38,14 +38,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[plurals release];
-	[singulars release];
-	[uncountables release];
-	[super dealloc];
-}
-
 - (void)addInflectionsFromFile:(NSString*)path;
 {
 	NSDictionary* inflections = [NSDictionary dictionaryWithContentsOfFile:path];

@@ -15,11 +15,11 @@
 {
 }
 
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * price;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSSet* items;
+@property (nonatomic, strong) NSNumber * id;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSNumber * price;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSSet* items;
 
 @end
 

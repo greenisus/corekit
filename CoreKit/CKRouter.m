@@ -35,13 +35,6 @@
     return self;
 }
 
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_routes);
-    
-    [super dealloc];
-}
-
 - (void) mapModel:(Class) model toRemotePath:(NSString *) path forRequestMethod:(CKRequestMethod) method{
     
     CKRouterMap *map = [CKRouterMap map];
@@ -142,7 +135,7 @@
 
 - (NSDictionary *) attributeMapForModel:(Class) model{
     
-    __block NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    __weak NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
     NSArray *maps = [self mapsForModel:model];
     
@@ -165,8 +158,6 @@
         
         [maps addObject:map];
         [_routes setObject:maps forKey:className];
-        
-        [maps release];
     }
     else{
         

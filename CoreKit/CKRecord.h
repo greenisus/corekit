@@ -23,7 +23,7 @@ typedef enum CKRecordOptions {
 
 @interface CKRecord : NSManagedObject {
     
-    NSDictionary *_attributes;
+    NSDictionary *__weak _attributes;
 }
 
 

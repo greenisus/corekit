@@ -32,17 +32,6 @@
     return self;
 }
 
-- (void) dealloc{
-    
-    [super dealloc];
-    
-    RELEASE_SAFELY(_object);
-    RELEASE_SAFELY(_remotePath);
-    RELEASE_SAFELY(_localAttribute);
-    RELEASE_SAFELY(_remoteAttribute);
-    RELEASE_SAFELY(_responseKeyPath);
-}
-
 + (CKRouterMap *) map{
     
     return [self mapWithRemotePath:nil];
@@ -50,7 +39,7 @@
 
 + (CKRouterMap *) mapWithRemotePath:(NSString *) remotePath{
     
-    return [[[CKRouterMap alloc] initWithRemotePath:remotePath] autorelease];
+    return [[CKRouterMap alloc] initWithRemotePath:remotePath];
 }
 
 - (NSString *) remotePath{

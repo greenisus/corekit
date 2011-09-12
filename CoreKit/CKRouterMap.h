@@ -24,11 +24,11 @@
 }
 
 @property (nonatomic, assign) Class model;
-@property (nonatomic, retain) id object;
-@property (nonatomic, retain) NSString *remotePath;
-@property (nonatomic, retain) NSString *localAttribute;
-@property (nonatomic, retain) NSString *remoteAttribute;
-@property (nonatomic, retain) NSString *responseKeyPath;
+@property (nonatomic, strong) id object;
+@property (nonatomic, strong) NSString *remotePath;
+@property (nonatomic, strong) NSString *localAttribute;
+@property (nonatomic, strong) NSString *remoteAttribute;
+@property (nonatomic, strong) NSString *responseKeyPath;
 @property (nonatomic, assign) CKRequestMethod requestMethod;
 @property (nonatomic, assign) BOOL isInstanceMap;
 

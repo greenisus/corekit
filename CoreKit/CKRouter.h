@@ -18,7 +18,7 @@
 /** Routing dictionary for classes 
  @param routes Keys represent class names, values represent their route
  */
-@property (nonatomic, retain) NSMutableDictionary *routes;
+@property (nonatomic, strong) NSMutableDictionary *routes;
 
 + (CKRouter *) sharedRouter;
 

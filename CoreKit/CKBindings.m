@@ -110,8 +110,6 @@
         
         [maps addObject:map];
         [_bindings setObject:maps forKey:className];
-        
-        [maps release];
     }
     else{
         
@@ -121,7 +119,7 @@
 
 - (NSArray *) bindingsForTarget:(id) target forChangeType:(CKBindingChangeType) changeType{
     
-    __block NSMutableArray *targetBindings = [NSMutableArray array];
+    __weak NSMutableArray *targetBindings = [NSMutableArray array];
     
     [[_bindings allValues] enumerateObjectsUsingBlock:^(NSArray *maps, NSUInteger idx, BOOL *stop){
        
@@ -139,7 +137,7 @@
 
 - (NSArray *) bindingsForModel:(NSManagedObject *)model forChangeType:(CKBindingChangeType) changeType{
     
-    __block NSMutableArray *modelBindings = [_bindings objectForKey:[[model class] description]];
+    __weak NSMutableArray *modelBindings = [_bindings objectForKey:[[model class] description]];
     
      if(modelBindings != nil){
          
@@ -161,7 +159,7 @@
 
 - (NSArray *) bindingsForEntity:(Class) entity forChangeType:(CKBindingChangeType) changeType{
     
-    __block NSMutableArray *entityBindings = [_bindings objectForKey:[entity description]];
+    __weak NSMutableArray *entityBindings = [_bindings objectForKey:[entity description]];
     
     if(entityBindings != nil){
         
@@ -183,7 +181,7 @@
 
 - (NSArray *) bindingsForChangeType:(CKBindingChangeType)changeType{
     
-    __block NSMutableArray *changeTypeBindings = [NSMutableArray array];
+    __weak NSMutableArray *changeTypeBindings = [NSMutableArray array];
     
     [[_bindings allValues] enumerateObjectsUsingBlock:^(NSArray *maps, NSUInteger idx, BOOL *stop){
         
@@ -231,14 +229,5 @@
     }
 }
 
-
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_bindings);
-    RELEASE_SAFELY(_firedMaps);
-    
-    [super dealloc];
-}
 
 @end

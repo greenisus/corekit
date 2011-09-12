@@ -77,7 +77,7 @@ static NSMutableDictionary *cachedCamelized;
 
 - (NSString*)camelizeCached {
     if (cachedCamelized == nil)
-        cachedCamelized = [[NSMutableDictionary dictionary] retain];
+        cachedCamelized = [NSMutableDictionary dictionary];
     else {
         NSString* cached = [cachedCamelized objectForKey:self];
         if (cached != nil)
@@ -147,7 +147,7 @@ static NSMutableDictionary *cachedCamelized;
 - (NSDictionary*)queryContentsUsingEncoding:(NSStringEncoding)encoding {
     NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
     NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
-    NSScanner* scanner = [[[NSScanner alloc] initWithString:self] autorelease];
+    NSScanner* scanner = [[NSScanner alloc] initWithString:self];
     while (![scanner isAtEnd]) {
         NSString* pairString = nil;
         [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];

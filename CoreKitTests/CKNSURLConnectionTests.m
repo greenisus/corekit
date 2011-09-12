@@ -11,7 +11,6 @@
 #import "CKManager.h"
 #import "CKRecord+CKRouter.h"
 #import "CKNSURLConnection.h"
-#import "CKJSONKit.h"
 
 @interface CKNSURLConnectionTests : SenTestCase
 

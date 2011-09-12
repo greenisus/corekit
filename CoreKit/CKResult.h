@@ -22,18 +22,16 @@
     CKRequest *_request;
 }
 
-@property (nonatomic, retain) NSArray *objects;
-@property (nonatomic, retain) NSError *error;
-@property (nonatomic, retain) NSHTTPURLResponse *httpResponse;
-@property (nonatomic, retain) CKRequest *request;
-@property (nonatomic, retain) id response;
+@property (nonatomic, strong) NSArray *objects;
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, strong) NSHTTPURLResponse *httpResponse;
+@property (nonatomic, strong) CKRequest *request;
+@property (nonatomic, strong) id response;
 
 + (CKResult *) resultWithRequest:(CKRequest *) request andResponse:(id) response;
 + (CKResult *) resultWithRequest:(CKRequest *) request andError:(NSError **) error;
 - (id) initWithRequest:(CKRequest *) request response:(id) response httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error; 
 - (id) initWithObjects:(NSArray *) objects; 
 - (id) object;
-- (void) setResponse:(id) response;
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState*)state objects:(id*)stackbuf count:(NSUInteger)len;
 
 @end

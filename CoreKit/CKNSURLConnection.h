@@ -20,10 +20,10 @@
 }
 
 @property (nonatomic, assign) NSUInteger responseCode;
-@property (nonatomic, retain) NSMutableData *responseData;
-@property (nonatomic, retain) CKRequest *request;
-@property (nonatomic, retain) NSURLConnection *connection;
-@property (nonatomic, retain) NSDictionary *responseHeaders;
+@property (nonatomic, strong) NSMutableData *responseData;
+@property (nonatomic, strong) CKRequest *request;
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) NSDictionary *responseHeaders;
 
 - (BOOL) connectionVerified;
 

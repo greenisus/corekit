@@ -76,7 +76,7 @@
 
 + (CKRequest *) requestWithMap:(CKRouterMap *) map{
     
-    return [[[self alloc] initWithRouterMap:map] autorelease];
+    return [[self alloc] initWithRouterMap:map];
 }
 
 - (NSURLCredential *) credentials{
@@ -99,8 +99,7 @@
 
 - (void) setRouterMap:(CKRouterMap *)routerMap{
     
-    RELEASE_SAFELY(_routerMap);
-    _routerMap = [routerMap retain];
+    _routerMap = routerMap;
     
     self.remotePath = _routerMap.remotePath;
     self.method = _routerMap.requestMethod;
@@ -135,8 +134,8 @@
 
 - (NSURL *) remoteURL{
     
-    NSMutableString *url = [[_remotePath mutableCopy] autorelease];
-    NSMutableString *baseURL = [[[CKManager sharedManager].baseURL mutableCopy] autorelease];
+    NSMutableString *url = [_remotePath mutableCopy];
+    NSMutableString *baseURL = [[CKManager sharedManager].baseURL mutableCopy];
     
     if([baseURL length] == 0){
         
@@ -191,7 +190,7 @@
 
 - (id) connection{
     
-    return _connection == nil ? [[[[CKManager sharedManager].connectionClass alloc] init] autorelease] : _connection;
+    return _connection == nil ? [[[CKManager sharedManager].connectionClass alloc] init] : _connection;
 }
 
 - (void) send{
@@ -226,26 +225,6 @@
     CKRequest *request = [timer userInfo];
     request.interval = CKRequestIntervalNone;
     [[CKManager sharedManager] sendRequest:request];
-}
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_batchMaxPerPageString);
-    RELEASE_SAFELY(_batchPageString);
-    RELEASE_SAFELY(_routerMap);
-    RELEASE_SAFELY(_username);
-    RELEASE_SAFELY(_password);
-    RELEASE_SAFELY(_remotePath);
-    RELEASE_SAFELY(_headers);
-    RELEASE_SAFELY(_parameters);
-    RELEASE_SAFELY(_connection);
-    RELEASE_SAFELY(_body);
-    RELEASE_SAFELY(_parser);
-    RELEASE_SAFELY(_completionBlock);
-    RELEASE_SAFELY(_errorBlock);
-    RELEASE_SAFELY(_parseBlock);
-
-    [super dealloc];
 }
 
 @end

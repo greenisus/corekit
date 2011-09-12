@@ -8,10 +8,8 @@
 
 #import "CKManager.h"
 #import "CKDefines.h"
-#import "CKJSONKit.h"
 #import "CKNSURLConnection.h"
 #import "CKNSJSONSerialization.h"
-#import "CKJSONKit.h"
 #import "CKRecord.h"
 
 
@@ -59,26 +57,11 @@
         _bindings = [[CKBindings alloc] init];
         _dateFormatter = [[NSDateFormatter alloc] init];
         _connectionClass = [CKNSURLConnection class];
-        _serializationClass = [CKJSONKit class];
-        _fixtureSerializationClass = [CKJSONKit class];
+        _serializationClass = [CKNSJSONSerialization class];
+        _fixtureSerializationClass = [CKNSJSONSerialization class];
     }
     
     return self;
-}
-
-- (void) dealloc{
-    
-    RELEASE_SAFELY(_dateFormat);
-    RELEASE_SAFELY(_dateFormatter);
-    RELEASE_SAFELY(_coreData);
-    RELEASE_SAFELY(_router);
-    RELEASE_SAFELY(_baseURL);
-    RELEASE_SAFELY(_httpUser);
-    RELEASE_SAFELY(_httpPassword);
-    RELEASE_SAFELY(_responseKeyPath);
-    RELEASE_SAFELY(_bindings);
-    
-    [super dealloc];
 }
 
 - (CKManager *) setBaseURL:(NSString *) url user:(NSString *) user password:(NSString *) password{
@@ -94,8 +77,7 @@
     
     [_dateFormatter setDateFormat:dateFormat];
     
-    RELEASE_SAFELY(_dateFormat);
-    _dateFormat = [dateFormat retain];
+    _dateFormat = dateFormat;
 }
 
 - (NSManagedObjectContext *) managedObjectContext{
@@ -155,7 +137,7 @@
 
 - (void) sendBatchRequest:(CKRequest *) request{
     
-    __block NSMutableArray *objects = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *objects = [[NSMutableArray alloc] init];
     __block int pagesComplete = 0;
     
     for(int page = 1; page <= request.batchMaxPages; page++){

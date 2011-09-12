@@ -47,7 +47,6 @@
 			
 			backgroundThreadContext = [self newManagedObjectContext];					
 			[threadDictionary setObject:backgroundThreadContext forKey:ckCoreDataThreadKey];			
-			[backgroundThreadContext release];
 		}
         
 		return backgroundThreadContext;
@@ -172,15 +171,6 @@
     NSLog(@"Created: %i, Updated: %i, Deleted: %i, Time: %f seconds", insertedObjectsCount, updatedObjectsCount, deletedObjectsCount, ([startTime timeIntervalSinceNow] *-1));
     
     return saved;
-}
-
-- (void) dealloc{
-    
-    [_managedObjectModel release];
-    [_managedObjectContext release];
-    [_persistentStoreCoordinator release];
-    
-    [super dealloc];
 }
 
 @end
