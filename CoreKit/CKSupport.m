@@ -34,3 +34,22 @@ BOOL CK_CONNECTION_AVAILABLE(void){
     
     return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable;
 }
+
+
+NSString* CKPathForBundleResource(NSBundle* bundle, NSString* relativePath) {
+    NSString* resourcePath = [(nil == bundle ? [NSBundle mainBundle] : bundle) resourcePath];
+    return [resourcePath stringByAppendingPathComponent:relativePath];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+NSString* CKPathForDocumentsResource(NSString* relativePath) {
+    static NSString* documentsPath = nil;
+    if (nil == documentsPath) {
+        NSArray* dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                            NSUserDomainMask,
+                                                            YES);
+        documentsPath = [dirs objectAtIndex:0];
+    }
+    return [documentsPath stringByAppendingPathComponent:relativePath];
+}

@@ -14,3 +14,9 @@
 NSArray* CK_SORT(NSString *sort);
 
 BOOL CK_CONNECTION_AVAILABLE(void);
+
+
+// Following 2 methods taken from Nimbus, renamed to avoid naming conflicts with Nimbus core
+NSString* CKPathForBundleResource(NSBundle* bundle, NSString* relativePath);
+
+NSString* CKPathForDocumentsResource(NSString* relativePath);

@@ -64,8 +64,6 @@
 		C9F2A599140BF4F300218666 /* CKBindingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2A596140BF4BF00218666 /* CKBindingsTests.m */; };
 		C9F2B71813ED99DF0002D6AA /* inflections.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9F05F3B13E7391700557828 /* inflections.plist */; };
 		C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2AB13D759F6009DAC73 /* CKDefines.h */; };
-		C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B113D75B91009DAC73 /* NIPaths.h */; };
-		C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B213D75B91009DAC73 /* NIPaths.m */; };
 		C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */; };
 		C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */; };
 		C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F4F2BC13D8C012009DAC73 /* CKBindings.h */; };
@@ -158,8 +156,6 @@
 		C9F2A4D513E1D067005E4711 /* CKRouterMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRouterMap.m; sourceTree = "<group>"; };
 		C9F2A596140BF4BF00218666 /* CKBindingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBindingsTests.m; sourceTree = "<group>"; };
 		C9F4F2AB13D759F6009DAC73 /* CKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefines.h; sourceTree = "<group>"; };
-		C9F4F2B113D75B91009DAC73 /* NIPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPaths.h; sourceTree = "<group>"; };
-		C9F4F2B213D75B91009DAC73 /* NIPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIPaths.m; sourceTree = "<group>"; };
 		C9F4F2B613D882C7009DAC73 /* CKRecordPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRecordPrivate.h; sourceTree = "<group>"; };
 		C9F4F2B713D882C7009DAC73 /* CKRecordPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRecordPrivate.m; sourceTree = "<group>"; };
 		C9F4F2BC13D8C012009DAC73 /* CKBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBindings.h; sourceTree = "<group>"; };
@@ -252,8 +248,6 @@
 				C996356713F31A7F003E7CDD /* Reachability.h */,
 				C996356813F31A7F003E7CDD /* Reachability.m */,
 				C9F05F3813E738E600557828 /* NSString Inflections */,
-				C9F4F2B113D75B91009DAC73 /* NIPaths.h */,
-				C9F4F2B213D75B91009DAC73 /* NIPaths.m */,
 				C986F28313FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h */,
 				C986F28413FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m */,
 			);
@@ -456,7 +450,6 @@
 				C9377D8113D4DA4B0062C015 /* CKNSJSONSerialization.h in Headers */,
 				C96C15CF13D5E91800A78055 /* CKRecord.h in Headers */,
 				C9F4F2AD13D759F7009DAC73 /* CKDefines.h in Headers */,
-				C9F4F2B313D75B91009DAC73 /* NIPaths.h in Headers */,
 				C9F4F2B813D882C7009DAC73 /* CKRecordPrivate.h in Headers */,
 				C9F4F2BE13D8C013009DAC73 /* CKBindings.h in Headers */,
 				C9F2A48713E1C905005E4711 /* CKSupport.h in Headers */,
@@ -607,7 +600,6 @@
 				C9377D7D13D4CD530062C015 /* CKResult.m in Sources */,
 				C9377D8213D4DA4B0062C015 /* CKNSJSONSerialization.m in Sources */,
 				C96C15D013D5E91800A78055 /* CKRecord.m in Sources */,
-				C9F4F2B413D75B91009DAC73 /* NIPaths.m in Sources */,
 				C9F4F2B913D882C7009DAC73 /* CKRecordPrivate.m in Sources */,
 				C9F4F2BF13D8C013009DAC73 /* CKBindings.m in Sources */,
 				C9F2A48813E1C905005E4711 /* CKSupport.m in Sources */,

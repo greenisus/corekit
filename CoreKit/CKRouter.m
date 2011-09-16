@@ -10,7 +10,7 @@
 #import "CKDefines.h"
 #import "CKRequest.h"
 #import "CKManager.h"
-#import "NIPaths.h"
+#import "CKSupport.h"
 #import "CKRecord+CKRouter.h"
 
 

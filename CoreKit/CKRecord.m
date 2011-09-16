@@ -9,7 +9,7 @@
 #import "CKRecord.h"
 #import "CKManager.h"
 #import "CKDefines.h"
-#import "NIPaths.h"
+#import "CKSupport.h"
 #import "CKCoreData.h"
 #import "CKRecordPrivate.h"
 #import "CKResult.h"
@@ -433,7 +433,7 @@
 
 + (id) fixtureNamed:(NSString *) name atPath:(NSString *) path{
     
-    NSString *fixturePath = NIPathForBundleResource([NSBundle bundleForClass:[self class]], ckFixturePath);
+    NSString *fixturePath = CKPathForBundleResource([NSBundle bundleForClass:[self class]], ckFixturePath);
 
     if(path == nil){
         

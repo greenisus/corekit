@@ -81,6 +81,7 @@
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response{
 	
 	_responseCode = [response statusCode];
+    _responseHeaders = [response allHeaderFields];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
