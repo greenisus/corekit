@@ -17,27 +17,33 @@
 
 @synthesize objects = _objects;
 @synthesize error = _error;
-@synthesize httpResponse = _httpResponse;
 @synthesize request = _request;
-@synthesize response = _response;
+@synthesize responseBody = _responseBody;
+@synthesize responseHeaders = _responseHeaders;
+@synthesize responseCode = _responseCode;
 
-+ (CKResult *) resultWithRequest:(CKRequest *) request andResponse:(id) response{
++ (CKResult *) resultWithRequest:(CKRequest *) request andResponseBody:(NSData *) responseBody{
 
-    return [[self alloc] initWithRequest:request response:response httpResponse:nil error:nil];
+    return [[self alloc] initWithRequest:request responseBody:responseBody httpResponse:nil error:nil];
 }
 
 + (CKResult *) resultWithRequest:(CKRequest *) request andError:(NSError **) error{
  
-    return [[self alloc] initWithRequest:request response:nil httpResponse:nil error:error];
+    return [[self alloc] initWithRequest:request responseBody:nil httpResponse:nil error:error];
 }
 
-- (id) initWithRequest:(CKRequest *) request response:(id) response httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error{
+- (id) initWithRequest:(CKRequest *) request responseBody:(NSData *) responseBody httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error{
     
     if(self = [super init]){
         
         self.request = request;
-        self.response = response;
-        self.httpResponse = httpResponse;
+        self.responseBody = responseBody;
+        
+        if(httpResponse != nil){
+            
+            _responseCode = [httpResponse statusCode];
+            self.responseHeaders = [httpResponse allHeaderFields];
+        }
         
         if(error != nil)
             self.error = *error;
@@ -48,7 +54,10 @@
 
 - (id) initWithObjects:(NSArray *) objects{
     
-    return [self initWithRequest:nil response:objects httpResponse:nil error:nil];
+    id init = [self initWithRequest:nil responseBody:nil httpResponse:nil error:nil];
+    self.objects = objects;
+    
+    return init;
 }
 
 - (id) object{
@@ -56,17 +65,19 @@
 	return _objects != nil && [_objects count] > 0 ? [_objects objectAtIndex:0] : nil;
 }
 
-- (void) setResponse:(id) response{
+- (void) setResponseBody:(NSData *)responseBody{
     
-    if([response isKindOfClass:[NSData class]] && [response length] == 0)
-        self.objects = [NSArray array];
+    //if([response isKindOfClass:[NSData class]] && [response length] == 0)
+    //  self.objects = [NSArray array];
     
-    else if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
-        self.objects = response;
+    // else if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
+    //    self.objects = response;
     
-    else if (response != nil){
+    _responseBody = responseBody;
+    
+    if (responseBody != nil){
         
-        id parsed = [[CKManager sharedManager] parse:response];
+        id parsed = [[CKManager sharedManager] parse:responseBody];
         
         if([_request.routerMap.responseKeyPath length] > 0 && [parsed isKindOfClass:[NSDictionary class]])        
             parsed = [parsed objectForKeyPath:_request.routerMap.responseKeyPath];

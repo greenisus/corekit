@@ -12,11 +12,11 @@
 
 @interface Tweet : CKRecord
 
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * from_user;
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * profile_image_url;
-@property (nonatomic, retain) NSString * text;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSString * from_user;
+@property (nonatomic, strong) NSNumber * id;
+@property (nonatomic, strong) NSString * profile_image_url;
+@property (nonatomic, strong) NSString * text;
 
 + (void) search:(NSString *) query parseBlock:(CKParseBlock) parseBlock completionBlock:(CKResultBlock) completionBlock errorBlock:(CKResultBlock) errorBlock;
 - (NSString *) relativeDate;

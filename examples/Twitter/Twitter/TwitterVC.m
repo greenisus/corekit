@@ -1,16 +1,17 @@
 //
-//  TwitterSearchTableViewController.m
-//  TwitterExample
+//  TwitterVC.m
+//  Twitter
 //
-//  Created by Matt Newberry on 8/15/11.
+//  Created by Matt Newberry on 9/16/11.
 //  Copyright (c) 2011 MNDCreative, LLC. All rights reserved.
 //
 
-#import "TwitterSearchTableViewController.h"
+#import "TwitterVC.h"
 #import "Tweet.h"
 #import "TweetCell.h"
 
-@implementation TwitterSearchTableViewController
+@implementation TwitterVC
+
 @synthesize tweets = _tweets;
 @synthesize loadingView = _loadingView;
 
@@ -23,13 +24,12 @@
     return self;
 }
 
-- (void) dealloc{
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
     
-    [super dealloc];
-    [_tweets release];
-    _tweets = nil;
-    [_loadingView release];
-    _loadingView = nil;
+    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -37,19 +37,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [_tweets addObjectsFromArray:[Tweet all]];
     
     self.title = @"Search Twitter";
-
+    
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     searchBar.delegate = self;
     searchBar.text = @"Rackspace";
     self.tableView.tableHeaderView = searchBar;
-    [searchBar release];
-        
-     _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-     _loadingView.frame = CGRectMake((self.view.frame.size.width / 2) - _loadingView.frame.size.width/2, (self.view.frame.size.height / 2) - _loadingView.frame.size.height/2 + 10, _loadingView.frame.size.width, _loadingView.frame.size.height);
+    
+    _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _loadingView.frame = CGRectMake((self.view.frame.size.width / 2) - _loadingView.frame.size.width/2, (self.view.frame.size.height / 2) - _loadingView.frame.size.height/2 + 10, _loadingView.frame.size.width, _loadingView.frame.size.height);
     _loadingView.hidesWhenStopped = YES;
     [self.view addSubview:_loadingView];
 }
@@ -57,14 +56,12 @@
 - (void) viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+    
     [self searchBarSearchButtonClicked:(UISearchBar *) self.tableView.tableHeaderView];
 }
 
-
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
-    return;
-    
+        
     [searchBar resignFirstResponder];
     [_loadingView startAnimating];
     [_tweets removeAllObjects];
@@ -77,34 +74,27 @@
         
         [self.tableView reloadData];
         [_loadingView stopAnimating];
-            
+        
     } errorBlock:nil];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     return [_tweets count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     return 1;
 }
 

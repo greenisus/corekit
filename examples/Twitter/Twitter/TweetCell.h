@@ -15,8 +15,8 @@
     IBOutlet UILabel *_time;
 }
 
-@property (nonatomic, retain) UILabel *userName;
-@property (nonatomic, retain) UILabel *tweet;
-@property (nonatomic, retain) UILabel *time;
+@property (nonatomic, strong) UILabel *userName;
+@property (nonatomic, strong) UILabel *tweet;
+@property (nonatomic, strong) UILabel *time;
 
 @end

@@ -68,14 +68,14 @@
     self.request = request;
     
 	if(![self connectionVerified])
-		return [CKResult resultWithRequest:request andResponse:nil];	
+		return [CKResult resultWithRequest:request andResponseBody:nil];	
         
 	NSData *response = [NSURLConnection sendSynchronousRequest:[_request remoteRequest] returningResponse:&httpResponse error:&error];
     
 	_responseCode = [httpResponse statusCode];
     self.responseHeaders = [httpResponse allHeaderFields];
     
-	return [[CKResult alloc] initWithRequest:_request response:response httpResponse:httpResponse error:&error];
+	return [[CKResult alloc] initWithRequest:_request responseBody:response httpResponse:httpResponse error:&error];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response{
@@ -120,8 +120,10 @@
 	
     _request.completed = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-	CKResult *result = [CKResult resultWithRequest:_request andResponse:_responseData];
+        
+	CKResult *result = [CKResult resultWithRequest:_request andResponseBody:_responseData];
+    result.responseCode = _responseCode;
+    result.responseHeaders = _responseHeaders;
     
 	if(_request.completionBlock != nil)
         dispatch_async(dispatch_get_main_queue(), ^{

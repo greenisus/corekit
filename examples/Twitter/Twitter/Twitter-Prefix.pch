@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'TwitterExample' target in the 'TwitterExample' project
+// Prefix header for all source files of the 'Twitter' target in the 'Twitter' project
 //
 
 #import <Availability.h>

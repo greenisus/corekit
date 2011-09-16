@@ -14,14 +14,4 @@
 @synthesize tweet = _tweet;
 @synthesize time = _time;
 
-
-- (void) dealloc{
-    
-    [super dealloc];
-    
-    [_userName release];
-    [_tweet release];
-    [_time release];
-}
-
 @end

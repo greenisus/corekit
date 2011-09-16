@@ -119,7 +119,7 @@
 
 - (NSArray *) bindingsForTarget:(id) target forChangeType:(CKBindingChangeType) changeType{
     
-    __weak NSMutableArray *targetBindings = [NSMutableArray array];
+    NSMutableArray *targetBindings = [NSMutableArray array];
     
     [[_bindings allValues] enumerateObjectsUsingBlock:^(NSArray *maps, NSUInteger idx, BOOL *stop){
        
@@ -137,7 +137,7 @@
 
 - (NSArray *) bindingsForModel:(NSManagedObject *)model forChangeType:(CKBindingChangeType) changeType{
     
-    __weak NSMutableArray *modelBindings = [_bindings objectForKey:[[model class] description]];
+    NSMutableArray *modelBindings = [_bindings objectForKey:[[model class] description]];
     
      if(modelBindings != nil){
          
@@ -159,7 +159,7 @@
 
 - (NSArray *) bindingsForEntity:(Class) entity forChangeType:(CKBindingChangeType) changeType{
     
-    __weak NSMutableArray *entityBindings = [_bindings objectForKey:[entity description]];
+    NSMutableArray *entityBindings = [_bindings objectForKey:[entity description]];
     
     if(entityBindings != nil){
         
@@ -181,7 +181,7 @@
 
 - (NSArray *) bindingsForChangeType:(CKBindingChangeType)changeType{
     
-    __weak NSMutableArray *changeTypeBindings = [NSMutableArray array];
+    NSMutableArray *changeTypeBindings = [NSMutableArray array];
     
     [[_bindings allValues] enumerateObjectsUsingBlock:^(NSArray *maps, NSUInteger idx, BOOL *stop){
         

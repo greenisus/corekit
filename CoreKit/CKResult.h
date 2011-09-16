@@ -16,21 +16,25 @@
     
     NSArray *_objects;
 	NSError *_error;
-	NSHTTPURLResponse *_httpResponse;
-    id _response;
+    
+    NSData *_responseBody;
+    NSDictionary *_responseHeaders;
+    NSUInteger _responseCode;
 	
     CKRequest *_request;
 }
 
 @property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) NSError *error;
-@property (nonatomic, strong) NSHTTPURLResponse *httpResponse;
 @property (nonatomic, strong) CKRequest *request;
-@property (nonatomic, strong) id response;
+@property (nonatomic, strong) NSData *responseBody;
+@property (nonatomic, strong) NSDictionary *responseHeaders;
+@property (nonatomic, assign) NSUInteger responseCode;
 
-+ (CKResult *) resultWithRequest:(CKRequest *) request andResponse:(id) response;
++ (CKResult *) resultWithRequest:(CKRequest *) request andResponseBody:(NSData *) responseBody;
 + (CKResult *) resultWithRequest:(CKRequest *) request andError:(NSError **) error;
-- (id) initWithRequest:(CKRequest *) request response:(id) response httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error; 
+
+- (id) initWithRequest:(CKRequest *) request responseBody:(NSData *) responseBody httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error; 
 - (id) initWithObjects:(NSArray *) objects; 
 - (id) object;
 

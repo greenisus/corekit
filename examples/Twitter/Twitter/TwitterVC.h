@@ -1,14 +1,14 @@
 //
-//  TwitterSearchTableViewController.h
-//  TwitterExample
+//  TwitterVC.h
+//  Twitter
 //
-//  Created by Matt Newberry on 8/15/11.
+//  Created by Matt Newberry on 9/16/11.
 //  Copyright (c) 2011 MNDCreative, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TwitterSearchTableViewController : UITableViewController <UISearchBarDelegate>{
+@interface TwitterVC : UITableViewController<UISearchBarDelegate>{
     
     NSMutableArray *_tweets;
     UIActivityIndicatorView *_loadingView;

@@ -135,7 +135,7 @@
 
 - (NSDictionary *) attributeMapForModel:(Class) model{
     
-    __weak NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
     NSArray *maps = [self mapsForModel:model];
     
