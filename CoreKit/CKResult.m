@@ -71,7 +71,7 @@
     
     _responseBody = responseBody;
     
-    if (responseBody != nil){
+    if (responseBody != nil && [responseBody length] > 0){
         
          Class model = _request.routerMap.model;
         
@@ -90,6 +90,7 @@
             builtObjects = [model build:parsed];
         
         self.objects = [builtObjects isKindOfClass:[NSArray class]] ? builtObjects : [NSArray arrayWithObject:builtObjects];
+        
         [CKRecord save];
     }
     else
