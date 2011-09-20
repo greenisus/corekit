@@ -27,13 +27,4 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-            
-    Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-    
-    return size.height + 40;
-}
-
 @end

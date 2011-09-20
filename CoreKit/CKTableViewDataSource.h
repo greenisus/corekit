@@ -10,15 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "CKManager.h"
 
-@interface CKTableViewDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
-    
-    NSFetchedResultsController *_fetchedResultsController;
-    UITableView *_tableView;
-    
-    NSEntityDescription *_entityDescription;
-    
-    Class _cellClass;
-}
+@interface CKTableViewDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) UITableView *tableView;

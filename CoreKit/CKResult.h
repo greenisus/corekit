@@ -12,17 +12,7 @@
 
 /** Standard interface to handle HTTP responses and local CoreData fetch requests */
 
-@interface CKResult : NSObject <NSFastEnumeration>{
-    
-    NSArray *_objects;
-	NSError *_error;
-    
-    NSData *_responseBody;
-    NSDictionary *_responseHeaders;
-    NSUInteger _responseCode;
-	
-    CKRequest *_request;
-}
+@interface CKResult : NSObject <NSFastEnumeration>
 
 @property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) NSError *error;

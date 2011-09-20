@@ -8,12 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CKCoreData : NSObject{
-    
-    NSManagedObjectContext *_managedObjectContext;
-	NSManagedObjectModel *_managedObjectModel;
-	NSPersistentStoreCoordinator *_persistentStoreCoordinator;
-}
+@interface CKCoreData : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;

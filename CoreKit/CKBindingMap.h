@@ -9,17 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CKBindings.h"
 
-@interface CKBindingMap : NSObject{
-    
-    NSManagedObjectID *_objectID;
-    Class _entityClass;
-    id _control;
-    id _target;
-    CKBindingChangeType _changeType;
-    CKBindingChangeBlock _block;
-    SEL _selector;
-    NSString *_keyPath;
-}
+@interface CKBindingMap : NSObject
 
 @property (nonatomic, strong) NSManagedObjectID *objectID;
 @property (nonatomic, assign) Class entityClass;

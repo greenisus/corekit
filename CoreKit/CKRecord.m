@@ -57,6 +57,12 @@
 	
 	NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
 	[fetch setEntity:[self entityDescription]];
+    [fetch setFetchBatchSize:20];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:[self primaryKeyName] ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [fetch setSortDescriptors:sortDescriptors];
+    
 	return fetch;
 }
 

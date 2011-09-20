@@ -49,44 +49,7 @@ typedef enum CKRequestInterval {
 /**
  * The standard request object for all HTTP requests
  */
-@interface CKRequest : NSObject {
-    
-    CKRouterMap *_routerMap;
-    
-    NSString *_username;
-    NSString *_password;
-    NSString *_remotePath;
-    CKRequestMethod _method;
-    
-    NSMutableDictionary *_headers;
-    NSMutableDictionary *_parameters;
-    id _body;
-    
-    BOOL _syncronous;
-    BOOL _started;
-    BOOL _completed;
-    BOOL _failed;
-    BOOL _secure;
-    
-    BOOL _batch;
-    BOOL _isBatched;
-    NSString *_batchPageString;
-    NSString *_batchMaxPerPageString;
-    NSUInteger _batchNumPerPage;
-    NSUInteger _batchMaxPages;
-    NSUInteger _batchCurrentPage;
-    
-    NSUInteger _connectionTimeout;
-    
-    CKRequestInterval _interval;
-    
-    id <CKConnection> _connection;
-    id <CKSerialization> _parser;
-    
-    CKResultBlock _completionBlock;
-    CKResultBlock _errorBlock;
-    CKParseBlock _parseBlock;
-}
+@interface CKRequest : NSObject
 
 @property (nonatomic, strong) CKRouterMap *routerMap;
 @property (nonatomic, strong) NSString *username;

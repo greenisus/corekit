@@ -10,10 +10,7 @@
 #import "CKRequest.h"
 #import "CKRouterMap.h"
 
-@interface CKRouter : NSObject{
-    
-    NSMutableDictionary *_routes;
-}
+@interface CKRouter : NSObject
 
 /** Routing dictionary for classes 
  @param routes Keys represent class names, values represent their route

@@ -10,14 +10,7 @@
 #import "CKConnection.h"
 #import "CKRequest.h"
 
-@interface CKNSURLConnection : NSObject <CKConnection, NSURLConnectionDelegate>{
-    
-    NSUInteger _responseCode;
-    NSMutableData *_responseData;
-	CKRequest *_request;
-    NSURLConnection *_connection;
-    NSDictionary *_responseHeaders;
-}
+@interface CKNSURLConnection : NSObject <CKConnection, NSURLConnectionDelegate>
 
 @property (nonatomic, assign) NSUInteger responseCode;
 @property (nonatomic, strong) NSMutableData *responseData;

@@ -18,13 +18,7 @@ typedef enum CKBindingChangeType{
 
 typedef void (^CKBindingChangeBlock) (void);
 
-@interface CKBindings : NSObject{
-    
-    NSMutableDictionary *_bindings;
-    
-@private
-    NSMutableSet *_firedMaps;
-}
+@interface CKBindings : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *bindings;
 @property (nonatomic, strong) NSMutableSet *firedMaps;

@@ -21,16 +21,13 @@ typedef enum CKRecordOptions {
     CKRecordOptionsConvertCamelCase
 } CKRecordOptions;
 
-@interface CKRecord : NSManagedObject {
-    
-    NSDictionary *__weak _attributes;
-}
+@interface CKRecord : NSManagedObject
 
 
 /** @name Entity Methods */
 
 /** Cached property list */
-@property (nonatomic, readonly) NSDictionary *attributes;
+@property (nonatomic, readonly, strong) NSDictionary *attributes;
 
 /** Return the name of the model */
 + (NSString *) entityName;

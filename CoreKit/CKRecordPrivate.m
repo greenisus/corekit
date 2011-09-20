@@ -22,7 +22,7 @@
 
 - (NSPropertyDescription *) propertyDescriptionForKey:(NSString *) key{
     
-    return [[_attributes allKeys] containsObject:key] ? [_attributes objectForKey:key] : nil;
+    return [[self.attributes allKeys] containsObject:key] ? [self.attributes objectForKey:key] : nil;
 }
 
 - (void) setProperty:(NSString *) property value:(id) value attributeType:(NSAttributeType) attributeType{

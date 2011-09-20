@@ -9,19 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CKRequest.h"
 
-@interface CKRouterMap : NSObject{
-    
-    Class _model;
-    id _object;
-    NSString *_remotePath;
-    NSString *_localAttribute;
-    NSString *_remoteAttribute;
-    NSString *_responseKeyPath;
-    CKRequestMethod _requestMethod;
-    BOOL _isInstanceMap;
-    
-    // Implement callback blocks
-}
+@interface CKRouterMap : NSObject
 
 @property (nonatomic, assign) Class model;
 @property (nonatomic, strong) id object;

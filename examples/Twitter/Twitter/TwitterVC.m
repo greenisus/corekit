@@ -16,23 +16,9 @@
 @synthesize loadingView = _loadingView;
 @synthesize dataSource = _dataSource;
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    
-
-    //NSArray *allTweets = [Tweet all];
-    
-    //[_tweets addObjectsFromArray:allTweets];
+- (void)viewDidLoad {
     
     _dataSource = [[TwitterVCDataSource alloc] init];
     _dataSource.tableView = self.tableView;
@@ -40,7 +26,7 @@
     _dataSource.cellClass = [TweetCell class];
     
     self.tableView.dataSource = _dataSource;
-    self.tableView.delegate = _dataSource;
+    self.tableView.delegate = self;
     self.title = @"Search Twitter";
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -51,6 +37,7 @@
     _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _loadingView.frame = CGRectMake((self.view.frame.size.width / 2) - _loadingView.frame.size.width/2, (self.view.frame.size.height / 2) - _loadingView.frame.size.height/2 + 10, _loadingView.frame.size.width, _loadingView.frame.size.height);
     _loadingView.hidesWhenStopped = YES;
+    
     [self.view addSubview:_loadingView];
         
     [super viewDidLoad];
@@ -68,7 +55,6 @@
     [searchBar resignFirstResponder];
     [_loadingView startAnimating];
     [Tweet removeAll];
-    //[self.tableView reloadData];
         
     [Tweet search:searchBar.text parseBlock:nil completionBlock:^(CKResult *result){
                 
@@ -83,6 +69,14 @@
 	return YES;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    Tweet *tweet = [_dataSource.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+    
+    return size.height + 40;
+}
 
 
 @end

@@ -16,32 +16,7 @@
 /** 
  * CKManager serves as the main coordinator for all things CoreKit. 
  */
-@interface CKManager : NSObject{
-        
-    Class _connectionClass;
-	Class _serializationClass;
-    Class _fixtureSerializationClass;
-    
-    NSString *_baseURL;
-    NSString *_httpUser;
-    NSString *_httpPassword;
-    
-    NSString *_responseKeyPath;
-    
-    BOOL _batchAllRequests;
-    BOOL _secureAllConnections;
-    
-    CKCoreData *_coreData;
-    CKRouter *_router;
-    CKBindings *_bindings;
-    
-    NSDateFormatter *_dateFormatter;
-    NSString *_dateFormat;
-    
-@private
-    id <CKSerialization> _serializer;
-    id <CKSerialization> _fixtureSerializer;
-}
+@interface CKManager : NSObject
 
 
 /** @name Getting the Shared Manager */

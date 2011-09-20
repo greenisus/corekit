@@ -24,7 +24,7 @@
     request.parseBlock = parseBlock;
     request.completionBlock = completionBlock;
     request.errorBlock = errorBlock;
-    request.batch = NO;
+    request.batch = YES;
     [request addParameters:[NSDictionary dictionaryWithObject:query forKey:@"q"]];
     
     [request send];
