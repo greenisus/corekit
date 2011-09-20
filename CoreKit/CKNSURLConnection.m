@@ -23,7 +23,8 @@
 
 - (id) init{
     
-    if(self = [super init]){
+    self = [super init];
+    if (self) {
         
         _responseData = [[NSMutableData alloc] init];
     }
@@ -111,24 +112,22 @@
 	CKResult *result = [CKResult resultWithRequest:_request andError:&error];
     	
 	if(_request.errorBlock != nil)
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _request.errorBlock(result);
-        });
+        _request.errorBlock(result);
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
 	
     _request.completed = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-	CKResult *result = [CKResult resultWithRequest:_request andResponseBody:_responseData];
-    result.responseCode = _responseCode;
-    result.responseHeaders = _responseHeaders;
     
-	if(_request.completionBlock != nil)
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _request.completionBlock(result);	
-        });
+	if(self.request.completionBlock != nil){
+        
+        CKResult *result = [CKResult resultWithRequest:_request andResponseBody:_responseData];
+        result.responseCode = _responseCode;
+        result.responseHeaders = _responseHeaders;
+        
+        _request.completionBlock(result);	
+    }
 }
 
 @end

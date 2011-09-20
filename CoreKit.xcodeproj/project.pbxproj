@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C9030A2F13D60A630024AE31 /* CKRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9030A2E13D60A630024AE31 /* CKRecordTests.m */; };
 		C9030A3B13D624A10024AE31 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = C9030A3A13D624A10024AE31 /* fixtures */; };
+		C90A8CF61428F52F00FBDFAD /* CKTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C90A8CF41428F52F00FBDFAD /* CKTableViewDataSource.h */; };
+		C90A8CF71428F52F00FBDFAD /* CKTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C90A8CF51428F52F00FBDFAD /* CKTableViewDataSource.m */; };
+		C90A8CF81428F52F00FBDFAD /* CKTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C90A8CF51428F52F00FBDFAD /* CKTableViewDataSource.m */; };
 		C915059913E889A9004941A5 /* inflections.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9F05F3B13E7391700557828 /* inflections.plist */; };
 		C91F9D2E14042A2500C42219 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FB7C1413CF4381009597E7 /* Foundation.framework */; };
 		C91F9D3414042A2500C42219 /* CoreSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F9D3314042A2500C42219 /* CoreSupport.m */; };
@@ -105,6 +108,8 @@
 		C9030A3313D60D610024AE31 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
 		C9030A3413D60D610024AE31 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		C9030A3A13D624A10024AE31 /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fixtures; sourceTree = "<group>"; };
+		C90A8CF41428F52F00FBDFAD /* CKTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTableViewDataSource.h; sourceTree = "<group>"; };
+		C90A8CF51428F52F00FBDFAD /* CKTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTableViewDataSource.m; sourceTree = "<group>"; };
 		C91F9D2D14042A2500C42219 /* libCoreSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91F9D3114042A2500C42219 /* CoreSupport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreSupport-Prefix.pch"; sourceTree = "<group>"; };
 		C91F9D3214042A2500C42219 /* CoreSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreSupport.h; sourceTree = "<group>"; };
@@ -295,6 +300,8 @@
 				C9F2B71713EC8F260002D6AA /* Private */,
 				C95D789F13D08ADF005C3C29 /* CKCoreData.h */,
 				C95D78A013D08ADF005C3C29 /* CKCoreData.m */,
+				C90A8CF41428F52F00FBDFAD /* CKTableViewDataSource.h */,
+				C90A8CF51428F52F00FBDFAD /* CKTableViewDataSource.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -461,6 +468,7 @@
 				C986F28513FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.h in Headers */,
 				C9BD06271408033C00F427A2 /* CKBindingMap.h in Headers */,
 				C9BD062B1408316700F427A2 /* CKRecord+CKBindings.h in Headers */,
+				C90A8CF61428F52F00FBDFAD /* CKTableViewDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +619,7 @@
 				C986F28613FC2B17005662B3 /* NSDictionary+NSDictionary_KeyPath.m in Sources */,
 				C9BD06281408033C00F427A2 /* CKBindingMap.m in Sources */,
 				C9BD062C1408316700F427A2 /* CKRecord+CKBindings.m in Sources */,
+				C90A8CF71428F52F00FBDFAD /* CKTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +635,7 @@
 				C94FC37813E8877A002DFD92 /* OrderItem.m in Sources */,
 				C92BA7D613F47B9100EF4BAE /* CKNSURLConnectionTests.m in Sources */,
 				C9F2A599140BF4F300218666 /* CKBindingsTests.m in Sources */,
+				C90A8CF81428F52F00FBDFAD /* CKTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

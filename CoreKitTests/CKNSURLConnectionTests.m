@@ -24,16 +24,11 @@
 
 - (void) testAsyncronous{
     
-    // NEED TO STUB 
-    return;
-    
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     
     CKRequest *request = [CKRequest requestWithRemotePath:@"search.json"];
     [request addParameters:[NSDictionary dictionaryWithObject:@"rackspace" forKey:@"q"]];
-    
-    NSLog(@"%@", [request remoteURL]);
-    
+        
     NSMutableArray *objects = [NSMutableArray array];
     
     request.completionBlock = ^(CKResult *result){
@@ -51,9 +46,6 @@
 }
 
 - (void) testSyncronously{
-    
-    // NEED TO STUB 
-    return;
     
     [[CKManager sharedManager] setBaseURL:@"search.twitter.com"];
     

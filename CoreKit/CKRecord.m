@@ -21,8 +21,9 @@
 
 - (id) initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context{
     
-    if (self = [super initWithEntity:entity insertIntoManagedObjectContext:context]){
-        
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+    
+    if (self) {        
         _attributes = [[[self class] entityDescription] propertiesByName];
     }
     
@@ -37,11 +38,11 @@
 	return [self entityNameWithPrefix:YES];
 }
 
-+ (NSString *) entityNameWithPrefix:(BOOL) removePrefix{
++ (NSString *) entityNameWithPrefix:(BOOL) includePrefix{
     
     NSMutableString *name = [NSMutableString stringWithString:[NSString stringWithFormat:@"%@", self]];
 
-    if([ckCoreDataClassPrefix length] > 0 && removePrefix)
+    if([ckCoreDataClassPrefix length] > 0 && !includePrefix)
         [name replaceOccurrencesOfString:ckCoreDataClassPrefix withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [ckCoreDataClassPrefix length])];
 	
 	return name;

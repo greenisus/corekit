@@ -18,7 +18,8 @@
 
 - (id) init{
     
-    if(self = [super init]){
+    self = [super init];
+    if (self) {
         
         _bindings = [[NSMutableDictionary alloc] init];
         _firedMaps = [[NSMutableSet alloc] init];

@@ -12,6 +12,7 @@
 #import "CKRecord.h"
 #import "CKRouterMap.h"
 #import "NSDictionary+NSDictionary_KeyPath.h"
+#import "NSString+InflectionSupport.h"
 
 @implementation CKResult
 
@@ -34,7 +35,8 @@
 
 - (id) initWithRequest:(CKRequest *) request responseBody:(NSData *) responseBody httpResponse:(NSHTTPURLResponse *) httpResponse error:(NSError **) error{
     
-    if(self = [super init]){
+    self = [super init];
+    if (self) {
         
         self.request = request;
         self.responseBody = responseBody;
@@ -67,27 +69,27 @@
 
 - (void) setResponseBody:(NSData *)responseBody{
     
-    //if([response isKindOfClass:[NSData class]] && [response length] == 0)
-    //  self.objects = [NSArray array];
-    
-    // else if(response != nil && [response isKindOfClass:[NSArray class]] && [[response objectAtIndex:0] isKindOfClass:[NSManagedObject class]])
-    //    self.objects = response;
-    
     _responseBody = responseBody;
     
     if (responseBody != nil){
         
+         Class model = _request.routerMap.model;
+        
         id parsed = [[CKManager sharedManager] parse:responseBody];
         
+        NSString *pluralEntityName = [[[model entityNameWithPrefix:NO] lowercaseString] pluralForm];
+                
         if([_request.routerMap.responseKeyPath length] > 0 && [parsed isKindOfClass:[NSDictionary class]])        
             parsed = [parsed objectForKeyPath:_request.routerMap.responseKeyPath];
+        else if ([parsed isKindOfClass:[NSDictionary class]] && [[parsed allKeys] containsObject:pluralEntityName])
+            parsed = [parsed objectForKey:pluralEntityName];
         
-        Class model = _request.routerMap.model;
+        id builtObjects;
         
         if(model != nil && parsed != nil)        
-            parsed = [model build:parsed];
+            builtObjects = [model build:parsed];
         
-        self.objects = [parsed isKindOfClass:[NSArray class]] ? parsed : [NSArray arrayWithObject:parsed];
+        self.objects = [builtObjects isKindOfClass:[NSArray class]] ? builtObjects : [NSArray arrayWithObject:builtObjects];
         [CKRecord save];
     }
     else

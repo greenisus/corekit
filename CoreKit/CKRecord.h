@@ -38,7 +38,7 @@ typedef enum CKRecordOptions {
  
  @param removePrefix Optionally remove the class prefix
  */
-+ (NSString *) entityNameWithPrefix: (BOOL) removePrefix;
++ (NSString *) entityNameWithPrefix: (BOOL) includePrefix;
 
 /** Return the entity description */
 + (NSEntityDescription *) entityDescription;

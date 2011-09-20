@@ -14,6 +14,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize vc = _vc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,13 +26,13 @@
     [Tweet mapToRemotePath:@"search.json"];
         
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    TwitterVC *vc = [[TwitterVC alloc] initWithStyle:UITableViewStylePlain];
-    [self.window addSubview:vc.view];
-    
+    _vc = [[TwitterVC alloc] initWithStyle:UITableViewStylePlain];
+        
+    self.window.rootViewController = _vc;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

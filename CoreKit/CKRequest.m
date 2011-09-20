@@ -45,7 +45,8 @@
 
 - (id) initWithRouterMap:(CKRouterMap *) map{
 
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         
         _interval = CKRequestIntervalNone;
         _headers = [[NSMutableDictionary alloc] init];
@@ -57,6 +58,9 @@
         _batchCurrentPage = 1;
         _connectionTimeout = 60;
         _secure = NO;
+        _completionBlock = nil;
+        _errorBlock = nil;
+        _parseBlock = nil;
         self.routerMap = map;
     }
     

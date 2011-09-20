@@ -24,11 +24,12 @@
 
 - (id)init{
     
-    if (self = [super init]){
+    self = [super init];
+    if (self) {
 
+        self.managedObjectContext = [self newManagedObjectContext];
         self.managedObjectModel = [self managedObjectModel];
 		self.persistentStoreCoordinator = [self persistentStoreCoordinator];
-		_managedObjectContext = [self newManagedObjectContext];
     }
     
     return self;
@@ -36,7 +37,7 @@
 
 - (NSManagedObjectContext *) managedObjectContext{
     
-    if ([NSThread isMainThread])
+    if ([NSThread isMainThread] && _managedObjectContext != nil)
 		return _managedObjectContext;
     else{
 		
@@ -56,7 +57,7 @@
 - (NSManagedObjectContext*) newManagedObjectContext{
 	
 	NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] init];
-	[moc setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+	[moc setPersistentStoreCoordinator:[self persistentStoreCoordinator]];
 	[moc setUndoManager:nil];
 	[moc setMergePolicy:NSOverwriteMergePolicy];
     
@@ -70,7 +71,17 @@
     if( _managedObjectModel != nil)
 		return _managedObjectModel;
     
-    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:[NSBundle bundleForClass:[self class]]]]; 
+    if([self persistentStoreType] == ckCoreDataApplicationStorageType){
+        
+        NSArray *files = [[NSBundle mainBundle] URLsForResourcesWithExtension:@"momd" subdirectory:@"."];
+        
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:[files objectAtIndex:0]];
+    }
+    else{
+        
+        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:[NSBundle bundleForClass:[self class]]]];
+    }
+    
     
 	return _managedObjectModel;
 }
@@ -85,7 +96,7 @@
     
     NSError* error;
 	
-	_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_managedObjectModel];
+	_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 	
 	NSDictionary* options = [self persistentStoreOptions];
     NSString *storageType = [self persistentStoreType];

@@ -49,7 +49,8 @@
 
 - (id) init{
     
-    if(self = [super init]){
+    self = [super init];
+    if (self) {
         
         _baseURL = @"";
         _coreData = [[CKCoreData alloc] init];

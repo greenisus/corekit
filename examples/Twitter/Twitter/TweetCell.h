@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TweetCell : UITableViewCell{
+@interface TweetCell : UITableViewCell {
     
     IBOutlet UILabel *_userName;
     IBOutlet UILabel *_tweet;

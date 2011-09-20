@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TwitterVC : UITableViewController<UISearchBarDelegate>{
-    
-    NSMutableArray *_tweets;
-    UIActivityIndicatorView *_loadingView;
-}
+@class TwitterVCDataSource;
 
-@property (nonatomic, retain) NSMutableArray *tweets;
-@property (nonatomic, retain) UIActivityIndicatorView *loadingView;
+@interface TwitterVC : UITableViewController<UISearchBarDelegate>
+
+@property (nonatomic, strong) UIActivityIndicatorView *loadingView;
+@property (nonatomic, strong) TwitterVCDataSource *dataSource;
 
 @end

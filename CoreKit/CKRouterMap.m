@@ -23,7 +23,9 @@
 @synthesize isInstanceMap = _isInstanceMap;
 
 - (id)initWithRemotePath:(NSString *) remotePath{
-    if (self = [super init]) {
+    
+    self = [super init];
+    if (self) {
         
         self.remotePath = remotePath;
         self.responseKeyPath = [CKManager sharedManager].responseKeyPath;

@@ -24,14 +24,14 @@
     request.parseBlock = parseBlock;
     request.completionBlock = completionBlock;
     request.errorBlock = errorBlock;
-    request.batch = YES;
+    request.batch = NO;
     [request addParameters:[NSDictionary dictionaryWithObject:query forKey:@"q"]];
     
     [request send];
 }
 
 - (NSString *) relativeDate{
-    
+        
     NSTimeInterval interval = abs([self.created_at timeIntervalSinceNow]);
     NSString *dateString = nil;
     

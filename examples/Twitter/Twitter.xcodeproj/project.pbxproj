@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90A8CF31427E50700FBDFAD /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90A8CF21427E50700FBDFAD /* Main.xib */; };
+		C90A8D041428FBE100FBDFAD /* CKTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C90A8D031428FBE100FBDFAD /* CKTableViewDataSource.m */; };
+		C90A8D0B1428FE4F00FBDFAD /* TwitterVCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C90A8D0A1428FE4F00FBDFAD /* TwitterVCDataSource.m */; };
+		C94526881427DE9C0097CA18 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C94526871427DE9C0097CA18 /* Tweet.m */; };
 		C9A2428C1423CABD00AFED71 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9A2428A1423CABD00AFED71 /* Model.xcdatamodeld */; };
 		C9FDFC3B1423B17A006EC545 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FDFC3A1423B17A006EC545 /* UIKit.framework */; };
 		C9FDFC3D1423B17A006EC545 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FDFC3C1423B17A006EC545 /* Foundation.framework */; };
@@ -37,9 +41,7 @@
 		C9FDFC9A1423B35B006EC545 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDFC831423B35B006EC545 /* NSString+InflectionSupport.m */; };
 		C9FDFC9B1423B35B006EC545 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDFC851423B35B006EC545 /* Reachability.m */; };
 		C9FDFC9E1423B411006EC545 /* TwitterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDFC9D1423B411006EC545 /* TwitterVC.m */; };
-		C9FDFCA21423B480006EC545 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDFCA01423B480006EC545 /* Tweet.m */; };
 		C9FDFCA71423B4B0006EC545 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDFCA61423B4B0006EC545 /* TweetCell.m */; };
-		C9FDFCA91423B4CD006EC545 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FDFCA81423B4CD006EC545 /* TweetCell.xib */; };
 		C9FDFCAE1423B679006EC545 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FDFCAA1423B679006EC545 /* Default.png */; };
 		C9FDFCAF1423B679006EC545 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FDFCAB1423B679006EC545 /* Default@2x.png */; };
 		C9FDFCB31423B69B006EC545 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FDFCB21423B69B006EC545 /* Icon.png */; };
@@ -47,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C90A8CF21427E50700FBDFAD /* Main.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main.xib; sourceTree = "<group>"; };
+		C90A8D021428FBE100FBDFAD /* CKTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTableViewDataSource.h; sourceTree = "<group>"; };
+		C90A8D031428FBE100FBDFAD /* CKTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTableViewDataSource.m; sourceTree = "<group>"; };
+		C90A8D091428FE4F00FBDFAD /* TwitterVCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterVCDataSource.h; sourceTree = "<group>"; };
+		C90A8D0A1428FE4F00FBDFAD /* TwitterVCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterVCDataSource.m; sourceTree = "<group>"; };
+		C94526861427DE9C0097CA18 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		C94526871427DE9C0097CA18 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		C9A2428B1423CABD00AFED71 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C9FDFC361423B17A006EC545 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FDFC3A1423B17A006EC545 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -106,11 +115,8 @@
 		C9FDFC851423B35B006EC545 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C9FDFC9C1423B411006EC545 /* TwitterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterVC.h; sourceTree = "<group>"; };
 		C9FDFC9D1423B411006EC545 /* TwitterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterVC.m; sourceTree = "<group>"; };
-		C9FDFC9F1423B480006EC545 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
-		C9FDFCA01423B480006EC545 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		C9FDFCA51423B4AF006EC545 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		C9FDFCA61423B4B0006EC545 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
-		C9FDFCA81423B4CD006EC545 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 		C9FDFCAA1423B679006EC545 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
 		C9FDFCAB1423B679006EC545 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		C9FDFCB21423B69B006EC545 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
@@ -172,8 +178,10 @@
 				C9FDFC9D1423B411006EC545 /* TwitterVC.m */,
 				C9FDFCA51423B4AF006EC545 /* TweetCell.h */,
 				C9FDFCA61423B4B0006EC545 /* TweetCell.m */,
-				C9FDFCA81423B4CD006EC545 /* TweetCell.xib */,
+				C90A8D091428FE4F00FBDFAD /* TwitterVCDataSource.h */,
+				C90A8D0A1428FE4F00FBDFAD /* TwitterVCDataSource.m */,
 				C9FDFC411423B17A006EC545 /* Supporting Files */,
+				C90A8CF21427E50700FBDFAD /* Main.xib */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -197,6 +205,8 @@
 		C9FDFC551423B35B006EC545 /* CoreKit */ = {
 			isa = PBXGroup;
 			children = (
+				C90A8D021428FBE100FBDFAD /* CKTableViewDataSource.h */,
+				C90A8D031428FBE100FBDFAD /* CKTableViewDataSource.m */,
 				C9FDFC561423B35B006EC545 /* CKBindingMap.h */,
 				C9FDFC571423B35B006EC545 /* CKBindingMap.m */,
 				C9FDFC581423B35B006EC545 /* CKBindings.h */,
@@ -249,9 +259,9 @@
 		C9FDFCA41423B487006EC545 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C9FDFC9F1423B480006EC545 /* Tweet.h */,
-				C9FDFCA01423B480006EC545 /* Tweet.m */,
 				C9A2428A1423CABD00AFED71 /* Model.xcdatamodeld */,
+				C94526861427DE9C0097CA18 /* Tweet.h */,
+				C94526871427DE9C0097CA18 /* Tweet.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,11 +319,11 @@
 			files = (
 				C9FDFC451423B17A006EC545 /* InfoPlist.strings in Resources */,
 				C9FDFC971423B35B006EC545 /* inflections.plist in Resources */,
-				C9FDFCA91423B4CD006EC545 /* TweetCell.xib in Resources */,
 				C9FDFCAE1423B679006EC545 /* Default.png in Resources */,
 				C9FDFCAF1423B679006EC545 /* Default@2x.png in Resources */,
 				C9FDFCB31423B69B006EC545 /* Icon.png in Resources */,
 				C9FDFCB51423B6A5006EC545 /* Icon@2x.png in Resources */,
+				C90A8CF31427E50700FBDFAD /* Main.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +356,11 @@
 				C9FDFC9A1423B35B006EC545 /* NSString+InflectionSupport.m in Sources */,
 				C9FDFC9B1423B35B006EC545 /* Reachability.m in Sources */,
 				C9FDFC9E1423B411006EC545 /* TwitterVC.m in Sources */,
-				C9FDFCA21423B480006EC545 /* Tweet.m in Sources */,
 				C9FDFCA71423B4B0006EC545 /* TweetCell.m in Sources */,
 				C9A2428C1423CABD00AFED71 /* Model.xcdatamodeld in Sources */,
+				C94526881427DE9C0097CA18 /* Tweet.m in Sources */,
+				C90A8D041428FBE100FBDFAD /* CKTableViewDataSource.m in Sources */,
+				C90A8D0B1428FE4F00FBDFAD /* TwitterVCDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
