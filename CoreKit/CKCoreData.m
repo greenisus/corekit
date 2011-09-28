@@ -73,9 +73,7 @@
     
     if([self persistentStoreType] == ckCoreDataApplicationStorageType){
         
-        NSArray *files = [[NSBundle mainBundle] URLsForResourcesWithExtension:@"momd" subdirectory:@"."];
-        
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:[files objectAtIndex:0]];
+        self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:[NSBundle mainBundle]]];        
     }
     else{
         
