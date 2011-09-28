@@ -15,6 +15,17 @@
 @synthesize entityDescription = _entityDescription;
 @synthesize cellClass = _cellClass;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        if ([self respondsToSelector:@selector(entityClass)]) {
+            Class entityClass = [self performSelector:@selector(entityClass)];
+            self.entityDescription = [entityClass performSelector:@selector(entityDescription)];
+        }
+    }
+    return self;
+}
+
 + (id) dataSourceForEntity:(NSString *) entity andTableView:(UITableView *) tableView{
     
     CKTableViewDataSource *dataSource = [[[self class] alloc] init];
