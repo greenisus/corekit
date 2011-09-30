@@ -67,6 +67,11 @@
 	return _objects != nil && [_objects count] > 0 ? [_objects objectAtIndex:0] : nil;
 }
 
+- (BOOL)isSuccess{
+    
+    return self.responseCode >= 200 && self.responseCode <= 299;
+}
+
 - (void) setResponseBody:(NSData *)responseBody{
     
     _responseBody = responseBody;
