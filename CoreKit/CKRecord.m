@@ -14,6 +14,7 @@
 #import "CKRecordPrivate.h"
 #import "CKResult.h"
 #import "CKRecord+CKRouter.h"
+#import "NSString+InflectionSupport.h"
 
 @implementation CKRecord
 
@@ -50,7 +51,7 @@
 
 + (NSEntityDescription *) entityDescription{
 	
-	return [NSEntityDescription entityForName:[self entityNameWithPrefix:NO] inManagedObjectContext:[self managedObjectContext]];
+	return [NSEntityDescription entityForName:[self entityNameWithPrefix:YES] inManagedObjectContext:[self managedObjectContext]];
 }
 
 + (NSFetchRequest *) fetchRequest{
@@ -106,16 +107,32 @@
     
     else if ([data isKindOfClass:[NSDictionary class]]) {
         
+        // there are three common possibilities for dictionary response bodies:
+        // 1. the dictionary represents a single entity
+        //    example: { "id": 1, "name": "Mike" }
+        // 2. the dictionary is single keyed where the key represents the entity id
+        //    and the value is the entity
+        //    example: { "1": { "name": "Mike" } }
+        // 3. the dictionary is single keyed where the key represents an array of entities
+        //    example: { "people": [{ "id": 1, "name": "Mike" }, { "id": 2, "name": "Matt" }] }
+        
         id resourceId = [data objectForKey:[self primaryKeyName]];
         
-		if (resourceId != nil){
+        NSString *resourceName = [[[self entityNameWithPrefix:NO] pluralForm] lowercaseString];
+        id resourceCollection = [data objectForKey:resourceName];
+        
+		if (resourceId != nil) {
 			
 			id resource = [self findById:[NSNumber numberWithInt:[resourceId intValue]]];
             
             returnValue = resource == nil ? [self create:data] : [[resource threadedSafeSelf] update:data];
-		}
-		else
+        } else if (resourceCollection != nil) {
+            
+            // call recursively with the collection of entities
+            returnValue = [self build:resourceCollection];
+		} else {
 			returnValue = [self create:data];
+        }
     }
         
     return returnValue;
@@ -531,7 +548,7 @@
 + (BOOL) seedGroup:(NSString *) groupName{
     
     NSArray *files = [CKManager seedFiles];
-    NSArray *seeds = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH %@", [self entityNameWithPrefix:NO]]];
+    NSArray *seeds = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH %@", [self entityNameWithPrefix:YES]]];
     return [[CKManager sharedManager] loadSeedFiles:seeds groupName:groupName];
 }
 

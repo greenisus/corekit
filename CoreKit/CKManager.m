@@ -213,9 +213,6 @@
         
         NSMutableString *class = [NSMutableString stringWithString:[[[file stringByDeletingPathExtension] componentsSeparatedByString:@"_"] objectAtIndex:0]];
         
-        if([ckCoreDataClassPrefix length] > 0)
-            [class replaceOccurrencesOfString:ckCoreDataClassPrefix withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [ckCoreDataClassPrefix length])];
-        
         Class modelClass = NSClassFromString(class);
         [modelClass removeAll];
         
