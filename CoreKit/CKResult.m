@@ -89,9 +89,12 @@
         if(model != nil && parsed != nil)        
             builtObjects = [model build:parsed];
         
-        self.objects = [builtObjects isKindOfClass:[NSArray class]] ? builtObjects : [NSArray arrayWithObject:builtObjects];
-        
-        [CKRecord save];
+        if (builtObjects) {
+            
+            self.objects = [builtObjects isKindOfClass:[NSArray class]] ? builtObjects : [NSArray arrayWithObject:builtObjects];
+            
+            [CKRecord save];
+        }
     }
     else
         self.objects = [NSArray array];
