@@ -120,11 +120,11 @@
     _request.completed = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
+    CKResult *result = [CKResult resultWithRequest:_request andResponseBody:_responseData];
+    result.responseCode = _responseCode;
+    result.responseHeaders = _responseHeaders;
+    
 	if(self.request.completionBlock != nil){
-        
-        CKResult *result = [CKResult resultWithRequest:_request andResponseBody:_responseData];
-        result.responseCode = _responseCode;
-        result.responseHeaders = _responseHeaders;
         
         _request.completionBlock(result);	
     }
