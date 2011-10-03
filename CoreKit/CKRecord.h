@@ -96,6 +96,11 @@ typedef enum CKRecordOptions {
  */
 + (void) removeAll;
 
+/** Remove all of the entity's records that are in the specified set
+ @param set `NSSet` object
+ */
++ (void) removeAllInSet:(NSSet *) set;
+
 /** Remove all of the entity's records that match the specified predicate
  @param predicate `NSPredicate` object
  */

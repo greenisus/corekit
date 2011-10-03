@@ -204,6 +204,14 @@
 	[self removeAllWithPredicate:nil];
 }
 
++ (void) removeAllInSet:(NSSet *) set{
+    
+    [set enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        
+        [obj remove];
+    }];
+}
+
 + (void) removeAllWithPredicate:(NSPredicate *) predicate{
 	
 	NSFetchRequest *request = [self fetchRequest];
