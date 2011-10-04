@@ -90,7 +90,7 @@
 
 + (id) build:(id) data{
     
-    __unsafe_unretained id returnValue = nil;
+    __weak id returnValue = nil;
     
     if ([data isKindOfClass:[NSArray class]]) {
         
