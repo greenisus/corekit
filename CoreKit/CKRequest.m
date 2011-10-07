@@ -143,7 +143,7 @@
     
     if([baseURL length] == 0){
         
-        return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:4]];
+        return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
 
     if([baseURL length] > 0 && [url length] > 0){
@@ -176,7 +176,7 @@
     if([_parameters count] > 0)
         [url appendString:[@"" stringByAddingQueryDictionary:_parameters]];
         
-    return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:4]];
+    return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (NSMutableURLRequest *) remoteRequest{
