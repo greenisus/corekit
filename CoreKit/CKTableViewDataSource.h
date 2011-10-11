@@ -26,5 +26,6 @@
 
 + (id) dataSourceForEntity:(NSString *) entity andTableView:(UITableView *) tableView;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id) object;
+- (UITableViewCellStyle)tableViewCellStyle;
 
 @end

@@ -49,6 +49,11 @@
     return [sectionInfo numberOfObjects];
 }
 
+- (UITableViewCellStyle)tableViewCellStyle {
+    
+    return UITableViewCellStyleDefault;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -58,7 +63,7 @@
     if (cell == nil) {
         
         Class tableViewCellClass = _cellClass == nil ? [UITableViewCell class] : _cellClass;
-        cell = [[tableViewCellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[tableViewCellClass alloc] initWithStyle:[self tableViewCellStyle] reuseIdentifier:CellIdentifier];
     }
     
     CKRecord *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
